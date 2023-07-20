@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <StyledHeader role="header">
       <StyledLogo
-        src="/../public/assets/osterkamp.jpg"
+        src="/assets/osterkamp.jpg"
         alt="logo"
         width={90}
         height={60}
