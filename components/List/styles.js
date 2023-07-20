@@ -30,5 +30,3 @@ const StyledTableRow = styled.tr`
 `;
 
 export { StyledTable, StyledTableHeading, StyledTableCell, StyledTableRow };
-
-// nth-child(even)

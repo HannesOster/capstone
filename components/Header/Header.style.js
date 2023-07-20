@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Image from "next/image";
 
 const StyledHeader = styled.header`
-  background-color: red;
+  background-color: rgb(211, 17, 25);
   position: fixed;
   top: 0;
   width: 100%;
