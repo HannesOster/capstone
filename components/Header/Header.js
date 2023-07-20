@@ -4,7 +4,7 @@ import { StyledHeader, StyledLogo } from "./Header.style";
 
 export default function Header() {
   return (
-    <StyledHeader>
+    <StyledHeader role="header">
       <StyledLogo
         src="/../public/assets/osterkamp.jpg"
         alt="logo"
