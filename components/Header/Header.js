@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { StyledHeader, StyledLogo } from "./Header.style";
 
 export default function Header() {

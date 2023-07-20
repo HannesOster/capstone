@@ -1,5 +1,6 @@
 import GlobalStyle from "../styles";
 import Head from "next/head";
+import Navigation from "../components/Navigation/Navigation";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -9,6 +10,7 @@ export default function App({ Component, pageProps }) {
         <title>Capstone Project</title>
       </Head>
       <Component {...pageProps} />
+      <Navigation />
     </>
   );
 }
