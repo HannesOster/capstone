@@ -11,10 +11,8 @@ export default function Home() {
   return (
     <>
       <Header />
-      <p>Hello</p>
 
-      <p>Hello</p>
-      <StyledLink href="/list">List</StyledLink>
+      <StyledLink href="/list-page">List</StyledLink>
     </>
   );
 }
