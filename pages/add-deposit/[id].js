@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import data from "../../lib/dummyArray";
 import Header from "../../components/Header/Header";
+import { AddDepositHeading } from "./styles";
 
 export default function AddDeposit() {
   const router = useRouter();
@@ -14,7 +15,7 @@ export default function AddDeposit() {
     <>
       <Header />
 
-      <h1>{customer.name}</h1>
+      <AddDepositHeading>{customer.name}</AddDepositHeading>
     </>
   );
 }
