@@ -25,10 +25,8 @@ const StyledTable = styled.table`
 const StyledTableRow = styled.tr`
   height: 50px;
   &:nth-child(odd) {
-    background-color: lightgray;
+    background-color: lightgrey;
   }
 `;
 
 export { StyledTable, StyledTableHeading, StyledTableCell, StyledTableRow };
-
-// nth-child(even)
