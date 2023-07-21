@@ -1,25 +1,40 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 const StyledSearchSection = styled.section`
-  position: fixed;
+  position: relative;
   top: 40px;
-  right: 50px;
+  left: 1700px;
 `;
 const StyledSearchInput = styled.input`
   position: relative;
+  padding: "10px 12px";
+  font-size: "16px";
+  border: "1px solid #ccc";
+  border-radius: "4px";
   width: 130px;
-  border-radius: 10px;
+  outline: "none";
 `;
 const SearchOption = styled.li`
-  background-color: white;
-  z-index: 2;
-  width: 200;
+  padding: 8px 12px;
+  cursor: pointer;
+  text-decoration: none;
 `;
 const SearchOptionList = styled.ul`
-  list-style: none;
   position: absolute;
-  width: 200;
-  top: 0;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+`;
+const OptionLink = styled(Link)`
+  text-decoration: none;
 `;
 
 export {
@@ -27,4 +42,5 @@ export {
   StyledSearchInput,
   SearchOption,
   SearchOptionList,
+  OptionLink,
 };

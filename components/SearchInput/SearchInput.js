@@ -6,6 +6,7 @@ import {
   StyledSearchInput,
   SearchOption,
   SearchOptionList,
+  OptionLink,
 } from "./styles";
 
 function SearchInput() {
@@ -34,7 +35,9 @@ function SearchInput() {
         <SearchOptionList>
           {filteredOptions.map((option) => (
             <SearchOption key={option.id}>
-              <Link href={`/add-deposit/${option.id}`}>{option.name}</Link>
+              <OptionLink href={`/add-deposit/${option.id}`}>
+                {option.name}
+              </OptionLink>
             </SearchOption>
           ))}
         </SearchOptionList>
