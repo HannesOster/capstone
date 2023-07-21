@@ -35,9 +35,7 @@ function SearchInput() {
         <SearchOptionList>
           {filteredOptions.map((option) => (
             <SearchOption key={option.id}>
-              <OptionLink href={`/add-deposit/${option.id}`}>
-                {option.name}
-              </OptionLink>
+              <OptionLink href={`/${option.id}`}>{option.name}</OptionLink>
             </SearchOption>
           ))}
         </SearchOptionList>

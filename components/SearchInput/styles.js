@@ -4,7 +4,7 @@ import styled from "styled-components";
 const StyledSearchSection = styled.section`
   position: relative;
   top: 40px;
-  left: 1700px;
+  left: 1000px;
 `;
 const StyledSearchInput = styled.input`
   position: relative;
