@@ -1,16 +1,9 @@
-import Link from "next/link";
-import Header from "../components/Header/Header";
-import styled from "styled-components";
-
-const StyledLink = styled(Link)`
-  position: fixed;
-  bottom: 100px;
-`;
+import SearchHeader from "../components/SearchHeader/SearchHeader";
 
 export default function Home() {
   return (
     <>
-      <Header />
+      <SearchHeader />
     </>
   );
 }
