@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import data from "../../lib/dummyArray";
+import Link from "next/link";
 import {
   StyledSearchSection,
   StyledSearchInput,
@@ -32,7 +33,9 @@ function SearchInput() {
       {searchValue.trim() !== "" && (
         <SearchOptionList>
           {filteredOptions.map((option) => (
-            <SearchOption key={option.id}>{option.name}</SearchOption>
+            <SearchOption key={option.id}>
+              <Link href={`/add-deposit/${option.id}`}>{option.name}</Link>
+            </SearchOption>
           ))}
         </SearchOptionList>
       )}
