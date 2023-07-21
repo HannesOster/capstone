@@ -7,10 +7,8 @@ export default function AddDeposit() {
   const router = useRouter();
   const { id } = router.query;
 
-  const parsedId = parseInt(id);
+  const customer = data.find((entry) => entry.id === id);
 
-  const customer = data.find((entry) => entry.id === parsedId);
-  console.log(id);
   return (
     <>
       <Header />
