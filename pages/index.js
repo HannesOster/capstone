@@ -11,8 +11,6 @@ export default function Home() {
   return (
     <>
       <Header />
-
-      <StyledLink href="/list-page">List</StyledLink>
     </>
   );
 }
