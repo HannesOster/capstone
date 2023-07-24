@@ -7,7 +7,7 @@ import Counters from "../components/Counters/Counters";
 
 import ButtonContainer from "../components/Buttons/ButtonContainer";
 
-export default function Deposit({ customerData, setCustomerData }) {
+export default function Deposit({ setCustomerData }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -31,7 +31,6 @@ export default function Deposit({ customerData, setCustomerData }) {
       <ButtonContainer
         boxesToAdd={boxesToAdd}
         bucketsToAdd={bucketsToAdd}
-        customerData={customerData}
         id={id}
         setCustomerData={setCustomerData}
       />

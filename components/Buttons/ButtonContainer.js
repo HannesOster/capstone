@@ -5,7 +5,6 @@ import { Container } from "./styles";
 export default function ButtonContainer({
   boxesToAdd,
   bucketsToAdd,
-  customerData,
   setCustomerData,
   id,
 }) {
@@ -14,7 +13,6 @@ export default function ButtonContainer({
       <CancelButton />
       <SaveButton
         id={id}
-        customerData={customerData}
         setCustomerData={setCustomerData}
         boxesToAdd={boxesToAdd}
         bucketsToAdd={bucketsToAdd}

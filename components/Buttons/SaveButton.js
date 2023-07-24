@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import { GreenButton, SaveIcon } from "./styles";
 
 export default function SaveButton({
-  customerData,
   setCustomerData,
   id,
   boxesToAdd,
@@ -10,9 +9,6 @@ export default function SaveButton({
 }) {
   const router = useRouter();
   function handleSave(id, bucketsToAdd, boxesToAdd) {
-    console.log("boxesToAdd:", boxesToAdd);
-    console.log("bucketsToAdd:", bucketsToAdd);
-
     setCustomerData((prevCustomerData) =>
       prevCustomerData.map((customer) =>
         customer.id === id
