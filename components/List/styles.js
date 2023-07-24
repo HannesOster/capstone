@@ -21,6 +21,7 @@ const StyledTable = styled.table`
   border: "1px solid black";
   border-collapse: collapse;
   width: 100%;
+  margin-bottom: 100px;
 `;
 const StyledTableRow = styled.tr`
   height: 50px;
