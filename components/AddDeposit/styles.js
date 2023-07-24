@@ -4,4 +4,4 @@ const AddDepositHeading = styled.h1`
   margin-top: 100px;
 `;
 
-export  AddDepositHeading ;
+export { AddDepositHeading };
