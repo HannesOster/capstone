@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import Counter from "./Counter";
-import styled from "styled-components";
-
-const CountersContainer = styled.div`
-  margin-top: 20px;
-  border-radius: 10px;
-  border: 3px solid black;
-  padding: 10px;
-`;
+import { CountersContainer } from "./styles";
 
 function Counters() {
   const [boxes, setBoxes] = useState([0, 0]);
