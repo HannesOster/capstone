@@ -13,7 +13,11 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>Capstone Project</title>
       </Head>
-      <Component customerData={customerData} {...pageProps} />
+      <Component
+        customerData={customerData}
+        setCustomerData={setCustomerData}
+        {...pageProps}
+      />
       <Navigation />
     </>
   );

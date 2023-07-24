@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import Counter from "./Counter";
 import { CountersContainer } from "./styles";
 
-function Counters() {
-  const [boxes, setBoxes] = useState([0, 0]);
-  const [buckets, setBuckets] = useState([0, 0]);
-
+function Counters({ boxes, buckets, setBoxes, setBuckets }) {
   return (
     <div>
       <CountersContainer>

@@ -11,11 +11,23 @@ const Container = styled.section`
   align-items: center;
 `;
 
-export default function ButtonContainer() {
+export default function ButtonContainer({
+  boxesToAdd,
+  bucketsToAdd,
+  customerData,
+  setCustomerData,
+  id,
+}) {
   return (
     <Container>
       <CancelButton />
-      <SaveButton />
+      <SaveButton
+        id={id}
+        customerData={customerData}
+        setCustomerData={setCustomerData}
+        boxesToAdd={boxesToAdd}
+        bucketsToAdd={bucketsToAdd}
+      />
     </Container>
   );
 }
