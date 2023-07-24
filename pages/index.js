@@ -1,5 +1,5 @@
 import SearchHeader from "../components/SearchHeader/SearchHeader";
-import { Invitation } from "./styles";
+import { Invitation } from "../styles";
 export default function Home() {
   return (
     <>
