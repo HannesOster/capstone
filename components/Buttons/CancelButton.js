@@ -7,6 +7,7 @@ const RedButton = styled(Link)`
   border: 2px red solid;
   border-radius: 3%;
   padding: 5px 20px;
+  text-decoration: none;
 `;
 export default function CancelButton() {
   return <RedButton href="/">Abbrechen</RedButton>;
