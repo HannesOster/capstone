@@ -34,7 +34,7 @@ function Counters() {
             name={`Eimer ${index === 0 ? "geliefert:" : "zurück:"}`}
             value={value}
             onIncrement={() => {
-              const bucketsCopy = [...buckets];
+              const bucketsCopy = buckets;
               bucketsCopy[index] += 1;
               setBuckets(bucketsCopy);
             }}
