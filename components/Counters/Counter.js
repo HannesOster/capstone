@@ -1,17 +1,25 @@
 import styled from "styled-components";
+import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
+
 const CounterContainer = styled.div`
   display: flex;
   align-items: center;
 `;
 
-const MinusButton = styled.button`
-  background-color: red;
-  color: white;
+const IconPlaceholder = styled.div`
+  width: 20px;
 `;
 
-const PlusButton = styled.button`
-  background-color: green;
-  color: white;
+const IconMinus = styled(AiOutlineMinusSquare)`
+  font-size: 20px;
+  fill: red;
+  cursor: pointer;
+`;
+
+const IconPlus = styled(AiOutlinePlusSquare)`
+  font-size: 20px;
+  fill: green;
+  cursor: pointer;
 `;
 
 const CounterValue = styled.span`
@@ -19,12 +27,13 @@ const CounterValue = styled.span`
   font-weight: bold;
 `;
 
-function Counter({ value, onIncrement, onDecrement }) {
+function Counter({ name, value, onIncrement, onDecrement }) {
   return (
     <CounterContainer>
-      <MinusButton onClick={onDecrement}>-</MinusButton>
+      <span>{name}</span>
+      {value > 0 ? <IconMinus onClick={onDecrement} /> : <IconPlaceholder />}
       <CounterValue>{value}</CounterValue>
-      <PlusButton onClick={onIncrement}>+</PlusButton>
+      <IconPlus onClick={onIncrement} />
     </CounterContainer>
   );
 }
