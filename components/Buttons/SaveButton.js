@@ -1,17 +1,5 @@
-import styled from "styled-components";
-import { FiSave } from "react-icons/fi";
 import { useRouter } from "next/router";
-
-const GreenButton = styled.button`
-  color: green;
-  background-color: white;
-  border: 2px green solid;
-  padding: 5px 20px;
-`;
-
-const SaveIcon = styled(FiSave)`
-  margin-right: 10px;
-`;
+import { GreenButton, SaveIcon } from "./styles";
 
 export default function SaveButton({
   customerData,
