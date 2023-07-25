@@ -1,5 +1,5 @@
-import { RedButton } from "./styles";
+import { RedLink } from "./styles";
 
 export default function CancelButton() {
-  return <RedButton href="/">Abbrechen</RedButton>;
+  return <RedLink href="/">Abbrechen</RedLink>;
 }

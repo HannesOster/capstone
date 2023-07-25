@@ -7,17 +7,21 @@ import Counters from "../components/Counters/Counters";
 
 import ButtonContainer from "../components/Buttons/ButtonContainer";
 
-export default function Deposit({ setCustomerData }) {
+export default function Deposit({
+  setBoxes,
+  setBuckets,
+  boxesToAdd,
+  bucketsToAdd,
+  boxes,
+  buckets,
+  setCustomerData,
+  handleSave,
+}) {
   const router = useRouter();
   const { id } = router.query;
 
   const customer = data.find((entry) => entry.id === id) || {};
 
-  const [boxes, setBoxes] = useState([0, 0]);
-  const [buckets, setBuckets] = useState([0, 0]);
-
-  const boxesToAdd = boxes[0] - boxes[1];
-  const bucketsToAdd = buckets[0] - buckets[1];
   return (
     <>
       <Header />
@@ -33,6 +37,7 @@ export default function Deposit({ setCustomerData }) {
         bucketsToAdd={bucketsToAdd}
         id={id}
         setCustomerData={setCustomerData}
+        handleSave={handleSave}
       />
     </>
   );

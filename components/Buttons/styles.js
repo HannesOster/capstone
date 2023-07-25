@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { FiSave } from "react-icons/fi";
 import Link from "next/link";
 
-const RedButton = styled(Link)`
+const RedLink = styled(Link)`
   color: red;
   background-color: white;
   border: 2px red solid;
@@ -32,4 +32,4 @@ const SaveIcon = styled(FiSave)`
   margin-right: 10px;
 `;
 
-export { Container, GreenButton, SaveIcon, RedButton };
+export { Container, GreenButton, SaveIcon, RedLink };

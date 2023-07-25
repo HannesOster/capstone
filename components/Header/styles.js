@@ -13,5 +13,6 @@ const StyledLogo = styled(Image)`
   position: fixed;
   top: 20px;
   left: 40px;
+  background-color: white;
 `;
 export { StyledHeader, StyledLogo };

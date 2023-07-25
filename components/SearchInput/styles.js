@@ -15,6 +15,7 @@ const StyledSearchInput = styled.input`
   border-radius: "4px";
   width: 30%;
   outline: "none";
+  background-color: white;
 `;
 const SearchOption = styled.li`
   padding: 8px 12px;

@@ -3,6 +3,7 @@ import CancelButton from "./CancelButton";
 import { Container } from "./styles";
 
 export default function ButtonContainer({
+  handleSave,
   boxesToAdd,
   bucketsToAdd,
   setCustomerData,
@@ -16,6 +17,7 @@ export default function ButtonContainer({
         setCustomerData={setCustomerData}
         boxesToAdd={boxesToAdd}
         bucketsToAdd={bucketsToAdd}
+        handleSave={handleSave}
       />
     </Container>
   );
