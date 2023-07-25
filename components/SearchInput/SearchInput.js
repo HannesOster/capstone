@@ -29,7 +29,7 @@ function SearchInput() {
         type="text"
         value={searchValue}
         onChange={handleSearchChange}
-        placeholder="Suche"
+        placeholder="Kunden auswählen"
       />
       {searchValue.trim() !== "" && (
         <SearchOptionList>

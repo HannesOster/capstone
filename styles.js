@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 export default createGlobalStyle`
   *,
@@ -9,5 +10,14 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: system-ui;
+    background-color: white;
   }
 `;
+const Invitation = styled.h1`
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+export { Invitation };

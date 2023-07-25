@@ -4,7 +4,8 @@ import styled from "styled-components";
 const StyledSearchSection = styled.section`
   position: relative;
   top: 40px;
-  left: 60%;
+  left: 65%;
+  width: 100%;
 `;
 const StyledSearchInput = styled.input`
   position: relative;
@@ -12,8 +13,9 @@ const StyledSearchInput = styled.input`
   font-size: "16px";
   border: "1px solid #ccc";
   border-radius: "4px";
-  width: 130px;
+  width: 30%;
   outline: "none";
+  background-color: white;
 `;
 const SearchOption = styled.li`
   padding: 8px 12px;
