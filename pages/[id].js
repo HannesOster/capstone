@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
-import data from "../lib/dummyArray";
+
+import useSWR from "swr";
+
 import Header from "../components/Header/Header";
 import AddDeposit from "../components/AddDeposit/AddDeposit";
 import Counters from "../components/Counters/Counters";
@@ -20,7 +21,14 @@ export default function Deposit({
   const router = useRouter();
   const { id } = router.query;
 
-  const customer = data.find((entry) => entry.id === id) || {};
+  const { data: customer, isLoading, error } = useSWR(`/api/${id}`);
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+  if (error) {
+    return <h1>{error.message}</h1>;
+  }
 
   return (
     <>
