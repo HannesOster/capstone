@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import data from "../../lib/dummyArray";
-import Link from "next/link";
+import useSWR from "swr";
+
 import {
   StyledSearchSection,
   StyledSearchInput,
@@ -10,6 +10,7 @@ import {
 } from "./styles";
 
 function SearchInput() {
+  const { data } = useSWR("/api", { fallbackData: [] });
   const [searchValue, setSearchValue] = useState("");
 
   function handleSearchChange(event) {
@@ -34,8 +35,8 @@ function SearchInput() {
       {searchValue.trim() !== "" && (
         <SearchOptionList>
           {filteredOptions.map((option) => (
-            <SearchOption key={option.id}>
-              <OptionLink href={`/${option.id}`}>{option.name}</OptionLink>
+            <SearchOption key={option._id}>
+              <OptionLink href={`/${option._id}`}>{option.name}</OptionLink>
             </SearchOption>
           ))}
         </SearchOptionList>

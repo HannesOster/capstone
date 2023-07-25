@@ -9,6 +9,6 @@ const customerSchema = new Schema({
 });
 
 const Customer =
-  mongoose.models.Cutstomer || mongoose.model("Customer", customerSchema);
+  mongoose.models.Customer || mongoose.model("Customer", customerSchema);
 
-export default Place;
+export default Customer;
