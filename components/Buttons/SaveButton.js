@@ -2,7 +2,13 @@ import { useRouter } from "next/router";
 import { GreenButton, SaveIcon } from "./styles";
 import useSWR from "swr";
 
-export default function SaveButton({ id, boxesToAdd, bucketsToAdd }) {
+export default function SaveButton({
+  id,
+  boxesToAdd,
+  bucketsToAdd,
+  setBoxes,
+  setBuckets,
+}) {
   const router = useRouter();
   const { data, mutate } = useSWR(`/api/${id}`, { fallbackData: [] });
 
@@ -25,7 +31,8 @@ export default function SaveButton({ id, boxesToAdd, bucketsToAdd }) {
       console.error(response.status);
       return;
     }
-
+    setBoxes([0, 0]);
+    setBuckets([0, 0]);
     mutate();
     router.push("/");
   }

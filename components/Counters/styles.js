@@ -2,14 +2,14 @@ import styled from "styled-components";
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
 
 const CountersContainer = styled.section`
-  margin-top: 20px;
+  margin: 20px;
+
   border-radius: 10px;
   border: 3px solid black;
-  padding: 10px;
+  padding: 20px;
 `;
 const CounterContainer = styled.div`
   display: flex;
-  align-items: center;
 `;
 
 const IconPlaceholder = styled.div`

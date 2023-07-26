@@ -46,6 +46,8 @@ export default function Deposit({
         id={id}
         setCustomerData={setCustomerData}
         handleSave={handleSave}
+        setBoxes={setBoxes}
+        setBuckets={setBuckets}
       />
     </>
   );

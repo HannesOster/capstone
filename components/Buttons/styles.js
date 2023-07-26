@@ -40,7 +40,7 @@ const MenuContainer = styled.section`
 `;
 const MenuLink = styled(Link)`
   color: #fff6f4;
-  background-color: #8a0000;
+  background-color: #3a001e;
   text-decoration: none;
   width: 90%;
   padding: 40px;
