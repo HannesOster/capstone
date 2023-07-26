@@ -1,5 +1,5 @@
+import { MenuContainer, MenuLink } from "../../components/Buttons/styles";
 import Header from "../../components/Header/Header";
-import { MenuLink, MenuContainer } from "../../components/Buttons/styles";
 
 export default function Menu() {
   return (

@@ -1,10 +1,40 @@
+import { GreenButton } from "../../../components/Buttons/styles";
 import Header from "../../../components/Header/Header";
+import { Form } from "../../../pagestyles/styles";
+import { useRouter } from "next/router";
+import useSWR from "swr";
 
 export default function AddCustomer() {
+  const router = useRouter();
+  const { mutate } = useSWR("/api");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const withoutDepositCustomer = Object.fromEntries(formData);
+    const customer = { ...withoutDepositCustomer, boxes: 0, buckets: 0 };
+    const response = await fetch(`/api`, {
+      method: "POST",
+      body: JSON.stringify(customer),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      console.error(response.status);
+
+      return;
+    }
+    mutate();
+
+    e.target.reset();
+    router.push("/");
+  }
   return (
     <>
       <Header />
-      <form>
+      <Form onSubmit={(e) => handleSubmit(e)}>
         <label htmlFor="name">Kundenname:</label>
         <input id="name" name="name" type="text" />
         <label htmlFor="street">Straße und Hausnummer:</label>
@@ -20,8 +50,8 @@ export default function AddCustomer() {
           maxLength="5"
           pattern="[0-9]{5}"
         />
-        <button type="submit">Bestätigen</button>
-      </form>
+        <GreenButton type="submit">Bestätigen</GreenButton>
+      </Form>
     </>
   );
 }
