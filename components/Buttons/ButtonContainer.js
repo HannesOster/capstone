@@ -8,6 +8,8 @@ export default function ButtonContainer({
   bucketsToAdd,
   setCustomerData,
   id,
+  setBoxes,
+  setBuckets,
 }) {
   return (
     <Container>
@@ -18,6 +20,8 @@ export default function ButtonContainer({
         boxesToAdd={boxesToAdd}
         bucketsToAdd={bucketsToAdd}
         handleSave={handleSave}
+        setBoxes={setBoxes}
+        setBuckets={setBuckets}
       />
     </Container>
   );

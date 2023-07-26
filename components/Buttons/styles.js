@@ -31,5 +31,22 @@ const GreenButton = styled.button`
 const SaveIcon = styled(FiSave)`
   margin-right: 10px;
 `;
+const MenuContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin: 130px 0 30px 30px;
 
-export { Container, GreenButton, SaveIcon, RedLink };
+  gap: 30px;
+`;
+const MenuLink = styled(Link)`
+  color: #fff6f4;
+  background-color: #3a001e;
+  text-decoration: none;
+  width: 90%;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 2rem;
+`;
+
+export { MenuContainer, Container, GreenButton, SaveIcon, RedLink, MenuLink };
