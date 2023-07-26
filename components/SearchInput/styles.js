@@ -20,7 +20,7 @@ const StyledSearchInput = styled.input`
 const SearchOption = styled.li`
   padding: 8px 12px;
   cursor: pointer;
-  text-decoration: none;
+  border-top: 3px solid #bbb;
 `;
 const SearchOptionList = styled.ul`
   position: absolute;
