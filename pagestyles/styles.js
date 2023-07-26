@@ -13,7 +13,7 @@ const Form = styled.form`
 const FormButton = styled.button`
   margin-top: 30px;
   color: #fff6f4;
-  background-color: #bb8378;
+  background-color: #8a0000;
   text-decoration: none;
   width: 50%;
   padding: 20px;

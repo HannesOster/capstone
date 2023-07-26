@@ -40,13 +40,13 @@ const MenuContainer = styled.section`
 `;
 const MenuLink = styled(Link)`
   color: #fff6f4;
-  background-color: #bb8378;
+  background-color: #8a0000;
   text-decoration: none;
   width: 90%;
   padding: 40px;
   border-radius: 10px;
   text-align: center;
-  font-size: large;
+  font-size: 2rem;
 `;
 
 export { MenuContainer, Container, GreenButton, SaveIcon, RedLink, MenuLink };
