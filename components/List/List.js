@@ -8,26 +8,40 @@ import {
 } from "./styles";
 
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+import { useState } from "react";
 
 export default function List() {
   const { data } = useSWR("/api", { fallbackData: [] });
+
+  const [sortedArray, setSortedArray] = useState(data);
+
+  const sortByCustomerName = () => {
+    const sorted = [...sortedArray].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    setSortedArray(sorted);
+  };
+
+  const sortByBoxes = () => {
+    const sorted = [...sortedArray].sort((a, b) => b.boxes - a.boxes);
+    setSortedArray(sorted);
+  };
+
   return (
     <StyledTable>
       <tbody>
         <HeadingTableRow>
-          <StyledTableHeading>
+          <StyledTableHeading onClick={sortByCustomerName}>
             Kunde
-            <AiOutlineArrowUp />
             <AiOutlineArrowDown />
           </StyledTableHeading>
-          <StyledTableHeading>
+          <StyledTableHeading onClick={sortByBoxes}>
             Kisten
-            <AiOutlineArrowUp />
             <AiOutlineArrowDown />
           </StyledTableHeading>
           <StyledTableHeading>Eimer</StyledTableHeading>
         </HeadingTableRow>
-        {data.map((customer) => (
+        {sortedArray.map((customer) => (
           <StyledTableRow key={customer.id}>
             <StyledTableCell>{customer.name}</StyledTableCell>
             <StyledTableCell>{customer.boxes}</StyledTableCell>
