@@ -1,6 +1,6 @@
 import { GreenButton } from "../../../components/Buttons/styles";
 import Header from "../../../components/Header/Header";
-import { Form } from "../../../pagestyles/styles";
+import { Form, FormButton } from "../../../pagestyles/styles";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
@@ -50,7 +50,7 @@ export default function AddCustomer() {
           maxLength="5"
           pattern="[0-9]{5}"
         />
-        <GreenButton type="submit">Bestätigen</GreenButton>
+        <FormButton type="submit">Bestätigen</FormButton>
       </Form>
     </>
   );

@@ -10,7 +10,7 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: system-ui;
-    background-color: white;
+    background-color: #fff6f4;
   }
 `;
 const Invitation = styled.h1`

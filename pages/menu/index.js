@@ -6,7 +6,7 @@ export default function Menu() {
     <>
       <Header />
       <MenuContainer>
-        <MenuLink href="/menu/add-customer">Kunden Hinzufügen</MenuLink>
+        <MenuLink href="/menu/add-customer">Kunden hinzufügen</MenuLink>
       </MenuContainer>
     </>
   );
