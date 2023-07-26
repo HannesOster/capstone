@@ -1,21 +1,32 @@
 import useSWR from "swr";
 import {
+  HeadingTableRow,
   StyledTable,
   StyledTableCell,
   StyledTableHeading,
   StyledTableRow,
 } from "./styles";
 
-export default function List({ customerData }) {
+import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+
+export default function List() {
   const { data } = useSWR("/api", { fallbackData: [] });
   return (
     <StyledTable>
       <tbody>
-        <StyledTableRow>
-          <StyledTableHeading>Kunde</StyledTableHeading>
-          <StyledTableHeading>Kisten</StyledTableHeading>
+        <HeadingTableRow>
+          <StyledTableHeading>
+            Kunde
+            <AiOutlineArrowUp />
+            <AiOutlineArrowDown />
+          </StyledTableHeading>
+          <StyledTableHeading>
+            Kisten
+            <AiOutlineArrowUp />
+            <AiOutlineArrowDown />
+          </StyledTableHeading>
           <StyledTableHeading>Eimer</StyledTableHeading>
-        </StyledTableRow>
+        </HeadingTableRow>
         {data.map((customer) => (
           <StyledTableRow key={customer.id}>
             <StyledTableCell>{customer.name}</StyledTableCell>

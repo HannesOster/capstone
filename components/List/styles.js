@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 const StyledTableHeading = styled.th`
-  background-color: red;
+  background-color: rgb(211, 17, 25);
+  color: #fff6f4;
   text-align: center;
-  border: 1px solid black;
+
   &:first-child {
     text-align: left;
   }
@@ -17,7 +18,6 @@ const StyledTableCell = styled.td`
   }
 `;
 const StyledTable = styled.table`
-  margin-top: 110px;
   border: "1px solid black";
   border-collapse: collapse;
   width: 100%;
@@ -29,5 +29,18 @@ const StyledTableRow = styled.tr`
     background-color: lightgrey;
   }
 `;
+const HeadingTableRow = styled.tr`
+  height: 50px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+`;
 
-export { StyledTable, StyledTableHeading, StyledTableCell, StyledTableRow };
+export {
+  StyledTable,
+  StyledTableHeading,
+  StyledTableCell,
+  StyledTableRow,
+  HeadingTableRow,
+};
