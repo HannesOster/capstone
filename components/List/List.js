@@ -26,19 +26,29 @@ export default function List() {
     }
   }, [data]);
 
-  const sortByCustomerName = () => {
-    const sorted = [...sortedArray].sort((a, b) =>
-      a.name.localeCompare(b.name)
-    );
-    setSortedArray(sorted);
-    setSortMode("name");
-  };
+  function sortByCustomerName() {
+    if (sortMode === "name") {
+      setSortedArray(data);
+      setSortMode(null);
+    } else {
+      const sorted = [...sortedArray].sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
+      setSortedArray(sorted);
+      setSortMode("name");
+    }
+  }
 
-  const sortByBoxes = () => {
-    const sorted = [...sortedArray].sort((a, b) => b.boxes - a.boxes);
-    setSortedArray(sorted);
-    setSortMode("boxes");
-  };
+  function sortByBoxes() {
+    if (sortMode === "boxes") {
+      setSortedArray(data);
+      setSortMode(null);
+    } else {
+      const sorted = [...sortedArray].sort((a, b) => b.boxes - a.boxes);
+      setSortedArray(sorted);
+      setSortMode("boxes");
+    }
+  }
 
   if (error) {
     return <h1>Error loading data</h1>;
