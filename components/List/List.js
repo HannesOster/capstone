@@ -10,6 +10,7 @@ import {
 
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import { useState } from "react";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export default function List() {
   const { data, error } = useSWR("/api", {
@@ -55,7 +56,7 @@ export default function List() {
   }
 
   if (!sortedArray || sortedArray.length === 0) {
-    return <h2>Loading...</h2>;
+    return <LoadingSpinner />;
   }
 
   return (

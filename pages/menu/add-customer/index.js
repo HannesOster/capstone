@@ -35,7 +35,7 @@ export default function AddCustomer() {
       <Header />
       <Form onSubmit={handleSubmit}>
         <label htmlFor="name">Kundenname:</label>
-        <input id="name" name="name" type="text" />
+        <input id="name" maxLength="7" name="name" type="text" />
         <label htmlFor="street">Straße und Hausnummer:</label>
         <input id="street" name="street" type="text" />
         <label htmlFor="location">Ort:</label>
