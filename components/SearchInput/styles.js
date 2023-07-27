@@ -15,7 +15,7 @@ const StyledSearchInput = styled.input`
   border-radius: "4px";
   width: 30%;
   outline: "none";
-  background-color: #fff6f4;
+  background-color: ${(props) => props.theme.tertiary};
 `;
 const SearchOption = styled.li`
   padding: 8px 12px;
@@ -31,7 +31,7 @@ const SearchOptionList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 4px 0;
-  background-color: #fff6f4;
+  background-color: ${(props) => props.theme.tertiary};
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import useSWR from "swr";
+import { InfoSubmitButton } from "./styles";
+import ReactModal from "react-modal";
 
 export default function CustomerInfo({ customer, id }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -44,11 +46,13 @@ export default function CustomerInfo({ customer, id }) {
       </div>
       {isExpanded && (
         <>
-          <p>Kundeninfo:{customer.info}</p>
+          <p>Kundeninfo:{customer.info ? customer.info : ""}</p>
           <form onSubmit={(event) => editCustomerInfo(event, id)}>
             <label>Kundeninfo hinzufügen:</label>
             <input type="text" minLength="10" name="info" id="info" />
-            <button type="submit">Kundeninfo hinzufügen</button>
+            <InfoSubmitButton type="submit">
+              Kundeninfo hinzufügen
+            </InfoSubmitButton>
           </form>
         </>
       )}

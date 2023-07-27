@@ -12,8 +12,8 @@ const Form = styled.form`
 
 const FormButton = styled.button`
   margin-top: 30px;
-  color: #fff6f4;
-  background-color: #8a0000;
+  color: ${(props) => props.theme.tertiary};
+  background-color: ${(props) => props.theme.secondary};
   text-decoration: none;
   width: 50%;
   padding: 20px;

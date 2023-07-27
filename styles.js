@@ -12,7 +12,7 @@ export default createGlobalStyle`
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
-    background-color: #fff6f4;
+    background-color: ${(props) => props.theme.tertiary};
   }
 `;
 const Invitation = styled.h1`
@@ -23,5 +23,5 @@ const Invitation = styled.h1`
   height: 100vh;
 `;
 
-const theme = { primary: "#D31119" };
+const theme = { primary: "#D31119", secondary: "#334c77", tertiary: "#fff6f4" };
 export { Invitation, theme };

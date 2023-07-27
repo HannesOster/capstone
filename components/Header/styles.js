@@ -13,6 +13,6 @@ const StyledLogo = styled(Image)`
   position: fixed;
   top: 20px;
   left: 40px;
-  background-color: white;
+  background-color: ${(props) => props.theme.tertiary};
 `;
 export { StyledHeader, StyledLogo };
