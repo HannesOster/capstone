@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const SpinnerContainer = styled.div`
+  margin-top: 20%;
   width: 100%;
   display: flex;
   flex-flow: column;

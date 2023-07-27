@@ -1,12 +1,35 @@
 import React, { useState } from "react";
+import useSWR from "swr";
 
 export default function CustomerInfo({ customer, id }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { mutate } = useSWR("/api");
 
   function handleArrowClick() {
     setIsExpanded(!isExpanded);
   }
-  function editCustomerInfo(id) {}
+  async function editCustomerInfo(event, id) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const customer = Object.fromEntries(formData);
+
+    const response = await fetch(`/api/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify(customer),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      console.error(response.status);
+
+      return;
+    }
+    mutate();
+
+    event.target.reset();
+  }
 
   return (
     <div>
@@ -21,8 +44,12 @@ export default function CustomerInfo({ customer, id }) {
       </div>
       {isExpanded && (
         <>
-          <p>Kundeninformation: {customer.info} </p>
-          <button>Kundeninfo hinzufügen</button>
+          <p>Kundeninfo:{customer.info}</p>
+          <form onSubmit={(event) => editCustomerInfo(event, id)}>
+            <label>Kundeninfo hinzufügen:</label>
+            <input type="text" minLength="10" name="info" id="info" />
+            <button type="submit">Kundeninfo hinzufügen</button>
+          </form>
         </>
       )}
     </div>
