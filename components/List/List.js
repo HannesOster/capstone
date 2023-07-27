@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import { useEffect } from "react";
 import {
   HeadingTableRow,
   StyledTable,
@@ -11,33 +12,67 @@ import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import { useState } from "react";
 
 export default function List() {
-  const { data } = useSWR("/api", { fallbackData: [] });
+  const { data, error } = useSWR("/api", {
+    initialData: [],
+    revalidateOnMount: true,
+  });
 
-  const [sortedArray, setSortedArray] = useState(data);
+  const [sortedArray, setSortedArray] = useState([]);
+  const [sortMode, setSortMode] = useState(null);
+
+  useEffect(() => {
+    if (data) {
+      setSortedArray(data);
+    }
+  }, [data]);
 
   const sortByCustomerName = () => {
     const sorted = [...sortedArray].sort((a, b) =>
       a.name.localeCompare(b.name)
     );
     setSortedArray(sorted);
+    setSortMode("name");
   };
 
   const sortByBoxes = () => {
     const sorted = [...sortedArray].sort((a, b) => b.boxes - a.boxes);
     setSortedArray(sorted);
+    setSortMode("boxes");
   };
+
+  if (error) {
+    return <h1>Error loading data</h1>;
+  }
+
+  if (!sortedArray || sortedArray.length === 0) {
+    return <h2>Loading...</h2>;
+  }
 
   return (
     <StyledTable>
       <tbody>
         <HeadingTableRow>
-          <StyledTableHeading onClick={sortByCustomerName}>
+          <StyledTableHeading
+            onClick={sortByCustomerName}
+            active={sortMode === "name"}
+          >
             Kunde
-            <AiOutlineArrowDown />
+            {sortMode === "name" ? (
+              <AiOutlineArrowDown />
+            ) : (
+              <AiOutlineArrowUp />
+            )}
           </StyledTableHeading>
-          <StyledTableHeading onClick={sortByBoxes}>
+          <StyledTableHeading
+            onClick={sortByBoxes}
+            active={sortMode === "boxes"}
+          >
             Kisten
-            <AiOutlineArrowDown />
+            {sortMode === "boxes" ? (
+              <AiOutlineArrowDown />
+            ) : (
+              <AiOutlineArrowUp />
+            )}
           </StyledTableHeading>
           <StyledTableHeading>Eimer</StyledTableHeading>
         </HeadingTableRow>

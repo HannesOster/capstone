@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 const StyledTableHeading = styled.th`
-  background-color: rgb(211, 17, 25);
-  color: #fff6f4;
+  background-color: ${(props) =>
+    props.active ? "#fff6f4" : "rgb(211, 17, 25)"};
+  color: ${(props) => (props.active ? "black" : "#fff6f4")};
   text-align: center;
 
   &:first-child {
@@ -18,7 +19,7 @@ const StyledTableCell = styled.td`
   }
 `;
 const StyledTable = styled.table`
-  border: "1px solid black";
+  border: 1px solid black;
   border-collapse: collapse;
   width: 100%;
   margin-bottom: 100px;
