@@ -19,6 +19,7 @@ const StyledSearchInput = styled.input`
 `;
 const SearchOption = styled.li`
   padding: 8px 12px;
+  color: black;
   cursor: pointer;
   border-top: 3px solid #bbb;
 `;
@@ -37,6 +38,7 @@ const SearchOptionList = styled.ul`
 `;
 const OptionLink = styled(Link)`
   text-decoration: none;
+  color: black;
 `;
 
 export {

@@ -1,10 +1,11 @@
-import GlobalStyle from "../styles";
+import GlobalStyle, { theme } from "../styles";
 import Head from "next/head";
 import Navigation from "../components/Navigation/Navigation";
 import { useState } from "react";
 
 import { useRouter } from "next/router";
 import { SWRConfig } from "swr";
+import { ThemeProvider } from "styled-components";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -17,32 +18,34 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <SWRConfig
-        value={{
-          fetcher: async (...args) => {
-            const response = await fetch(...args);
-            if (!response.ok) {
-              throw new Error(`Request with ${JSON.stringify(args)} failed.`);
-            }
-            return await response.json();
-          },
-        }}
-      >
-        <GlobalStyle />
-        <Head>
-          <title>Capstone Project</title>
-        </Head>
-        <Component
-          boxes={boxes}
-          buckets={buckets}
-          setBoxes={setBoxes}
-          setBuckets={setBuckets}
-          boxesToAdd={boxesToAdd}
-          bucketsToAdd={bucketsToAdd}
-          {...pageProps}
-        />
-        <Navigation />
-      </SWRConfig>
+      <ThemeProvider theme={theme}>
+        <SWRConfig
+          value={{
+            fetcher: async (...args) => {
+              const response = await fetch(...args);
+              if (!response.ok) {
+                throw new Error(`Request with ${JSON.stringify(args)} failed.`);
+              }
+              return await response.json();
+            },
+          }}
+        >
+          <GlobalStyle />
+          <Head>
+            <title>Capstone Project</title>
+          </Head>
+          <Component
+            boxes={boxes}
+            buckets={buckets}
+            setBoxes={setBoxes}
+            setBuckets={setBuckets}
+            boxesToAdd={boxesToAdd}
+            bucketsToAdd={bucketsToAdd}
+            {...pageProps}
+          />
+          <Navigation />
+        </SWRConfig>
+      </ThemeProvider>
     </>
   );
 }

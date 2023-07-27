@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 
 const NavBar = styled.nav`
-  background-color: rgb(211, 17, 25);
+  background-color: ${(props) => props.theme.primary};
   position: fixed;
   bottom: 0;
   width: 100%;

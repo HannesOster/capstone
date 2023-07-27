@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 
 import useSWR from "swr";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 import Header from "../../components/Header/Header";
 import AddDeposit from "../../components/AddDeposit/AddDeposit";
@@ -24,7 +25,7 @@ export default function Deposit({
   const { data: customer, isLoading, error } = useSWR(`/api/${id}`);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <LoadingSpinner />;
   }
   if (error) {
     return <h1>{error.message}</h1>;
