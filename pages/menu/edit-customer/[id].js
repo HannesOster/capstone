@@ -3,17 +3,18 @@ import { Form, FormButton } from "../../../pagestyles/styles";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
-export default function AddCustomer() {
+export default function EditCustomer() {
   const router = useRouter();
+  const { id } = router.query;
   const { mutate } = useSWR("/api");
 
-  async function handleSubmit(e) {
+  async function handleEditSubmit(e, id) {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const withoutDepositCustomer = Object.fromEntries(formData);
-    const customer = { ...withoutDepositCustomer, boxes: 0, buckets: 0 };
-    const response = await fetch(`/api`, {
-      method: "POST",
+    const customer = Object.fromEntries(formData);
+    console.log(id);
+    const response = await fetch(`/api/${id}`, {
+      method: "PATCH",
       body: JSON.stringify(customer),
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +34,7 @@ export default function AddCustomer() {
   return (
     <>
       <Header />
-      <Form onSubmit={(e) => handleSubmit(e)}>
+      <Form onSubmit={(e) => handleEditSubmit(e, id)}>
         <label htmlFor="name">Kundenname:</label>
         <input id="name" name="name" type="text" />
         <label htmlFor="street">Straße und Hausnummer:</label>

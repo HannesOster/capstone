@@ -9,7 +9,7 @@ import {
   OptionLink,
 } from "./styles";
 
-function SearchInput() {
+function SearchInput({ mode }) {
   const { data } = useSWR("/api", { fallbackData: [] });
   const [searchValue, setSearchValue] = useState("");
 
@@ -36,7 +36,13 @@ function SearchInput() {
         <SearchOptionList>
           {filteredOptions.map((option) => (
             <SearchOption key={option._id}>
-              <OptionLink href={`/customer/${option._id}`}>
+              <OptionLink
+                href={
+                  mode === "edit"
+                    ? `/menu/edit-customer/${option._id}`
+                    : `/customer/${option._id}`
+                }
+              >
                 {option.name}
               </OptionLink>
             </SearchOption>
