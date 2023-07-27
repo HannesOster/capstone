@@ -1,7 +1,7 @@
 import { StyledHeader, StyledLogo } from "../Header/styles";
 import SearchInput from "../SearchInput/SearchInput";
 
-export default function SearchHeader() {
+export default function SearchHeader({ mode }) {
   return (
     <StyledHeader role="header">
       <StyledLogo
@@ -10,7 +10,7 @@ export default function SearchHeader() {
         width={90}
         height={60}
       />
-      <SearchInput />
+      <SearchInput mode={mode} />
     </StyledHeader>
   );
 }
