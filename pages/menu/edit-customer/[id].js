@@ -8,9 +8,9 @@ export default function EditCustomer() {
   const { id } = router.query;
   const { mutate } = useSWR("/api");
 
-  async function handleEditSubmit(e, id) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
+  async function handleEditSubmit(event, id) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
     const customer = Object.fromEntries(formData);
     console.log(id);
     const response = await fetch(`/api/${id}`, {
@@ -28,13 +28,13 @@ export default function EditCustomer() {
     }
     mutate();
 
-    e.target.reset();
+    event.target.reset();
     router.push("/");
   }
   return (
     <>
       <Header />
-      <Form onSubmit={(e) => handleEditSubmit(e, id)}>
+      <Form onSubmit={(event) => handleEditSubmit(event, id)}>
         <label htmlFor="name">Kundenname:</label>
         <input id="name" name="name" type="text" />
         <label htmlFor="street">Straße und Hausnummer:</label>

@@ -7,9 +7,9 @@ export default function AddCustomer() {
   const router = useRouter();
   const { mutate } = useSWR("/api");
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
     const withoutDepositCustomer = Object.fromEntries(formData);
     const customer = { ...withoutDepositCustomer, boxes: 0, buckets: 0 };
     const response = await fetch(`/api`, {
@@ -27,13 +27,13 @@ export default function AddCustomer() {
     }
     mutate();
 
-    e.target.reset();
+    event.target.reset();
     router.push("/");
   }
   return (
     <>
       <Header />
-      <Form onSubmit={(e) => handleSubmit(e)}>
+      <Form onSubmit={handleSubmit}>
         <label htmlFor="name">Kundenname:</label>
         <input id="name" name="name" type="text" />
         <label htmlFor="street">Straße und Hausnummer:</label>
