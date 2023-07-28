@@ -60,6 +60,7 @@ const MenuLink = styled(Link)`
   border-radius: 10px;
   text-align: center;
   font-size: 1.5rem;
+  font-weight: normal;
   &:hover {
     background-color: ${(props) => props.theme.third};
     border: 3px ${(props) => props.theme.secondary} solid;
