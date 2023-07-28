@@ -1,20 +1,22 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { TbUserSearch } from "react-icons/tb";
 
 const StyledSearchSection = styled.section`
-  position: relative;
-  top: 40px;
-  left: 65%;
-  width: 100%;
+  margin-top: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
 `;
 const StyledSearchInput = styled.input`
-  position: relative;
-  padding: "10px 12px";
-  font-size: "16px";
-  border: "1px solid #ccc";
-  border-radius: "4px";
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   width: 30%;
-  outline: "none";
+  outline: none;
   background-color: ${(props) => props.theme.third};
 `;
 const SearchOption = styled.li`
@@ -41,10 +43,19 @@ const OptionLink = styled(Link)`
   color: black;
 `;
 
+const Invitation = styled.h1`
+  font-size: 20px;
+`;
+const UserSearchIcon = styled(TbUserSearch)`
+  font-size: 100px;
+`;
+
 export {
   StyledSearchSection,
   StyledSearchInput,
   SearchOption,
   SearchOptionList,
   OptionLink,
+  Invitation,
+  UserSearchIcon,
 };

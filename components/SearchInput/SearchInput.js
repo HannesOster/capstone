@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useSWR from "swr";
+import { TbUserSearch } from "react-icons/tb";
 
 import {
   StyledSearchSection,
@@ -7,6 +8,8 @@ import {
   SearchOption,
   SearchOptionList,
   OptionLink,
+  Invitation,
+  UserSearchIcon,
 } from "./styles";
 
 function SearchInput({ mode }) {
@@ -49,6 +52,8 @@ function SearchInput({ mode }) {
           ))}
         </SearchOptionList>
       )}
+      <UserSearchIcon />
+      <Invitation>Bitte Kunden auswählen in der Suchleiste</Invitation>
     </StyledSearchSection>
   );
 }

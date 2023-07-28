@@ -1,12 +1,11 @@
-import SearchHeader from "../components/SearchHeader/SearchHeader";
-import { Invitation } from "../styles";
+import Header from "../components/Header/Header";
+import SearchInput from "../components/SearchInput/SearchInput";
 import { TbUserSearch } from "react-icons/tb";
 export default function Home() {
   return (
     <>
-      <SearchHeader />
-
-      <Invitation>Bitte Kunden auswählen in der Suchleiste</Invitation>
+      <Header />
+      <SearchInput />
     </>
   );
 }

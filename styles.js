@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import styled from "styled-components";
 
 export default createGlobalStyle`
   *,
@@ -15,13 +14,6 @@ export default createGlobalStyle`
     background-color: ${(props) => props.theme.third};
   }
 `;
-const Invitation = styled.h1`
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
 
 const theme = {
   primary: "#D31119",
@@ -29,4 +21,4 @@ const theme = {
   third: "#fff6f4",
   fourth: "#d08c7f",
 };
-export { Invitation, theme };
+export { theme };
