@@ -6,7 +6,7 @@ export default function SearchCustomerToEdit() {
     <>
       <SearchHeader mode="edit" />
 
-      <Invitation>Bitte Kunden auswählen in der Suchleiste</Invitation>
+      <Invitation>Bitte Kunden auswählen in der Suchleiste!</Invitation>
     </>
   );
 }
