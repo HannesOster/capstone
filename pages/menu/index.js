@@ -1,22 +1,29 @@
 import { useState } from "react";
+import Header from "../../components/Header/Header";
+import Modal from "react-modal";
+import useSWR from "swr";
 import {
   MenuButton,
   MenuContainer,
   MenuLink,
 } from "../../components/Buttons/styles";
-import Header from "../../components/Header/Header";
-import Modal from "react-modal";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 export default function Menu() {
+  const { data, error } = useSWR("/api/stock", {
+    initialData: [],
+    revalidateOnMount: true,
+  });
+  console.log(data);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => {
+  function openModal() {
     setIsModalOpen(true);
-  };
+  }
 
-  const closeModal = () => {
+  function closeModal() {
     setIsModalOpen(false);
-  };
+  }
 
   return (
     <>
@@ -34,7 +41,7 @@ export default function Menu() {
         contentLabel="Lagerbestand Modal"
       >
         <h2>Lagerbestand</h2>
-
+        <p>{data ? data[0].stock : <LoadingSpinner />} Kisten</p>
         <button onClick={closeModal}>Schließen</button>
       </Modal>
     </>

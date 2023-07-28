@@ -10,14 +10,14 @@ import useSWR from "swr";
 export default function EditCustomer() {
   const router = useRouter();
   const { id } = router.query;
-  const { mutate } = useSWR("/api");
+  const { mutate } = useSWR("/api/customer");
 
   async function handleEditSubmit(event, id) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const customer = Object.fromEntries(formData);
     console.log(id);
-    const response = await fetch(`/api/${id}`, {
+    const response = await fetch(`/api/customer/${id}`, {
       method: "PATCH",
       body: JSON.stringify(customer),
       headers: {
