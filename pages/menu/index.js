@@ -8,6 +8,7 @@ import {
   MenuLink,
 } from "../../components/Buttons/styles";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import { ModalCloseButton, StockContainer } from "../../pagestyles/styles";
 
 export default function Menu() {
   const { data, error } = useSWR("/api/stock", {
@@ -40,9 +41,11 @@ export default function Menu() {
         onRequestClose={closeModal}
         contentLabel="Lagerbestand Modal"
       >
-        <h2>Lagerbestand</h2>
-        <p>{data ? data[0].stock : <LoadingSpinner />} Kisten</p>
-        <button onClick={closeModal}>Schließen</button>
+        <StockContainer>
+          <h2>Lagerbestand</h2>
+          <p>{data ? data[0].stock : <LoadingSpinner />} Kisten</p>
+          <ModalCloseButton onClick={closeModal}>Schließen</ModalCloseButton>
+        </StockContainer>
       </Modal>
     </>
   );
