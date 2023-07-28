@@ -26,6 +26,7 @@ export default function List() {
       setSortedArray(data);
     }
   }, [data]);
+
   function formatTimestamp(timestamp) {
     if (!timestamp) {
       return "";
@@ -111,9 +112,9 @@ export default function List() {
             <StyledTableCell>{customer.name}</StyledTableCell>
             <StyledTableCell>{customer.boxes}</StyledTableCell>
             <StyledTableCell>{customer.buckets}</StyledTableCell>
-            {console.log(customer.timestamp)}
+
             <StyledTableCell>
-              {formatTimestamp(parseInt(customer.timestamp, 10))}
+              {customer.timestamp ? formatTimestamp(customer.timestamp) : ""}
             </StyledTableCell>
           </StyledTableRow>
         ))}
