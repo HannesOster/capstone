@@ -56,7 +56,7 @@ const MenuLink = styled(Link)`
   background-color: ${(props) => props.theme.secondary};
   text-decoration: none;
   width: 95%;
-  padding: 40px;
+  padding: 30px 40px;
   border-radius: 10px;
   text-align: center;
   font-size: 1.5rem;
