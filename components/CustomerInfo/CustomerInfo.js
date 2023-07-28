@@ -2,9 +2,16 @@ import React, { useState } from "react";
 import useSWR from "swr";
 
 import ReactModal from "react-modal";
-import { CustomerInfoInput, InfoText, InfoContainer } from "./styles";
+import {
+  CustomerInfoInput,
+  InfoText,
+  InfoContainer,
+  CustomerInfoForm,
+  CustomerInfoButtonContainer,
+} from "./styles";
 
 import { GreenButton, RedButton } from "../Buttons/styles";
+import { Form } from "../../pagestyles/styles";
 
 export default function CustomerInfo({ customer, id }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -57,8 +64,7 @@ export default function CustomerInfo({ customer, id }) {
         onRequestClose={() => setIsModalOpen(false)}
         contentLabel="Kundeninfo bearbeiten"
       >
-        <form onSubmit={(event) => editCustomerInfo(event, id)}>
-          <label>Kundeninfo bearbeiten:</label>
+        <CustomerInfoForm onSubmit={(event) => editCustomerInfo(event, id)}>
           <CustomerInfoInput
             type="text"
             minLength="10"
@@ -67,9 +73,13 @@ export default function CustomerInfo({ customer, id }) {
             id="info"
             defaultValue={customer.info || ""}
           />
-          <RedButton onClick={() => setIsModalOpen(false)}>Abbrechen</RedButton>
-          <GreenButton type="submit">Kundeninfo speichern</GreenButton>
-        </form>
+          <CustomerInfoButtonContainer>
+            <RedButton onClick={() => setIsModalOpen(false)}>
+              Abbrechen
+            </RedButton>
+            <GreenButton type="submit">Speichern</GreenButton>
+          </CustomerInfoButtonContainer>
+        </CustomerInfoForm>
       </ReactModal>
     </section>
   );
