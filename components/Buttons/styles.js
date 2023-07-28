@@ -66,6 +66,21 @@ const MenuLink = styled(Link)`
     color: ${(props) => props.theme.secondary};
   }
 `;
+const MenuButton = styled.button`
+  color: ${(props) => props.theme.third};
+  background-color: ${(props) => props.theme.secondary};
+  text-decoration: none;
+  width: 95%;
+  padding: 30px 40px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  &:hover {
+    background-color: ${(props) => props.theme.third};
+    border: 3px ${(props) => props.theme.secondary} solid;
+    color: ${(props) => props.theme.secondary};
+  }
+`;
 
 export {
   MenuContainer,
@@ -75,4 +90,5 @@ export {
   SaveIcon,
   RedLink,
   MenuLink,
+  MenuButton,
 };
