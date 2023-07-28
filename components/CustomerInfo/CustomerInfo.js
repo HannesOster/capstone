@@ -10,6 +10,7 @@ import {
   CustomerInfoButtonContainer,
   Placeholder,
   InfoModalStyle,
+  InfoParagraph,
 } from "./styles";
 
 export default function CustomerInfo({ customer, id }) {
@@ -52,7 +53,9 @@ export default function CustomerInfo({ customer, id }) {
       </InfoContainer>
       {isExpanded && (
         <>
-          <p>Kundeninfo: {customer.info ? customer.info : ""}</p>
+          <InfoParagraph>
+            {customer.info ? customer.info : "Kundeninfo hinzufügen!"}
+          </InfoParagraph>
           <button onClick={() => setIsModalOpen(true)}>
             Kundeninfo bearbeiten
           </button>

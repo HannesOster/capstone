@@ -114,7 +114,7 @@ export default function List() {
             <StyledTableCell>{customer.buckets}</StyledTableCell>
 
             <StyledTableCell>
-              {customer.timestamp ? formatTimestamp(customer.timestamp) : ""}
+              {formatTimestamp(customer.timestamp)}
             </StyledTableCell>
           </StyledTableRow>
         ))}

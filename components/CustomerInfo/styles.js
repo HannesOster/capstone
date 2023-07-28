@@ -12,11 +12,17 @@ const Placeholder = styled.div`
 const InfoContainer = styled.div`
   display: flex;
   align-items: center;
+
+  justify-content: center;
+  border-bottom: 3px solid ${(props) => props.theme.fifth};
+  border-top: 3px solid ${(props) => props.theme.fifth};
 `;
 
 const InfoText = styled.span`
   margin-left: 5px;
   cursor: pointer;
+
+  padding: 10px;
 `;
 const CustomerInfoForm = styled.form`
   display: flex;
@@ -32,6 +38,21 @@ const CustomerInfoButtonContainer = styled.section`
   gap: 50px;
   margin-bottom: 130px;
 `;
+
+const InfoParagraph = styled.p`
+  background-color: ${(props) => props.theme.fifth};
+  padding: 20px;
+  width: 80%;
+  border-radius: 10px;
+`;
+
+const InfoParagraphContainer = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+`;
+
 const InfoModalStyle = {
   content: {
     top: "50%",
@@ -52,4 +73,6 @@ export {
   CustomerInfoButtonContainer,
   Placeholder,
   InfoModalStyle,
+  InfoParagraph,
+  InfoParagraphContainer,
 };
