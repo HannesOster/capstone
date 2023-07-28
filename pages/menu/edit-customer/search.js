@@ -1,5 +1,5 @@
 import SearchHeader from "../../../components/SearchHeader/SearchHeader";
-import { Invitation } from "../../../styles";
+import { Invitation } from "../../../components/SearchInput/styles";
 
 export default function SearchCustomerToEdit() {
   return (
