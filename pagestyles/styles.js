@@ -11,13 +11,13 @@ const Form = styled.form`
 `;
 const CustomerFormInput = styled.input`
   height: 3rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   border-radius: 10px;
 `;
 
 const FormButton = styled.button`
   margin-top: 30px;
-  color: ${(props) => props.theme.tertiary};
+  color: ${(props) => props.theme.third};
   background-color: ${(props) => props.theme.secondary};
   text-decoration: none;
   width: 50%;

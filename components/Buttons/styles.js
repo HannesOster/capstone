@@ -5,7 +5,7 @@ import ReactModal from "react-modal";
 
 const RedLink = styled(Link)`
   color: red;
-  background-color: ${(props) => props.theme.tertiary};
+  background-color: ${(props) => props.theme.third};
   border: 2px red solid;
   border-radius: 5%;
   padding: 5px 20px;
@@ -16,7 +16,7 @@ const RedLink = styled(Link)`
 
 const RedButton = styled.button`
   color: red;
-  background-color: ${(props) => props.theme.tertiary};
+  background-color: ${(props) => props.theme.third};
   border: 2px red solid;
   border-radius: 5%;
   padding: 5px 20px;
@@ -34,7 +34,7 @@ const Container = styled.section`
 
 const GreenButton = styled.button`
   color: green;
-  background-color: ${(props) => props.theme.tertiary};
+  background-color: ${(props) => props.theme.third};
   border: 2px green solid;
   padding: 5px 20px;
   border-radius: 5%;
@@ -52,16 +52,16 @@ const MenuContainer = styled.section`
   gap: 30px;
 `;
 const MenuLink = styled(Link)`
-  color: ${(props) => props.theme.tertiary};
+  color: ${(props) => props.theme.third};
   background-color: ${(props) => props.theme.secondary};
   text-decoration: none;
-  width: 90%;
+  width: 95%;
   padding: 40px;
   border-radius: 10px;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   &:hover {
-    background-color: ${(props) => props.theme.tertiary};
+    background-color: ${(props) => props.theme.third};
     border: 3px ${(props) => props.theme.secondary} solid;
     color: ${(props) => props.theme.secondary};
   }

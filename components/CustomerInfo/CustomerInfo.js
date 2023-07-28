@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useSWR from "swr";
-
+import { GreenButton, RedButton } from "../Buttons/styles";
 import ReactModal from "react-modal";
 import {
   CustomerInfoInput,
@@ -10,14 +10,11 @@ import {
   CustomerInfoButtonContainer,
 } from "./styles";
 
-import { GreenButton, RedButton } from "../Buttons/styles";
-import { Form } from "../../pagestyles/styles";
-
 export default function CustomerInfo({ customer, id }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { mutate } = useSWR("/api");
+  const { mutate } = useSWR(`/api/${id}`);
 
   function handleArrowClick() {
     setIsExpanded(!isExpanded);
@@ -64,11 +61,11 @@ export default function CustomerInfo({ customer, id }) {
         onRequestClose={() => setIsModalOpen(false)}
         contentLabel="Kundeninfo bearbeiten"
       >
-        <CustomerInfoForm onSubmit={(event) => editCustomerInfo(event, id)}>
+        <CustomerInfoForm onSubmit={(event) => editCustomerInfo(event)}>
           <CustomerInfoInput
             type="text"
             minLength="10"
-            rows={30}
+            rows="30"
             name="info"
             id="info"
             defaultValue={customer.info || ""}
