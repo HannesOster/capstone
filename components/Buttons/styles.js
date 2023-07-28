@@ -3,9 +3,6 @@ import { FiSave } from "react-icons/fi";
 import Link from "next/link";
 import ReactModal from "react-modal";
 
-const StyledModal = styled(ReactModal)`
-  background-color: ${(props) => props.theme.tertiary};
-`;
 const RedLink = styled(Link)`
   color: red;
   background-color: ${(props) => props.theme.tertiary};
@@ -78,5 +75,4 @@ export {
   SaveIcon,
   RedLink,
   MenuLink,
-  StyledModal,
 };

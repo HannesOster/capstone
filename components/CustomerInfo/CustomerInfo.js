@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import useSWR from "swr";
 import { InfoSubmitButton } from "./styles";
 import ReactModal from "react-modal";
-import { CustomerInfoInput } from "./styles";
+import { CustomerInfoInput, InfoText, InfoContainer } from "./styles";
 import SaveButton from "../Buttons/SaveButton";
-import { GreenButton, RedButton, StyledModal } from "../Buttons/styles";
+import { GreenButton, RedButton } from "../Buttons/styles";
 
 export default function CustomerInfo({ customer, id }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -39,16 +39,11 @@ export default function CustomerInfo({ customer, id }) {
   }
 
   return (
-    <div>
-      <div style={{ display: "flex", alignItems: "center" }}>
+    <section>
+      <InfoContainer>
         <span>Kundeninformation</span>
-        <span
-          style={{ marginLeft: "5px", cursor: "pointer" }}
-          onClick={handleArrowClick}
-        >
-          {isExpanded ? "▼" : "▶"}
-        </span>
-      </div>
+        <InfoText onClick={handleArrowClick}>{isExpanded ? "▼" : "▶"}</InfoText>
+      </InfoContainer>
       {isExpanded && (
         <>
           <p>Kundeninfo: {customer.info ? customer.info : ""}</p>
@@ -76,6 +71,6 @@ export default function CustomerInfo({ customer, id }) {
           <GreenButton type="submit">Kundeninfo speichern</GreenButton>
         </form>
       </ReactModal>
-    </div>
+    </section>
   );
 }
