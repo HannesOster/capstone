@@ -9,6 +9,7 @@ const customerSchema = new Schema({
   street: { type: String, required: false },
   location: { type: String, required: false },
   plz: { type: String, required: false },
+  info: { type: String, required: false },
 });
 
 const Customer =

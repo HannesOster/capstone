@@ -3,9 +3,8 @@ import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
 
 const CountersContainer = styled.section`
   margin: 20px;
-
   border-radius: 10px;
-  border: 3px solid black;
+  border: 3px solid ${(props) => props.theme.fourth};
   padding: 20px;
 `;
 const CounterContainer = styled.div`

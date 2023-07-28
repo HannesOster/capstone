@@ -9,11 +9,16 @@ const Form = styled.form`
   margin-left: 20px;
   align-items: center;
 `;
+const CustomerFormInput = styled.input`
+  height: 3rem;
+  font-size: 1.5rem;
+  border-radius: 10px;
+`;
 
 const FormButton = styled.button`
   margin-top: 30px;
-  color: #fff6f4;
-  background-color: #8a0000;
+  color: ${(props) => props.theme.third};
+  background-color: ${(props) => props.theme.secondary};
   text-decoration: none;
   width: 50%;
   padding: 20px;
@@ -22,4 +27,4 @@ const FormButton = styled.button`
   font-size: large;
 `;
 
-export { Form, FormButton };
+export { CustomerFormInput, Form, FormButton };

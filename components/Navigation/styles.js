@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 
 const NavBar = styled.nav`
-  background-color: rgb(211, 17, 25);
+  background-color: ${(props) => props.theme.primary};
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -14,7 +14,7 @@ const NavBar = styled.nav`
 
 const NavLink = styled(Link)`
   align-items: center;
-  background-color: #fff6f4;
+  background-color: ${(props) => props.theme.third};
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;

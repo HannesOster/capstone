@@ -15,10 +15,11 @@ const StyledSearchInput = styled.input`
   border-radius: "4px";
   width: 30%;
   outline: "none";
-  background-color: #fff6f4;
+  background-color: ${(props) => props.theme.third};
 `;
 const SearchOption = styled.li`
   padding: 8px 12px;
+  color: black;
   cursor: pointer;
   border-top: 3px solid #bbb;
 `;
@@ -30,13 +31,14 @@ const SearchOptionList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 4px 0;
-  background-color: #fff6f4;
+  background-color: ${(props) => props.theme.third};
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 const OptionLink = styled(Link)`
   text-decoration: none;
+  color: black;
 `;
 
 export {
