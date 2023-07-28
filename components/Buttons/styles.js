@@ -1,8 +1,23 @@
 import styled from "styled-components";
 import { FiSave } from "react-icons/fi";
 import Link from "next/link";
+import ReactModal from "react-modal";
 
+const StyledModal = styled(ReactModal)`
+  background-color: ${(props) => props.theme.tertiary};
+`;
 const RedLink = styled(Link)`
+  color: red;
+  background-color: ${(props) => props.theme.tertiary};
+  border: 2px red solid;
+  border-radius: 5%;
+  padding: 5px 20px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: normal;
+`;
+
+const RedButton = styled.button`
   color: red;
   background-color: ${(props) => props.theme.tertiary};
   border: 2px red solid;
@@ -26,6 +41,7 @@ const GreenButton = styled.button`
   border: 2px green solid;
   padding: 5px 20px;
   border-radius: 5%;
+  font-size: 1rem;
 `;
 
 const SaveIcon = styled(FiSave)`
@@ -54,4 +70,13 @@ const MenuLink = styled(Link)`
   }
 `;
 
-export { MenuContainer, Container, GreenButton, SaveIcon, RedLink, MenuLink };
+export {
+  MenuContainer,
+  RedButton,
+  Container,
+  GreenButton,
+  SaveIcon,
+  RedLink,
+  MenuLink,
+  StyledModal,
+};

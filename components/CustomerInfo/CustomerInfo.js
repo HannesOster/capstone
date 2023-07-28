@@ -2,22 +2,28 @@ import React, { useState } from "react";
 import useSWR from "swr";
 import { InfoSubmitButton } from "./styles";
 import ReactModal from "react-modal";
+import { CustomerInfoInput } from "./styles";
+import SaveButton from "../Buttons/SaveButton";
+import { GreenButton, RedButton, StyledModal } from "../Buttons/styles";
 
 export default function CustomerInfo({ customer, id }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const { mutate } = useSWR("/api");
 
   function handleArrowClick() {
     setIsExpanded(!isExpanded);
   }
-  async function editCustomerInfo(event, id) {
+
+  async function editCustomerInfo(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const customer = Object.fromEntries(formData);
+    const customerData = Object.fromEntries(formData);
 
     const response = await fetch(`/api/${id}`, {
       method: "PATCH",
-      body: JSON.stringify(customer),
+      body: JSON.stringify(customerData),
       headers: {
         "Content-Type": "application/json",
       },
@@ -25,12 +31,11 @@ export default function CustomerInfo({ customer, id }) {
 
     if (!response.ok) {
       console.error(response.status);
-
       return;
     }
-    mutate();
 
-    event.target.reset();
+    setIsModalOpen(false);
+    mutate();
   }
 
   return (
@@ -46,16 +51,31 @@ export default function CustomerInfo({ customer, id }) {
       </div>
       {isExpanded && (
         <>
-          <p>Kundeninfo:{customer.info ? customer.info : ""}</p>
-          <form onSubmit={(event) => editCustomerInfo(event, id)}>
-            <label>Kundeninfo hinzufügen:</label>
-            <input type="text" minLength="10" name="info" id="info" />
-            <InfoSubmitButton type="submit">
-              Kundeninfo hinzufügen
-            </InfoSubmitButton>
-          </form>
+          <p>Kundeninfo: {customer.info ? customer.info : ""}</p>
+          <button onClick={() => setIsModalOpen(true)}>
+            Kundeninfo bearbeiten
+          </button>
         </>
       )}
+      <ReactModal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        contentLabel="Kundeninfo bearbeiten"
+      >
+        <form onSubmit={(event) => editCustomerInfo(event, id)}>
+          <label>Kundeninfo bearbeiten:</label>
+          <CustomerInfoInput
+            type="text"
+            minLength="10"
+            rows={30}
+            name="info"
+            id="info"
+            defaultValue={customer.info || ""}
+          />
+          <RedButton onClick={() => setIsModalOpen(false)}>Abbrechen</RedButton>
+          <GreenButton type="submit">Kundeninfo speichern</GreenButton>
+        </form>
+      </ReactModal>
     </div>
   );
 }

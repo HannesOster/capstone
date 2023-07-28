@@ -9,6 +9,11 @@ const Form = styled.form`
   margin-left: 20px;
   align-items: center;
 `;
+const CustomerFormInput = styled.input`
+  height: 3rem;
+  font-size: 2rem;
+  border-radius: 10px;
+`;
 
 const FormButton = styled.button`
   margin-top: 30px;
@@ -22,4 +27,4 @@ const FormButton = styled.button`
   font-size: large;
 `;
 
-export { Form, FormButton };
+export { CustomerFormInput, Form, FormButton };

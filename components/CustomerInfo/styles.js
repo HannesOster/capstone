@@ -6,4 +6,8 @@ const InfoSubmitButton = styled.button`
   border-radius: 3px;
 `;
 
-export { InfoSubmitButton };
+const CustomerInfoInput = styled.textarea`
+  width: 90%;
+`;
+
+export { InfoSubmitButton, CustomerInfoInput };

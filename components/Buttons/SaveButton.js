@@ -14,7 +14,6 @@ export default function SaveButton({
 
   const newBoxes = data.boxes + boxesToAdd;
   const newBuckets = data.buckets + bucketsToAdd;
-  console.log(data.boxes);
   async function handleSave(id, boxesToAdd, bucketsToAdd) {
     const response = await fetch(`/api/${id}`, {
       method: "PATCH",
@@ -26,7 +25,9 @@ export default function SaveButton({
         buckets: data.buckets + bucketsToAdd,
       }),
     });
-
+    if (!response) {
+      return <LoadingSpinner />;
+    }
     if (!response.ok) {
       console.error(response.status);
       return;
