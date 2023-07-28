@@ -1,10 +1,4 @@
 import styled from "styled-components";
-import Modal from "react-modal";
-const ModalBody = styled.body`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
 
 const modalStyles = {
   content: {
@@ -74,5 +68,4 @@ export {
   StockContainer,
   ModalCloseButton,
   modalStyles,
-  ModalBody,
 };

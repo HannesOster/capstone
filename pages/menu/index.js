@@ -19,7 +19,7 @@ export default function Menu() {
     initialData: [],
     revalidateOnMount: true,
   });
-  console.log(data);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function openModal() {

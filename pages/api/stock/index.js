@@ -15,7 +15,7 @@ export default async function handler(request, response) {
   if (request.method === "PATCH") {
     const updatedStock = request.body;
     await Stock.findOneAndUpdate({}, updatedStock);
-    response.status(200).json({ status: "Customer successfully updated." });
+    response.status(200).json({ status: "Stock successfully updated." });
     return;
   }
 }
