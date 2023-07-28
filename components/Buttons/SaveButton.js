@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { GreenButton, SaveIcon } from "./styles";
 import useSWR from "swr";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export default function SaveButton({
   id,

@@ -1,5 +1,9 @@
 import Header from "../../../components/Header/Header";
-import { Form, FormButton } from "../../../pagestyles/styles";
+import {
+  CustomerFormInput,
+  Form,
+  FormButton,
+} from "../../../pagestyles/styles";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
