@@ -8,6 +8,8 @@ import {
   InfoContainer,
   CustomerInfoForm,
   CustomerInfoButtonContainer,
+  Placeholder,
+  InfoModalStyle,
 } from "./styles";
 
 export default function CustomerInfo({ customer, id }) {
@@ -60,6 +62,7 @@ export default function CustomerInfo({ customer, id }) {
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
         contentLabel="Kundeninfo bearbeiten"
+        style={InfoModalStyle}
       >
         <CustomerInfoForm onSubmit={(event) => editCustomerInfo(event)}>
           <CustomerInfoInput
@@ -78,6 +81,7 @@ export default function CustomerInfo({ customer, id }) {
           </CustomerInfoButtonContainer>
         </CustomerInfoForm>
       </ReactModal>
+      <Placeholder />
     </section>
   );
 }

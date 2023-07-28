@@ -17,7 +17,7 @@ export default createGlobalStyle`
 
 const theme = {
   primary: "#D31119",
-  secondary: "#334c77",
+  secondary: "#55bac0",
   third: "#fff6f4",
   fourth: "#d08c7f",
 };

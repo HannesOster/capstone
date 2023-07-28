@@ -9,7 +9,7 @@ import {
 function Counter({ name, value, onIncrement, onDecrement }) {
   return (
     <CounterContainer>
-      <span>{name}</span>
+      <p>{name}</p>
       {value > 0 ? <IconMinus onClick={onDecrement} /> : <IconPlaceholder />}
       <CounterValue>{value}</CounterValue>
       <IconPlus onClick={onIncrement} />

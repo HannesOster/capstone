@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { TbUserSearch } from "react-icons/tb";
 
 const StyledSearchSection = styled.section`
+  position: relative;
   margin-top: 200px;
   display: flex;
   align-items: center;
@@ -15,7 +16,7 @@ const StyledSearchInput = styled.input`
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 30%;
+  width: 50%;
   outline: none;
   background-color: ${(props) => props.theme.third};
 `;
@@ -27,9 +28,9 @@ const SearchOption = styled.li`
 `;
 const SearchOptionList = styled.ul`
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
+  top: 35px;
+
+  width: 50%;
   list-style: none;
   padding: 0;
   margin: 4px 0;

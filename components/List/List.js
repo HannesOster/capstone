@@ -26,7 +26,26 @@ export default function List() {
       setSortedArray(data);
     }
   }, [data]);
+  function formatTimestamp(timestamp) {
+    if (!timestamp) {
+      return "";
+    }
 
+    const date = new Date(timestamp);
+    if (isNaN(date)) {
+      return "";
+    }
+
+    const options = {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+
+      hour12: true,
+    };
+
+    return date.toLocaleString("de-DE", options);
+  }
   function sortByCustomerName() {
     if (sortMode === "name") {
       setSortedArray(data);
@@ -58,7 +77,6 @@ export default function List() {
   if (!sortedArray || sortedArray.length === 0) {
     return <LoadingSpinner />;
   }
-
   return (
     <StyledTable>
       <tbody>
@@ -86,12 +104,17 @@ export default function List() {
             )}
           </StyledTableHeading>
           <StyledTableHeading>Eimer</StyledTableHeading>
+          <StyledTableHeading>Datum</StyledTableHeading>
         </HeadingTableRow>
         {sortedArray.map((customer) => (
           <StyledTableRow key={customer.id}>
             <StyledTableCell>{customer.name}</StyledTableCell>
             <StyledTableCell>{customer.boxes}</StyledTableCell>
             <StyledTableCell>{customer.buckets}</StyledTableCell>
+            {console.log(customer.timestamp)}
+            <StyledTableCell>
+              {formatTimestamp(parseInt(customer.timestamp, 10))}
+            </StyledTableCell>
           </StyledTableRow>
         ))}
       </tbody>

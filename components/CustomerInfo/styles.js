@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 const CustomerInfoInput = styled.textarea`
   width: 100%;
+  border-radius: 10px;
+  margin-top: 20px;
+`;
+const Placeholder = styled.div`
+  margin-bottom: 130px;
 `;
 
 const InfoContainer = styled.div`
@@ -25,11 +30,26 @@ const CustomerInfoButtonContainer = styled.section`
   display: flex;
   margin-top: 30px;
   gap: 50px;
+  margin-bottom: 130px;
 `;
+const InfoModalStyle = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    borderRadius: "10px",
+    height: "620px",
+  },
+};
 export {
   CustomerInfoInput,
   InfoText,
   InfoContainer,
   CustomerInfoForm,
   CustomerInfoButtonContainer,
+  Placeholder,
+  InfoModalStyle,
 };
