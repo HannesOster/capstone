@@ -14,4 +14,4 @@ const InfoText = styled.span`
   cursor: pointer;
 `;
 
-export { InfoSubmitButton, CustomerInfoInput, InfoText, InfoContainer };
+export { CustomerInfoInput, InfoText, InfoContainer };

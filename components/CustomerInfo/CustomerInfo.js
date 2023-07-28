@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import useSWR from "swr";
-import { InfoSubmitButton } from "./styles";
+
 import ReactModal from "react-modal";
 import { CustomerInfoInput, InfoText, InfoContainer } from "./styles";
-import SaveButton from "../Buttons/SaveButton";
+
 import { GreenButton, RedButton } from "../Buttons/styles";
 
 export default function CustomerInfo({ customer, id }) {
