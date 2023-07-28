@@ -50,7 +50,7 @@ const InfoParagraphContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  flex-direction: column;
 `;
 
 const InfoModalStyle = {

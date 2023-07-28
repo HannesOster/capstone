@@ -11,6 +11,7 @@ import {
   Placeholder,
   InfoModalStyle,
   InfoParagraph,
+  InfoParagraphContainer,
 } from "./styles";
 
 export default function CustomerInfo({ customer, id }) {
@@ -52,14 +53,14 @@ export default function CustomerInfo({ customer, id }) {
         <InfoText onClick={handleArrowClick}>{isExpanded ? "▼" : "▶"}</InfoText>
       </InfoContainer>
       {isExpanded && (
-        <>
+        <InfoParagraphContainer>
           <InfoParagraph>
             {customer.info ? customer.info : "Kundeninfo hinzufügen!"}
           </InfoParagraph>
           <button onClick={() => setIsModalOpen(true)}>
             Kundeninfo bearbeiten
           </button>
-        </>
+        </InfoParagraphContainer>
       )}
       <ReactModal
         isOpen={isModalOpen}
