@@ -15,4 +15,8 @@ const customerSchema = new Schema({
 const Customer =
   mongoose.models.Customer || mongoose.model("Customer", customerSchema);
 
-export default Customer;
+const stockSchema = new Schema({
+  stock: { type: Number, required: true },
+});
+const Stock = mongoose.models.Stock || mongoose.model("Stock", stockSchema);
+export { Customer, Stock };

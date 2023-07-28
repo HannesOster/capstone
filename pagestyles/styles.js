@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+const modalStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    borderRadius: "10px",
+  },
+};
+
 const Form = styled.form`
   margin-top: 130px;
   display: flex;
@@ -27,4 +39,33 @@ const FormButton = styled.button`
   font-size: large;
 `;
 
-export { CustomerFormInput, Form, FormButton };
+const StockContainer = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+const ModalCloseButton = styled.button`
+  color: ${(props) => props.theme.third};
+  background-color: ${(props) => props.theme.secondary};
+  text-decoration: none;
+  width: auto;
+  padding: 5px 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1rem;
+  &:hover {
+    background-color: ${(props) => props.theme.third};
+    border: 3px ${(props) => props.theme.secondary} solid;
+    color: ${(props) => props.theme.secondary};
+  }
+`;
+
+export {
+  CustomerFormInput,
+  Form,
+  FormButton,
+  StockContainer,
+  ModalCloseButton,
+  modalStyles,
+};

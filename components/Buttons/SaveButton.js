@@ -11,12 +11,14 @@ export default function SaveButton({
   setBuckets,
 }) {
   const router = useRouter();
-  const { data, mutate } = useSWR(`/api/${id}`, { fallbackData: [] });
-
+  const { data, mutate } = useSWR(`/api/customer/${id}`, { fallbackData: [] });
+  const { data: stockData, mutate: stockMutate } = useSWR(`/api/stock`, {
+    fallbackData: [],
+  });
   const newBoxes = data.boxes + boxesToAdd;
   const newBuckets = data.buckets + bucketsToAdd;
   async function handleSave(id, boxesToAdd, bucketsToAdd) {
-    const response = await fetch(`/api/${id}`, {
+    const response = await fetch(`/api/customer/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -26,6 +28,7 @@ export default function SaveButton({
         buckets: data.buckets + bucketsToAdd,
       }),
     });
+
     if (!response) {
       return <LoadingSpinner />;
     }
@@ -33,9 +36,20 @@ export default function SaveButton({
       console.error(response.status);
       return;
     }
+    const stockResponse = await fetch(`/api/stock`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        stock: stockData[0].stock - boxesToAdd,
+      }),
+    });
+
     setBoxes([0, 0]);
     setBuckets([0, 0]);
     mutate();
+    stockMutate();
     router.push("/");
   }
 

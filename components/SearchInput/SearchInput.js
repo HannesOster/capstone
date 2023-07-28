@@ -10,7 +10,7 @@ import {
 } from "./styles";
 
 function SearchInput({ mode }) {
-  const { data } = useSWR("/api", { fallbackData: [] });
+  const { data } = useSWR("/api/customer", { fallbackData: [] });
   const [searchValue, setSearchValue] = useState("");
 
   function handleSearchChange(event) {
