@@ -12,6 +12,7 @@ import {
   InfoModalStyle,
   InfoParagraph,
   InfoParagraphContainer,
+  EditButton,
 } from "./styles";
 
 export default function CustomerInfo({ customer, id }) {
@@ -57,9 +58,9 @@ export default function CustomerInfo({ customer, id }) {
           <InfoParagraph>
             {customer.info ? customer.info : "Kundeninfo hinzufügen!"}
           </InfoParagraph>
-          <button onClick={() => setIsModalOpen(true)}>
+          <EditButton onClick={() => setIsModalOpen(true)}>
             Kundeninfo bearbeiten
-          </button>
+          </EditButton>
         </InfoParagraphContainer>
       )}
       <ReactModal

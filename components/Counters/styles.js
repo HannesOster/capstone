@@ -13,7 +13,7 @@ const CountersContainer = styled.section`
 
 const CounterContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   font-size: 25px;
   align-items: center;
   width: 100%;
@@ -39,6 +39,7 @@ const IconPlus = styled(AiOutlinePlusSquare)`
 
 const CounterValue = styled.span`
   width: 10%;
+  text-align: center;
 `;
 const Description = styled.p`
   width: 50%;
