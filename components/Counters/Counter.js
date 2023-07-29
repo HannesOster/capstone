@@ -4,12 +4,13 @@ import {
   IconMinus,
   IconPlaceholder,
   IconPlus,
+  Description,
 } from "./styles";
 
 function Counter({ name, value, onIncrement, onDecrement }) {
   return (
     <CounterContainer>
-      <p>{name}</p>
+      <Description>{name}</Description>
       {value > 0 ? <IconMinus onClick={onDecrement} /> : <IconPlaceholder />}
       <CounterValue>{value}</CounterValue>
       <IconPlus onClick={onIncrement} />

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const AddDepositHeading = styled.h1`
-  margin-top: 100px;
+  margin-top: 110px;
+  text-align: center;
 `;
 const StockContainer = styled.section`
   display: flex;

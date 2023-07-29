@@ -7,7 +7,7 @@ const CountersContainer = styled.section`
   border: 3px solid ${(props) => props.theme.fourth};
   padding: 20px;
   display: flex;
-  flex-direction: column; /* Neu: Container in einer Spalte anordnen */
+  flex-direction: column;
   align-items: center;
 `;
 
@@ -15,28 +15,33 @@ const CounterContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   font-size: 25px;
-  align-items: center; /* Neu: Inhalte horizontal zentrieren */
+  align-items: center;
+  width: 100%;
 `;
 
 const IconPlaceholder = styled.div`
-  width: 20px;
-  display: flex; /* Neu: Als flexibles Element behandeln */
+  width: 20%;
 `;
 
 const IconMinus = styled(AiOutlineMinusSquare)`
   font-size: 40px;
   fill: red;
   cursor: pointer;
+  width: 20%;
 `;
 
 const IconPlus = styled(AiOutlinePlusSquare)`
   font-size: 40px;
   fill: green;
   cursor: pointer;
+  width: 20%;
 `;
 
 const CounterValue = styled.span`
-  font-weight: bold;
+  width: 10%;
+`;
+const Description = styled.p`
+  width: 50%;
 `;
 
 export {
@@ -46,4 +51,5 @@ export {
   IconMinus,
   IconPlus,
   IconPlaceholder,
+  Description,
 };
