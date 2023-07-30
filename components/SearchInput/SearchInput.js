@@ -39,13 +39,14 @@ function SearchInput({ mode }) {
         <SearchOptionList>
           {filteredOptions.map((option) => (
             <OptionLink
+              key={option._id}
               href={
                 mode === "edit"
                   ? `/menu/edit-customer/${option._id}`
                   : `/customer/${option._id}`
               }
             >
-              <SearchOption key={option._id}>{option.name}</SearchOption>
+              <SearchOption>{option.name}</SearchOption>
             </OptionLink>
           ))}
         </SearchOptionList>
