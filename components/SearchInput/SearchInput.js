@@ -38,17 +38,15 @@ function SearchInput({ mode }) {
       {searchValue.trim() !== "" && (
         <SearchOptionList>
           {filteredOptions.map((option) => (
-            <SearchOption key={option._id}>
-              <OptionLink
-                href={
-                  mode === "edit"
-                    ? `/menu/edit-customer/${option._id}`
-                    : `/customer/${option._id}`
-                }
-              >
-                {option.name}
-              </OptionLink>
-            </SearchOption>
+            <OptionLink
+              href={
+                mode === "edit"
+                  ? `/menu/edit-customer/${option._id}`
+                  : `/customer/${option._id}`
+              }
+            >
+              <SearchOption key={option._id}>{option.name}</SearchOption>
+            </OptionLink>
           ))}
         </SearchOptionList>
       )}

@@ -3,7 +3,7 @@ import {
   CustomerFormInput,
   Form,
   FormButton,
-} from "../../../pagestyles/styles";
+} from "../../../page-styles/styles";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
@@ -45,6 +45,7 @@ export default function EditCustomer() {
           defaultValue={customer ? customer.name : ""}
           name="name"
           type="text"
+          required
         />
         <label htmlFor="street">Straße und Hausnummer:</label>
         <CustomerFormInput
