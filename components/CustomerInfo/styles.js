@@ -31,9 +31,8 @@ const CustomerInfoForm = styled.form`
 `;
 const CustomerInfoButtonContainer = styled.section`
   display: flex;
-  margin-top: 30px;
+  margin: 30px 0 130px;
   gap: 50px;
-  margin-bottom: 130px;
 `;
 
 const InfoParagraph = styled.p`
