@@ -115,7 +115,7 @@ const MenuButton = styled.button`
   border-radius: 10px;
   text-align: center;
   font-size: 1.5rem;
-  font-family: "Roboto", sans-serif;
+
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
