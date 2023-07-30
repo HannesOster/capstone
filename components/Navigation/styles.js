@@ -16,7 +16,7 @@ const NavLink = styled(Link)`
   align-items: center;
   background-color: ${(props) => props.theme.third};
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 0.25rem;
+  border-radius: 2rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
   color: #4d4745;
