@@ -3,14 +3,14 @@ import {
   CustomerFormInput,
   Form,
   FormButton,
-} from "../../../pagestyles/styles";
+} from "../../../page-styles/styles";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
 export default function EditCustomer() {
   const router = useRouter();
   const { id } = router.query;
-  const { mutate } = useSWR("/api/customer");
+  const { data: customer, mutate } = useSWR(`/api/customer/${id}`);
 
   async function handleEditSubmit(event, id) {
     event.preventDefault();
@@ -40,13 +40,30 @@ export default function EditCustomer() {
       <Header />
       <Form onSubmit={(event) => handleEditSubmit(event, id)}>
         <label htmlFor="name">Kundenname:</label>
-        <CustomerFormInput id="name" name="name" type="text" />
+        <CustomerFormInput
+          id="name"
+          defaultValue={customer ? customer.name : ""}
+          name="name"
+          type="text"
+          required
+        />
         <label htmlFor="street">Straße und Hausnummer:</label>
-        <CustomerFormInput id="street" name="street" type="text" />
+        <CustomerFormInput
+          defaultValue={customer ? customer.street : ""}
+          id="street"
+          name="street"
+          type="text"
+        />
         <label htmlFor="location">Ort:</label>
-        <CustomerFormInput id="location" name="location" type="text" />
+        <CustomerFormInput
+          id="location"
+          defaultValue={customer ? customer.location : ""}
+          name="location"
+          type="text"
+        />
         <label htmlFor="plz">Postleitzahl:</label>
         <CustomerFormInput
+          defaultValue={customer ? customer.plz : ""}
           id="plz"
           name="plz"
           type="text"

@@ -6,30 +6,43 @@ const CountersContainer = styled.section`
   border-radius: 10px;
   border: 3px solid ${(props) => props.theme.fourth};
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
+
 const CounterContainer = styled.div`
   display: flex;
+  justify-content: space-around;
+  font-size: 25px;
+  align-items: center;
+  width: 100%;
 `;
 
 const IconPlaceholder = styled.div`
-  width: 20px;
+  width: 20%;
 `;
 
 const IconMinus = styled(AiOutlineMinusSquare)`
-  font-size: 20px;
+  font-size: 40px;
   fill: red;
   cursor: pointer;
+  width: 20%;
 `;
 
 const IconPlus = styled(AiOutlinePlusSquare)`
-  font-size: 20px;
+  font-size: 40px;
   fill: green;
   cursor: pointer;
+  width: 20%;
 `;
 
 const CounterValue = styled.span`
-  margin: 0 10px;
-  font-weight: bold;
+  width: 10%;
+  text-align: center;
+`;
+const Description = styled.p`
+  width: 50%;
 `;
 
 export {
@@ -39,4 +52,5 @@ export {
   IconMinus,
   IconPlus,
   IconPlaceholder,
+  Description,
 };

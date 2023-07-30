@@ -52,7 +52,7 @@ const MenuContainer = styled.section`
   gap: 30px;
 `;
 const MenuLink = styled(Link)`
-  color: ${(props) => props.theme.third};
+  color: #4d4745;
   background-color: ${(props) => props.theme.secondary};
   text-decoration: none;
   width: 95%;
@@ -68,9 +68,8 @@ const MenuLink = styled(Link)`
   }
 `;
 const MenuButton = styled.button`
-  color: ${(props) => props.theme.third};
   background-color: ${(props) => props.theme.secondary};
-  text-decoration: none;
+  color: #4d4745;
   width: 95%;
   padding: 30px 40px;
   border-radius: 10px;

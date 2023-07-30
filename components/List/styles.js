@@ -12,7 +12,7 @@ const StyledTableHeading = styled.th`
   }
 `;
 const StyledTableCell = styled.td`
-  width: 33%;
+  width: 25%;
   border-right: 1px solid black;
   text-align: center;
   &:first-child {

@@ -26,6 +26,7 @@ export default function SaveButton({
       body: JSON.stringify({
         boxes: data.boxes + boxesToAdd,
         buckets: data.buckets + bucketsToAdd,
+        timestamp: Date.now(),
       }),
     });
 

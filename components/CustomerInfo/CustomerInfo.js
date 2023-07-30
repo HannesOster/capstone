@@ -8,6 +8,11 @@ import {
   InfoContainer,
   CustomerInfoForm,
   CustomerInfoButtonContainer,
+  Placeholder,
+  InfoModalStyle,
+  InfoParagraph,
+  InfoParagraphContainer,
+  EditButton,
 } from "./styles";
 
 export default function CustomerInfo({ customer, id }) {
@@ -49,17 +54,20 @@ export default function CustomerInfo({ customer, id }) {
         <InfoText onClick={handleArrowClick}>{isExpanded ? "▼" : "▶"}</InfoText>
       </InfoContainer>
       {isExpanded && (
-        <>
-          <p>Kundeninfo: {customer.info ? customer.info : ""}</p>
-          <button onClick={() => setIsModalOpen(true)}>
+        <InfoParagraphContainer>
+          <InfoParagraph>
+            {customer.info ? customer.info : "Kundeninfo hinzufügen!"}
+          </InfoParagraph>
+          <EditButton onClick={() => setIsModalOpen(true)}>
             Kundeninfo bearbeiten
-          </button>
-        </>
+          </EditButton>
+        </InfoParagraphContainer>
       )}
       <ReactModal
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
         contentLabel="Kundeninfo bearbeiten"
+        style={InfoModalStyle}
       >
         <CustomerInfoForm onSubmit={(event) => editCustomerInfo(event)}>
           <CustomerInfoInput
@@ -78,6 +86,7 @@ export default function CustomerInfo({ customer, id }) {
           </CustomerInfoButtonContainer>
         </CustomerInfoForm>
       </ReactModal>
+      <Placeholder />
     </section>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useSWR from "swr";
+import { TbUserSearch } from "react-icons/tb";
 
 import {
   StyledSearchSection,
@@ -7,6 +8,8 @@ import {
   SearchOption,
   SearchOptionList,
   OptionLink,
+  Invitation,
+  UserSearchIcon,
 } from "./styles";
 
 function SearchInput({ mode }) {
@@ -35,20 +38,21 @@ function SearchInput({ mode }) {
       {searchValue.trim() !== "" && (
         <SearchOptionList>
           {filteredOptions.map((option) => (
-            <SearchOption key={option._id}>
-              <OptionLink
-                href={
-                  mode === "edit"
-                    ? `/menu/edit-customer/${option._id}`
-                    : `/customer/${option._id}`
-                }
-              >
-                {option.name}
-              </OptionLink>
-            </SearchOption>
+            <OptionLink
+              key={option._id}
+              href={
+                mode === "edit"
+                  ? `/menu/edit-customer/${option._id}`
+                  : `/customer/${option._id}`
+              }
+            >
+              <SearchOption>{option.name}</SearchOption>
+            </OptionLink>
           ))}
         </SearchOptionList>
       )}
+      <UserSearchIcon />
+      <Invitation>Bitte Kunden auswählen in der Suchleiste</Invitation>
     </StyledSearchSection>
   );
 }

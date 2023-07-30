@@ -12,7 +12,7 @@ import {
   ModalCloseButton,
   StockContainer,
   modalStyles,
-} from "../../pagestyles/styles";
+} from "../../page-styles/styles";
 
 export default function Menu() {
   const { data, error } = useSWR("/api/stock", {

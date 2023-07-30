@@ -2,7 +2,6 @@ import GlobalStyle, { theme } from "../styles";
 import Head from "next/head";
 import Navigation from "../components/Navigation/Navigation";
 import { useState } from "react";
-
 import { useRouter } from "next/router";
 import { SWRConfig } from "swr";
 import { ThemeProvider } from "styled-components";

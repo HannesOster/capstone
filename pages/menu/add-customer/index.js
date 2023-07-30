@@ -3,7 +3,7 @@ import {
   CustomerFormInput,
   Form,
   FormButton,
-} from "../../../pagestyles/styles";
+} from "../../../page-styles/styles";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 

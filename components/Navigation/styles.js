@@ -19,7 +19,7 @@ const NavLink = styled(Link)`
   border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
-  color: rgba(0, 0, 0, 0.85);
+  color: #4d4745;
   cursor: pointer;
   display: inline-flex;
 

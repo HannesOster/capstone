@@ -10,6 +10,7 @@ const customerSchema = new Schema({
   location: { type: String, required: false },
   plz: { type: String, required: false },
   info: { type: String, required: false },
+  timestamp: { type: Date, required: false },
 });
 
 const Customer =
