@@ -69,7 +69,7 @@ const MenuLink = styled(Link)`
 `;
 const MenuButton = styled.button`
   background-color: ${(props) => props.theme.secondary};
-  text-decoration: none;
+  color: #4d4745;
   width: 95%;
   padding: 30px 40px;
   border-radius: 10px;
