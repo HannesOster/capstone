@@ -7,6 +7,7 @@ const StyledHeader = styled.header`
   top: 0;
   width: 100%;
   height: 100px;
+  z-index: 3;
 `;
 const StyledLogo = styled(Image)`
   border-radius: 5px;

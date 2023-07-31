@@ -49,6 +49,7 @@ const Invitation = styled.h1`
 `;
 const UserSearchIcon = styled(TbUserSearch)`
   font-size: 100px;
+  color: #ffa500;
 `;
 
 export {

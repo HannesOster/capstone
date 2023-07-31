@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useSWR from "swr";
-import { TbUserSearch } from "react-icons/tb";
 
 import {
   StyledSearchSection,

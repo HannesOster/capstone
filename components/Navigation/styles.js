@@ -22,12 +22,11 @@ const NavLink = styled(Link)`
   color: #4d4745;
   cursor: pointer;
   display: inline-flex;
-
   justify-content: center;
-  line-height: 1.25;
+  font-size: 1.3rem;
   margin: 0;
   min-height: 3rem;
-  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  padding: calc(1rem - 1px) calc(1.3rem - 1px);
   position: relative;
   text-decoration: none;
   transition: all 250ms;

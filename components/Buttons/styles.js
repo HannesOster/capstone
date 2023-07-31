@@ -89,7 +89,7 @@ const MenuContainer = styled.section`
   gap: 30px;
 `;
 const MenuLink = styled(Link)`
-  background: linear-gradient(to right, #ffd700, #ffa500);
+  background: linear-gradient(to right, #ffc700, #ffa500);
   color: white;
   text-decoration: none;
   width: 95%;
@@ -108,7 +108,7 @@ const MenuLink = styled(Link)`
   }
 `;
 const MenuButton = styled.button`
-  background: linear-gradient(to right, #ffd700, #ffa500);
+  background: linear-gradient(to right, #ffc700, #ffa500);
   color: white;
   width: 95%;
   padding: 30px 40px;
