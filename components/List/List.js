@@ -13,7 +13,7 @@ import { useState } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export default function List() {
-  const { data, error } = useSWR("/api/customer", {
+  const { data, error } = useSWR("/api/customers", {
     initialData: [],
     revalidateOnMount: true,
   });

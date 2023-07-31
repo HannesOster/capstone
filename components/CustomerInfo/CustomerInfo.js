@@ -19,7 +19,7 @@ export default function CustomerInfo({ customer, id }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { mutate } = useSWR(`/api/customer/${id}`);
+  const { mutate } = useSWR(`/api/customers/${id}`);
 
   function handleArrowClick() {
     setIsExpanded(!isExpanded);
@@ -30,7 +30,7 @@ export default function CustomerInfo({ customer, id }) {
     const formData = new FormData(event.target);
     const customerData = Object.fromEntries(formData);
 
-    const response = await fetch(`/api/customer/${id}`, {
+    const response = await fetch(`/api/customers/${id}`, {
       method: "PATCH",
       body: JSON.stringify(customerData),
       headers: {
