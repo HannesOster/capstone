@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { SWRConfig } from "swr";
 import { ThemeProvider } from "styled-components";
+import Header from "../components/Header/Header";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -31,8 +32,9 @@ export default function App({ Component, pageProps }) {
         >
           <GlobalStyle />
           <Head>
-            <title>Capstone Project</title>
+            <title>Pfand App Osterkamp</title>
           </Head>
+          <Header />
           <Component
             boxes={boxes}
             buckets={buckets}
