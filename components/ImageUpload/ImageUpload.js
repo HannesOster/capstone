@@ -1,12 +1,9 @@
 import Image from "next/image";
-import React, { useState } from "react";
 import styled from "styled-components";
+import { GreenButton } from "../Buttons/styles";
 
-export default function Upload() {
-  const [image, setImage] = useState(null);
-  const [error, setError] = useState(null);
-
-  async function submitImage(event) {
+export default function Upload({ id, customer, mutate }) {
+  async function submitImage(event, id) {
     event.preventDefault();
     const formData = new FormData(event.target);
 
@@ -16,14 +13,30 @@ export default function Upload() {
         body: formData,
       });
 
-      console.log("Browser: response from API: ", img);
+      const img = await response.json();
 
-      setImage(img);
+      const { secure_url, width, height } = img;
+      console.log("Browser: response from API: ", img);
+      try {
+        console.log(id);
+        const response = await fetch(`/api/customers/${id}`, {
+          method: "PATCH",
+          body: JSON.stringify({
+            image: { url: secure_url, width: width, height: height },
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        mutate();
+      } catch (error) {
+        console.log(error.message);
+      }
     } catch (error) {
-      setError(error);
+      console.log(error.message);
     }
   }
-
+  const { image } = customer;
   return (
     <>
       {image && (
@@ -31,24 +44,29 @@ export default function Upload() {
           <Image
             src={image.url}
             alt="Uploaded image"
-            layout="responsive"
-            height={image.height}
-            width={image.width}
+            height={image.height / 2}
+            width={image.width / 2}
+            style={{ borderRadius: 15 }}
           />
         </ImageContainer>
       )}
-      {error && <div>{error.message}</div>}
-      <Form onSubmit={submitImage}>
+
+      <Form onSubmit={(event) => submitImage(event, id)}>
         <input type="file" name="file" />
-        <button type="submit">Upload</button>
+        <GreenButton type="submit">Hochladen</GreenButton>
       </Form>
     </>
   );
 }
 
 const Form = styled.form`
-  max-width: 20rem;
   margin-bottom: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
 `;
 
 const ImageContainer = styled.div`

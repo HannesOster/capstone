@@ -16,6 +16,7 @@ export default async function handler(request, response) {
   }
   if (request.method === "PATCH") {
     const updatedCustomer = request.body;
+    console.log(updatedCustomer);
     await Customer.findByIdAndUpdate(id, updatedCustomer);
     response.status(200).json({ status: "Customer successfully updated." });
     return;

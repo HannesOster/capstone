@@ -16,7 +16,7 @@ export default function EditCustomer() {
     event.preventDefault();
     const formData = new FormData(event.target);
     const customer = Object.fromEntries(formData);
-    console.log(id);
+
     const response = await fetch(`/api/customers/${id}`, {
       method: "PATCH",
       body: JSON.stringify(customer),

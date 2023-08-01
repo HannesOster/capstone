@@ -9,14 +9,14 @@ import useSWR from "swr";
 
 export default function AddCustomer() {
   const router = useRouter();
-  const { mutate } = useSWR("/api/customer");
+  const { mutate } = useSWR("/api/customers");
 
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const withoutDepositCustomer = Object.fromEntries(formData);
     const customer = { ...withoutDepositCustomer, boxes: 0, buckets: 0 };
-    const response = await fetch(`/api/customer`, {
+    const response = await fetch(`/api/customers`, {
       method: "POST",
       body: JSON.stringify(customer),
       headers: {
