@@ -6,6 +6,7 @@ import AddDeposit from "../../components/AddDeposit/AddDeposit";
 import Counters from "../../components/Counters/Counters";
 import ButtonContainer from "../../components/Buttons/ButtonContainer";
 import CustomerInfo from "../../components/CustomerInfo/CustomerInfo";
+import Upload from "../../components/ImageUpload/ImageUpload";
 
 export default function Deposit({
   setBoxes,
@@ -49,6 +50,7 @@ export default function Deposit({
         setBuckets={setBuckets}
       />
       <CustomerInfo id={id} customer={customer} />
+      <Upload />
     </>
   );
 }

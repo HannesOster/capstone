@@ -108,7 +108,7 @@ export default function List() {
           <StyledTableHeading>Datum</StyledTableHeading>
         </HeadingTableRow>
         {sortedArray.map((customer) => (
-          <StyledTableRow key={customer.id}>
+          <StyledTableRow key={customer._id}>
             <StyledTableCell>{customer.name}</StyledTableCell>
             <StyledTableCell>{customer.boxes}</StyledTableCell>
             <StyledTableCell>{customer.buckets}</StyledTableCell>
