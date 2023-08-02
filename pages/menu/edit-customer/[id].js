@@ -1,23 +1,23 @@
 import Header from "../../../components/Header/Header";
+import { useRouter } from "next/router";
+import useSWR from "swr";
 import {
   CustomerFormInput,
   Form,
   FormButton,
 } from "../../../page-styles/styles";
-import { useRouter } from "next/router";
-import useSWR from "swr";
 
 export default function EditCustomer() {
   const router = useRouter();
   const { id } = router.query;
-  const { data: customer, mutate } = useSWR(`/api/customer/${id}`);
+  const { data: customer, mutate } = useSWR(`/api/customers/${id}`);
 
   async function handleEditSubmit(event, id) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const customer = Object.fromEntries(formData);
-    console.log(id);
-    const response = await fetch(`/api/customer/${id}`, {
+
+    const response = await fetch(`/api/customers/${id}`, {
       method: "PATCH",
       body: JSON.stringify(customer),
       headers: {
@@ -26,8 +26,6 @@ export default function EditCustomer() {
     });
 
     if (!response.ok) {
-      console.error(response.status);
-
       return;
     }
     mutate();

@@ -6,7 +6,7 @@ export default async function handler(request, response) {
 
   if (request.method === "GET") {
     try {
-      const stock = await Stock.find(); // Hier Daten aus der "stock" -Collection abrufen
+      const stock = await Stock.find();
       return response.status(200).json(stock);
     } catch (error) {
       return response.status(500).json({ error: "Internal Server Error" });

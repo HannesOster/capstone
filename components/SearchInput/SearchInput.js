@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useSWR from "swr";
-import { TbUserSearch } from "react-icons/tb";
 
 import {
   StyledSearchSection,
@@ -13,7 +12,7 @@ import {
 } from "./styles";
 
 function SearchInput({ mode }) {
-  const { data } = useSWR("/api/customer", { fallbackData: [] });
+  const { data } = useSWR("/api/customers", { fallbackData: [] });
   const [searchValue, setSearchValue] = useState("");
 
   function handleSearchChange(event) {

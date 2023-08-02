@@ -11,6 +11,11 @@ const customerSchema = new Schema({
   plz: { type: String, required: false },
   info: { type: String, required: false },
   timestamp: { type: Date, required: false },
+  image: {
+    url: { type: String, required: false },
+    width: { type: Number, required: false },
+    height: { type: Number, required: false },
+  },
 });
 
 const Customer =

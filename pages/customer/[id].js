@@ -20,7 +20,7 @@ export default function Deposit({
   const router = useRouter();
   const { id } = router.query;
 
-  const { data: customer, isLoading, error } = useSWR(`/api/customer/${id}`);
+  const { data: customer, isLoading, error } = useSWR(`/api/customers/${id}`);
 
   if (isLoading) {
     return <LoadingSpinner />;

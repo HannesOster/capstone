@@ -6,13 +6,13 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    remotePatterns: [
-      // {
-      //   protocol: 'https',
-      //   hostname: 'images.unsplash.com'
-      // },
-    ],
+    domains: ["res.cloudinary.com"],
   },
+
+  // {
+  //   protocol: 'https',
+  //   hostname: 'images.unsplash.com'
+  // },
 };
 
 module.exports = nextConfig;

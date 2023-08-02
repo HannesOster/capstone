@@ -16,18 +16,17 @@ const NavLink = styled(Link)`
   align-items: center;
   background-color: ${(props) => props.theme.third};
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 0.25rem;
+  border-radius: 2rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
   color: #4d4745;
   cursor: pointer;
   display: inline-flex;
-
   justify-content: center;
-  line-height: 1.25;
+  font-size: 1.3rem;
   margin: 0;
   min-height: 3rem;
-  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  padding: calc(1rem - 1px) calc(1.3rem - 1px);
   position: relative;
   text-decoration: none;
   transition: all 250ms;

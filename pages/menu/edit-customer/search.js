@@ -1,12 +1,12 @@
-import SearchHeader from "../../../components/SearchHeader/SearchHeader";
-import { Invitation } from "../../../components/SearchInput/styles";
+import Header from "../../../components/Header/Header";
+
+import SearchInput from "../../../components/SearchInput/SearchInput";
 
 export default function SearchCustomerToEdit() {
   return (
     <>
-      <SearchHeader mode="edit" />
-
-      <Invitation>Bitte Kunden auswählen in der Suchleiste!</Invitation>
+      <Header />
+      <SearchInput mode="edit" />
     </>
   );
 }

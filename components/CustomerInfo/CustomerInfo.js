@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useSWR from "swr";
 import { GreenButton, RedButton } from "../Buttons/styles";
 import ReactModal from "react-modal";
@@ -14,12 +14,13 @@ import {
   InfoParagraphContainer,
   EditButton,
 } from "./styles";
+import Upload from "../ImageUpload/ImageUpload";
 
 export default function CustomerInfo({ customer, id }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { mutate } = useSWR(`/api/customer/${id}`);
+  const { mutate } = useSWR(`/api/customers/${id}`);
 
   function handleArrowClick() {
     setIsExpanded(!isExpanded);
@@ -30,7 +31,7 @@ export default function CustomerInfo({ customer, id }) {
     const formData = new FormData(event.target);
     const customerData = Object.fromEntries(formData);
 
-    const response = await fetch(`/api/customer/${id}`, {
+    const response = await fetch(`/api/customers/${id}`, {
       method: "PATCH",
       body: JSON.stringify(customerData),
       headers: {
@@ -61,6 +62,7 @@ export default function CustomerInfo({ customer, id }) {
           <EditButton onClick={() => setIsModalOpen(true)}>
             Kundeninfo bearbeiten
           </EditButton>
+          <Upload customer={customer} id={id} mutate={mutate} />
         </InfoParagraphContainer>
       )}
       <ReactModal
