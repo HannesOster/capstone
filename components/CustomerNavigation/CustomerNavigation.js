@@ -2,8 +2,8 @@ import { Container } from "../Buttons/styles";
 import { EditButton } from "../CustomerInfo/styles";
 
 function getGoogleMapsLink(customer) {
-  const { street, location, plz } = customer;
-  const address = `${street}, ${location}, ${plz}`;
+  const { street, location, areaCode } = customer;
+  const address = `${street}, ${location}, ${areaCode}`;
   const encodedAddress = encodeURIComponent(address);
   return `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
 }
