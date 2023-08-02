@@ -85,7 +85,6 @@ const MenuContainer = styled.section`
   display: flex;
   flex-direction: column;
   margin: 130px 0 30px 30px;
-
   gap: 30px;
 `;
 const MenuLink = styled(Link)`
@@ -115,7 +114,6 @@ const MenuButton = styled.button`
   border-radius: 10px;
   text-align: center;
   font-size: 1.5rem;
-
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
