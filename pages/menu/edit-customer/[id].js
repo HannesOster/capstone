@@ -1,11 +1,11 @@
 import Header from "../../../components/Header/Header";
+import { useRouter } from "next/router";
+import useSWR from "swr";
 import {
   CustomerFormInput,
   Form,
   FormButton,
 } from "../../../page-styles/styles";
-import { useRouter } from "next/router";
-import useSWR from "swr";
 
 export default function EditCustomer() {
   const router = useRouter();

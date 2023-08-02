@@ -1,13 +1,11 @@
-import { MenuButton } from "../../../components/Buttons/styles";
 import Header from "../../../components/Header/Header";
-import { StyledSearchInput } from "../../../components/SearchInput/styles";
+import { useRouter } from "next/router";
+import useSWR from "swr";
 import {
   CustomerFormInput,
   Form,
   FormButton,
 } from "../../../page-styles/styles";
-import { useRouter } from "next/router";
-import useSWR from "swr";
 
 export default function AddCustomer() {
   const router = useRouter();
