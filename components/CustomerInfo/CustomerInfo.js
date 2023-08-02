@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useSWR from "swr";
 import { GreenButton, RedButton } from "../Buttons/styles";
 import ReactModal from "react-modal";
