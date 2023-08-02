@@ -14,6 +14,7 @@ import {
   InfoParagraphContainer,
   EditButton,
 } from "./styles";
+import Upload from "../ImageUpload/ImageUpload";
 
 export default function CustomerInfo({ customer, id }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -61,6 +62,7 @@ export default function CustomerInfo({ customer, id }) {
           <EditButton onClick={() => setIsModalOpen(true)}>
             Kundeninfo bearbeiten
           </EditButton>
+          <Upload customer={customer} id={id} />
         </InfoParagraphContainer>
       )}
       <ReactModal

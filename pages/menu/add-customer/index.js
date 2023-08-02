@@ -1,4 +1,6 @@
+import { MenuButton } from "../../../components/Buttons/styles";
 import Header from "../../../components/Header/Header";
+import { StyledSearchInput } from "../../../components/SearchInput/styles";
 import {
   CustomerFormInput,
   Form,

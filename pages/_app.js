@@ -2,14 +2,10 @@ import GlobalStyle, { theme } from "../styles";
 import Head from "next/head";
 import Navigation from "../components/Navigation/Navigation";
 import { useState } from "react";
-import { useRouter } from "next/router";
 import { SWRConfig } from "swr";
 import { ThemeProvider } from "styled-components";
-import Header from "../components/Header/Header";
 
 export default function App({ Component, pageProps }) {
-  const router = useRouter();
-
   const [boxes, setBoxes] = useState([0, 0]);
   const [buckets, setBuckets] = useState([0, 0]);
 
@@ -34,7 +30,7 @@ export default function App({ Component, pageProps }) {
           <Head>
             <title>Pfand App Osterkamp</title>
           </Head>
-          <Header />
+
           <Component
             boxes={boxes}
             buckets={buckets}

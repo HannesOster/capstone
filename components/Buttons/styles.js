@@ -90,7 +90,7 @@ const MenuContainer = styled.section`
 `;
 const MenuLink = styled(Link)`
   background: linear-gradient(to right, #ffc700, #ffa500);
-  color: white;
+  color: ${(props) => props.theme.sixth};
   text-decoration: none;
   width: 95%;
   padding: 30px 40px;
@@ -109,7 +109,7 @@ const MenuLink = styled(Link)`
 `;
 const MenuButton = styled.button`
   background: linear-gradient(to right, #ffc700, #ffa500);
-  color: white;
+  color: ${(props) => props.theme.sixth};
   width: 95%;
   padding: 30px 40px;
   border-radius: 10px;

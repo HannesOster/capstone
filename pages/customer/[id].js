@@ -55,7 +55,6 @@ export default function Deposit({
         setBuckets={setBuckets}
       />
       <CustomerInfo id={id} customer={customer} />
-      <Upload id={id} customer={customer} mutate={mutate} />
     </>
   );
 }

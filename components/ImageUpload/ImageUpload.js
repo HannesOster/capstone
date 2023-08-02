@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styled from "styled-components";
+import { ImageContainer, Form } from "./styles";
 import { GreenButton } from "../Buttons/styles";
 
 export default function Upload({ id, customer, mutate }) {
@@ -44,8 +44,8 @@ export default function Upload({ id, customer, mutate }) {
           <Image
             src={image.url}
             alt="Uploaded image"
-            height={image.height / 2}
-            width={image.width / 2}
+            height={image.height / 3.5}
+            width={image.width / 3.5}
             style={{ borderRadius: 15 }}
           />
         </ImageContainer>
@@ -58,21 +58,3 @@ export default function Upload({ id, customer, mutate }) {
     </>
   );
 }
-
-const Form = styled.form`
-  margin-bottom: 200px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 30px;
-`;
-
-const ImageContainer = styled.div`
-  max-width: 40rem;
-  margin: 0 auto;
-  border: 2px solid grey;
-  border-radius: 1rem;
-  padding: 1rem;
-`;

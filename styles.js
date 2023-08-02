@@ -22,5 +22,6 @@ const theme = {
   third: "#fff6f4",
   fourth: "#d4c5ae",
   fifth: "#ede9d0",
+  sixth: "#1F1C1C",
 };
 export { theme };
