@@ -16,7 +16,7 @@ export default function Upload({ id, customer, mutate }) {
       const img = await response.json();
 
       const { secure_url, width, height } = img;
-      console.log("Browser: response from API: ", img);
+
       try {
         console.log(id);
         const response = await fetch(`/api/customers/${id}`, {
