@@ -15,9 +15,14 @@ export default async function handler(request, response) {
     response.status(200).json(customer);
   }
   if (request.method === "PATCH") {
-    const updatedCustomer = request.body;
-    await Customer.findByIdAndUpdate(id, updatedCustomer);
-    response.status(200).json({ status: "Customer successfully updated." });
-    return;
+    try {
+      const updatedCustomer = request.body;
+      await Customer.findByIdAndUpdate(id, updatedCustomer);
+      response.status(200).json({ status: "Customer successfully updated." });
+      return;
+    } catch (error) {
+      console.error(error);
+      return response.status(400).json({ error: error.message });
+    }
   }
 }
