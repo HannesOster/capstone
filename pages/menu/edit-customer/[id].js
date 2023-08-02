@@ -59,11 +59,11 @@ export default function EditCustomer() {
           name="location"
           type="text"
         />
-        <label htmlFor="plz">Postleitzahl:</label>
+        <label htmlFor="areaCode">Postleitzahl:</label>
         <CustomerFormInput
-          defaultValue={customer ? customer.plz : ""}
-          id="plz"
-          name="plz"
+          defaultValue={customer ? customer.areaCode : ""}
+          id="areaCode"
+          name="areaCode"
           type="text"
           minLength="5"
           maxLength="5"

@@ -44,10 +44,10 @@ export default function AddCustomer() {
         <CustomerFormInput id="street" name="street" type="text" />
         <label htmlFor="location">Ort:</label>
         <CustomerFormInput id="location" name="location" type="text" />
-        <label htmlFor="plz">Postleitzahl:</label>
+        <label htmlFor="areaCode">Postleitzahl:</label>
         <CustomerFormInput
-          id="plz"
-          name="plz"
+          id="areaCode"
+          name="areaCode"
           type="text"
           minLength="5"
           maxLength="5"
