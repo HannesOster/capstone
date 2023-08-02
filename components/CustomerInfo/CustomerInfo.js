@@ -62,7 +62,7 @@ export default function CustomerInfo({ customer, id }) {
           <EditButton onClick={() => setIsModalOpen(true)}>
             Kundeninfo bearbeiten
           </EditButton>
-          <Upload customer={customer} id={id} />
+          <Upload customer={customer} id={id} mutate={mutate} />
         </InfoParagraphContainer>
       )}
       <ReactModal
