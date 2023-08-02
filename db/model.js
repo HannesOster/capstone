@@ -8,7 +8,7 @@ const customerSchema = new Schema({
   buckets: { type: Number, required: true },
   street: { type: String, required: false },
   location: { type: String, required: false },
-  plz: { type: String, required: false },
+  areaCode: { type: String, required: false },
   info: { type: String, required: false },
   timestamp: { type: Date, required: false },
   image: {
