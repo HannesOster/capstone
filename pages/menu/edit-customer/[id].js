@@ -26,8 +26,6 @@ export default function EditCustomer() {
     });
 
     if (!response.ok) {
-      console.error(response.status);
-
       return;
     }
     mutate();
