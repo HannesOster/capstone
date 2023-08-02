@@ -13,9 +13,13 @@ export default async function handler(request, response) {
     }
   }
   if (request.method === "PATCH") {
-    const updatedStock = request.body;
-    await Stock.findOneAndUpdate({}, updatedStock);
-    response.status(200).json({ status: "Stock successfully updated." });
-    return;
+    try {
+      const updatedStock = request.body;
+      await Stock.findOneAndUpdate({}, updatedStock);
+      response.status(200).json({ status: "Stock successfully updated." });
+      return;
+    } catch (error) {
+      return response.status(500).json({ error: "Internal Server Error" });
+    }
   }
 }
