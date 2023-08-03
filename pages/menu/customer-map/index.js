@@ -1,6 +1,8 @@
 import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
-import Map from "../../../components/Map";
+import dynamic from "next/dynamic";
 import useSWR from "swr";
+
+const Map = dynamic(() => import("../../../components/Map"), { ssr: false });
 
 export default function CustomerMap() {
   const { data, error, isLoading } = useSWR("/api/customers", {
