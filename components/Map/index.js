@@ -30,7 +30,7 @@ export default function Map({ markers }) {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {markers.map((marker) => {
+      {markers?.map((marker) => {
         return (
           <Marker
             key={marker.id}
@@ -39,7 +39,7 @@ export default function Map({ markers }) {
           >
             <Popup>
               <h2>{marker.name}</h2>
-              <p>This is a very interesting spot</p>
+              <p>Kisten:{marker.boxes}</p>
             </Popup>
           </Marker>
         );

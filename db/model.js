@@ -11,6 +11,8 @@ const customerSchema = new Schema({
   areaCode: { type: String, required: false },
   info: { type: String, required: false },
   timestamp: { type: Date, required: false },
+  lat: { type: Number, required: false },
+  lon: { type: Number, required: false },
   image: {
     url: { type: String, required: false },
     width: { type: Number, required: false },

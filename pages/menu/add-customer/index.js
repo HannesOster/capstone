@@ -7,6 +7,14 @@ import {
   FormButton,
 } from "../../../page-styles/styles";
 
+async function geocodeAddress(address) {
+  const response = await fetch(
+    `https://nominatim.openstreetmap.org/search?q=${address}&format=json`
+  );
+  const data = await response.json();
+  return data;
+}
+
 export default function AddCustomer() {
   const router = useRouter();
   const { mutate } = useSWR("/api/customers");
@@ -15,7 +23,17 @@ export default function AddCustomer() {
     event.preventDefault();
     const formData = new FormData(event.target);
     const withoutDepositCustomer = Object.fromEntries(formData);
-    const customer = { ...withoutDepositCustomer, boxes: 0, buckets: 0 };
+    const { street, location, areaCode } = withoutDepositCustomer;
+    const geoData = await geocodeAddress(`${street}, ${location}, ${areaCode}`);
+    console.log(geoData);
+    const { lat, lon } = geoData[0];
+    const customer = {
+      ...withoutDepositCustomer,
+      lat: lat,
+      lon: lon,
+      boxes: 0,
+      buckets: 0,
+    };
     const response = await fetch(`/api/customers`, {
       method: "POST",
       body: JSON.stringify(customer),

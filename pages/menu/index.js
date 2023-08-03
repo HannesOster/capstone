@@ -39,7 +39,7 @@ export default function Menu() {
         <MenuButton type="button" onClick={openModal}>
           Lagerbestand
         </MenuButton>{" "}
-        <MenuLink href="/menu/edit-customer/search">Karte</MenuLink>
+        <MenuLink href="/menu/customer-map">Karte</MenuLink>
       </MenuContainer>
       <Modal
         isOpen={isModalOpen}
