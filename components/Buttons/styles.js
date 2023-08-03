@@ -84,14 +84,15 @@ const SaveIcon = styled(FiSave)`
 const MenuContainer = styled.section`
   display: flex;
   flex-direction: column;
-  margin: 130px 0 30px 30px;
+  margin-top: 130px;
+  align-items: center;
   gap: 30px;
 `;
 const MenuLink = styled(Link)`
   background: linear-gradient(to right, #ffc700, #ffa500);
   color: ${(props) => props.theme.sixth};
   text-decoration: none;
-  width: 95%;
+  width: 80%;
   padding: 30px 40px;
   border-radius: 10px;
   text-align: center;
@@ -109,7 +110,7 @@ const MenuLink = styled(Link)`
 const MenuButton = styled.button`
   background: linear-gradient(to right, #ffc700, #ffa500);
   color: ${(props) => props.theme.sixth};
-  width: 95%;
+  width: 80%;
   padding: 30px 40px;
   border-radius: 10px;
   text-align: center;

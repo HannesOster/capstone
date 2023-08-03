@@ -38,6 +38,9 @@ const HeadingTableRow = styled.tr`
   left: 0;
   right: 0;
 `;
+const StyledTableParagraph = styled.p`
+  margin-left: 3px;
+`;
 
 export {
   StyledTable,
@@ -45,4 +48,5 @@ export {
   StyledTableCell,
   StyledTableRow,
   HeadingTableRow,
+  StyledTableParagraph,
 };
