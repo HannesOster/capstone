@@ -7,9 +7,10 @@ import "leaflet-defaulticon-compatibility";
 import LocationMarker from "./LocationMarker";
 
 const StyledMapContainer = styled(MapContainer)`
-  height: 30rem;
-  width: 50rem;
+  height: 45rem;
+  width: 100%;
   margin: 0 auto;
+  z-index: 0;
 `;
 
 const goldIcon = new L.Icon({
