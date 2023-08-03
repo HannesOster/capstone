@@ -23,7 +23,7 @@ const goldIcon = new L.Icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
 });
-51.601825650859126, 6.659980914069578;
+
 export default function Map({ markers }) {
   return (
     <StyledMapContainer center={[51.601, 6.659]} zoom={9} scrollWheelZoom>
