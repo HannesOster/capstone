@@ -9,7 +9,7 @@ import LocationMarker from "./LocationMarker";
 const StyledMapContainer = styled(MapContainer)`
   height: 45rem;
   width: 100%;
-  margin: 0 auto;
+  margin-top: 100px;
   z-index: 0;
 `;
 

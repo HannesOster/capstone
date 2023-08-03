@@ -1,6 +1,7 @@
 import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
 import dynamic from "next/dynamic";
 import useSWR from "swr";
+import Header from "../../../components/Header/Header";
 
 const Map = dynamic(() => import("../../../components/Map"), { ssr: false });
 
@@ -25,5 +26,10 @@ export default function CustomerMap() {
     };
   });
   console.log(markers);
-  return <Map markers={markers} />;
+  return (
+    <>
+      <Header />
+      <Map markers={markers} />
+    </>
+  );
 }
