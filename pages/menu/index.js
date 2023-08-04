@@ -6,6 +6,7 @@ import {
   MenuButton,
   MenuContainer,
   MenuLink,
+  NewMenuButton,
 } from "../../components/Buttons/styles";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import {
@@ -38,7 +39,7 @@ export default function Menu() {
         <MenuLink href="/menu/edit-customer/search">Kunden bearbeiten</MenuLink>
         <MenuButton type="button" onClick={openModal}>
           Lagerbestand
-        </MenuButton>{" "}
+        </MenuButton>
         <MenuLink href="/menu/customer-map">Karte</MenuLink>
       </MenuContainer>
       <Modal

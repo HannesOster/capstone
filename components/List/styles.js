@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 const StyledTableHeading = styled.th`
   background-color: ${(props) =>
-    props.active ? "${(props) => props.theme.third}" : props.theme.primary};
-  color: ${(props) =>
-    props.active ? "black" : "${(props) => props.theme.third}"};
+    props.active ? props.theme.third : props.theme.primary};
+  color: ${(props) => (props.active ? "black" : props.theme.third)};
   text-align: center;
 
   &:first-child {

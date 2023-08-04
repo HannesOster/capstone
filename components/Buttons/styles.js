@@ -85,43 +85,53 @@ const MenuContainer = styled.section`
   display: flex;
   flex-direction: column;
   margin-top: 130px;
+  margin-bottom: 130px;
   align-items: center;
   gap: 30px;
 `;
 const MenuLink = styled(Link)`
-  background: linear-gradient(to right, #ffc700, #ffa500);
-  color: ${(props) => props.theme.sixth};
-  text-decoration: none;
-  width: 80%;
+  color: ${(props) => props.theme.secondary};
+  background-color: ${(props) => props.theme.third};
+  border: 3px solid ${(props) => props.theme.secondary};
   padding: 30px 40px;
+  width: 80%;
   border-radius: 10px;
-  text-align: center;
   font-size: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  text-decoration: none;
+  text-align: center;
   font-weight: normal;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
 
   &:hover {
-    background: linear-gradient(to right, #ffa500, #ffd700);
-    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
   }
 `;
 const MenuButton = styled.button`
-  background: linear-gradient(to right, #ffc700, #ffa500);
-  color: ${(props) => props.theme.sixth};
-  width: 80%;
+  color: ${(props) => props.theme.secondary};
+  background-color: ${(props) => props.theme.third};
+  border: 3px solid ${(props) => props.theme.secondary};
   padding: 30px 40px;
+  width: 80%;
   border-radius: 10px;
-  text-align: center;
   font-size: 1.5rem;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
 
   &:hover {
-    background: linear-gradient(to right, #ffa500, #ffd700);
-    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
   }
 `;
 
