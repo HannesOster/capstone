@@ -5,6 +5,7 @@ export const StyledTableHeading = styled.th`
     props.active ? props.theme.third : props.theme.primary};
   color: ${(props) => (props.active ? "black" : props.theme.third)};
   text-align: center;
+  border-bottom: ${(props) => (props.active ? "2px solid black" : "none")};
 
   &:first-child {
     text-align: left;
@@ -14,6 +15,7 @@ export const StyledTableCell = styled.td`
   width: 25%;
   border-right: 1px solid black;
   text-align: center;
+  font-weight: 550;
   &:first-child {
     text-align: left;
   }

@@ -24,6 +24,6 @@ const theme = {
   fifth: "#ede9d0",
   sixth: "#1F1C1C",
   success: "green",
-  danger: "red",
+  danger: "#D31119",
 };
 export { theme };

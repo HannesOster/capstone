@@ -71,6 +71,18 @@ export default function List() {
       setSortMode("boxes");
     }
   }
+  function sortByDate() {
+    if (sortMode === "date") {
+      setSortedArray(data);
+      setSortMode(null);
+    } else {
+      const sorted = [...sortedArray].sort(
+        (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
+      );
+      setSortedArray(sorted);
+      setSortMode("date");
+    }
+  }
 
   if (error) {
     return <h1>Error loading data</h1>;
@@ -108,7 +120,14 @@ export default function List() {
             )}
           </StyledTableHeading>
           <StyledTableHeading>Eimer</StyledTableHeading>
-          <StyledTableHeading>Datum</StyledTableHeading>
+          <StyledTableHeading onClick={sortByDate} active={sortMode === "date"}>
+            Datum{" "}
+            {sortMode === "date" ? (
+              <AiOutlineArrowDown />
+            ) : (
+              <AiOutlineArrowUp />
+            )}
+          </StyledTableHeading>
         </HeadingTableRow>
         {sortedArray.map((customer) => (
           <StyledTableRow key={customer._id}>

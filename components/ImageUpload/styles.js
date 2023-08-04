@@ -26,7 +26,7 @@ export const BrowseInput = styled.input`
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 100%;
+  width: 60%;
   outline: none;
   margin-top: 20px;
   background-color: ${(props) => props.theme.third};

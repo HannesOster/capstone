@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { FiSave } from "react-icons/fi";
 import Link from "next/link";
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   color: ${(props) =>
     props.variant === "success"
       ? props.theme.success
@@ -12,7 +12,7 @@ const StyledLink = styled(Link)`
   background-color: ${(props) => props.theme.third};
   text-decoration: none;
   text-align: center;
-  border: 2px solid
+  border: 3px solid
     ${(props) =>
       props.variant === "success"
         ? props.theme.success
@@ -31,7 +31,8 @@ const StyledLink = styled(Link)`
       : "30px 40px"};
 
   text-decoration: none;
-  font-size: 1rem;
+  font-size: ${(props) =>
+    props.size === "s" ? "1rem" : props.size === "m" ? "1rem" : "1.3rem"};
   width: ${(props) => props.width};
   font-weight: normal;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -48,7 +49,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Container = styled.section`
+export const Container = styled.section`
   display: flex;
   width: 100%;
   height: 100px;
@@ -57,7 +58,7 @@ const Container = styled.section`
   align-items: center;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   color: ${(props) =>
     props.variant === "success"
       ? props.theme.success
@@ -65,7 +66,7 @@ const Button = styled.button`
       ? props.theme.danger
       : props.theme.secondary};
   background-color: ${(props) => props.theme.third};
-  border: 2px solid
+  border: 3px solid
     ${(props) =>
       props.variant === "success"
         ? props.theme.success
@@ -84,7 +85,8 @@ const Button = styled.button`
       : "30px 40px"};
   margin-top: ${(props) => (props.type === "submit" ? "30px" : "0px")};
   text-decoration: none;
-  font-size: 1rem;
+  font-size: ${(props) =>
+    props.size === "s" ? "1rem" : props.size === "m" ? "1rem" : "1.3rem"};
   width: ${(props) => props.width};
   font-weight: normal;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -101,10 +103,10 @@ const Button = styled.button`
   }
 `;
 
-const SaveIcon = styled(FiSave)`
+export const SaveIcon = styled(FiSave)`
   margin-right: 10px;
 `;
-const MenuContainer = styled.section`
+export const MenuContainer = styled.section`
   display: flex;
   flex-direction: column;
   margin-top: 130px;
@@ -112,5 +114,3 @@ const MenuContainer = styled.section`
   align-items: center;
   gap: 30px;
 `;
-
-export { MenuContainer, Container, Button, SaveIcon, StyledLink };
