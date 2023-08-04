@@ -51,7 +51,10 @@ export default function Upload({ id, customer, mutate }) {
       )}
 
       <Form onSubmit={(event) => submitImage(event, id)}>
-        <BrowseInput type="file" name="file" />
+        <label htmlFor="camera">
+          <div>Hochladen</div>
+        </label>
+        <BrowseInput type="file" name="file" id="camera" />
         <Button size="m" variant="success" type="submit">
           Hochladen
         </Button>

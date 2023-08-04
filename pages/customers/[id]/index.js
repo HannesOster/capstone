@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
-import Header from "../../components/Header/Header";
-import AddDeposit from "../../components/AddDeposit/AddDeposit";
-import Counters from "../../components/Counters/Counters";
-import CustomerInfo from "../../components/CustomerInfo/CustomerInfo";
-import CustomerNavigation from "../../components/CustomerNavigation/CustomerNavigation";
+import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
+import Header from "../../../components/Header/Header";
+import AddDeposit from "../../../components/AddDeposit/AddDeposit";
+import Counters from "../../../components/Counters/Counters";
+import CustomerInfo from "../../../components/CustomerInfo/CustomerInfo";
+import CustomerNavigation from "../../../components/CustomerNavigation/CustomerNavigation";
 import { useState } from "react";
-import { SaveButton } from "../../components/Buttons/SaveButton";
-import { Container, StyledLink } from "../../components/Buttons/styles";
+import { SaveButton } from "../../../components/Buttons/SaveButton";
+import { Container, StyledLink } from "../../../components/Buttons/styles";
 
 async function handleSave(
   id,

@@ -9,6 +9,7 @@ import {
   Invitation,
   UserSearchIcon,
 } from "./styles";
+import { routes } from "../../utils/routes";
 
 function SearchInput({ mode }) {
   const { data } = useSWR("/api/customers", { fallbackData: [] });
@@ -42,8 +43,8 @@ function SearchInput({ mode }) {
               key={option._id}
               href={
                 mode === "edit"
-                  ? `/menu/edit-customer/${option._id}`
-                  : `/customer/${option._id}`
+                  ? routes.customerEditById(option._id)
+                  : routes.customerById(option._id)
               }
             >
               <SearchOption>{option.name}</SearchOption>

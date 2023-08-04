@@ -1,8 +1,8 @@
-import Header from "../../../components/Header/Header";
+import Header from "../../components/Header/Header";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { Form, FormContainer, Input } from "../../../page-styles/styles";
-import { Button } from "../../../components/Buttons/styles";
+import { Form, FormContainer, Input } from "../../page-styles/styles";
+import { Button } from "../../components/Buttons/styles";
 
 async function geocodeAddress(address) {
   const response = await fetch(

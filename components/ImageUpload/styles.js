@@ -24,6 +24,7 @@ export const BrowseInput = styled.input`
   text-align: center;
   padding: 10px 12px;
   font-size: 16px;
+  display: none;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 60%;

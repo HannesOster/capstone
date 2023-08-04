@@ -9,6 +9,7 @@ import {
 } from "../../components/Buttons/styles";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import { StockContainer, modalStyles } from "../../page-styles/styles";
+import { routes } from "../../utils/routes";
 
 export default function Menu() {
   const { data } = useSWR("/api/stock", {
@@ -30,16 +31,16 @@ export default function Menu() {
     <>
       <Header />
       <MenuContainer>
-        <StyledLink color="theme.secondary" href="/menu/add-customer">
+        <StyledLink color="theme.secondary" href={routes.customersAdd}>
           Kunden hinzufügen
         </StyledLink>
-        <StyledLink href="/menu/edit-customer/search">
+        <StyledLink href={routes.customersEditSearch}>
           Kunden bearbeiten
         </StyledLink>
         <Button type="button" onClick={openModal}>
           Lagerbestand
         </Button>
-        <StyledLink href="/menu/customer-map">Karte</StyledLink>
+        <StyledLink href={routes.customersMap}>Karte</StyledLink>
       </MenuContainer>
       <Modal
         isOpen={isModalOpen}

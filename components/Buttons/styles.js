@@ -28,7 +28,7 @@ export const StyledLink = styled(Link)`
       ? "5px 20px"
       : props.size === "m"
       ? "10px 30px"
-      : "30px 40px"};
+      : "20px 30px"};
 
   text-decoration: none;
   font-size: ${(props) =>
@@ -82,7 +82,7 @@ export const Button = styled.button`
       ? "5px 20px"
       : props.size === "m"
       ? "10px 30px"
-      : "30px 40px"};
+      : "20px 30px"};
   margin-top: ${(props) => (props.type === "submit" ? "30px" : "0px")};
   text-decoration: none;
   font-size: ${(props) =>
