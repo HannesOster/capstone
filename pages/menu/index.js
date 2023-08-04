@@ -11,7 +11,7 @@ import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import { StockContainer, modalStyles } from "../../page-styles/styles";
 
 export default function Menu() {
-  const { data, error } = useSWR("/api/stock", {
+  const { data } = useSWR("/api/stock", {
     initialData: [],
     revalidateOnMount: true,
   });

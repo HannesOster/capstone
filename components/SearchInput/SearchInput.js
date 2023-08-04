@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useSWR from "swr";
-
+import { Input, InputContainer } from "../../page-styles/styles";
 import {
   StyledSearchSection,
   SearchOption,
@@ -9,7 +9,6 @@ import {
   Invitation,
   UserSearchIcon,
 } from "./styles";
-import { Input, InputContainer } from "../../page-styles/styles";
 
 function SearchInput({ mode }) {
   const { data } = useSWR("/api/customers", { fallbackData: [] });
