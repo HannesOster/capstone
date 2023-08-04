@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useSWR from "swr";
-import { Button, GreenButton, RedButton } from "../Buttons/styles";
+import { Button } from "../Buttons/styles";
 import ReactModal from "react-modal";
 import {
   CustomerInfoInput,

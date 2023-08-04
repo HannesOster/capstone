@@ -4,17 +4,11 @@ import Modal from "react-modal";
 import useSWR from "swr";
 import {
   Button,
-  MenuButton,
   MenuContainer,
-  MenuLink,
   StyledLink,
 } from "../../components/Buttons/styles";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
-import {
-  ModalCloseButton,
-  StockContainer,
-  modalStyles,
-} from "../../page-styles/styles";
+import { StockContainer, modalStyles } from "../../page-styles/styles";
 
 export default function Menu() {
   const { data, error } = useSWR("/api/stock", {
@@ -56,7 +50,9 @@ export default function Menu() {
         <StockContainer>
           <h2>Lagerbestand</h2>
           <p>{data ? data[0].stock : <LoadingSpinner />} Kisten</p>
-          <ModalCloseButton onClick={closeModal}>Schließen</ModalCloseButton>
+          <Button size="s" variant="danger" onClick={closeModal}>
+            Schließen
+          </Button>
         </StockContainer>
       </Modal>
     </>

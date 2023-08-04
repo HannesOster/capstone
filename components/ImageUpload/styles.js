@@ -19,3 +19,15 @@ export const ImageContainer = styled.div`
   display: flex;
   place-content: center;
 `;
+
+export const BrowseInput = styled.input`
+  text-align: center;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  outline: none;
+  margin-top: 20px;
+  background-color: ${(props) => props.theme.third};
+`;

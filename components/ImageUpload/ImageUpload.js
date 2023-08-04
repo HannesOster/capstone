@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ImageContainer, Form } from "./styles";
+import { ImageContainer, Form, BrowseInput } from "./styles";
 import { Button } from "../Buttons/styles";
 
 export default function Upload({ id, customer, mutate }) {
@@ -51,7 +51,7 @@ export default function Upload({ id, customer, mutate }) {
       )}
 
       <Form onSubmit={(event) => submitImage(event, id)}>
-        <input type="file" name="file" />
+        <BrowseInput type="file" name="file" />
         <Button size="m" variant="success" type="submit">
           Hochladen
         </Button>

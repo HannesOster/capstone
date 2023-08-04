@@ -1,13 +1,7 @@
 import Header from "../../../components/Header/Header";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import {
-  CustomerFormInput,
-  Form,
-  FormButton,
-  FormContainer,
-  Input,
-} from "../../../page-styles/styles";
+import { Form, FormContainer, Input } from "../../../page-styles/styles";
 import { Button } from "../../../components/Buttons/styles";
 
 async function geocodeAddress(address) {
@@ -60,11 +54,11 @@ export default function AddCustomer() {
       <FormContainer>
         <Form onSubmit={handleSubmit}>
           <label htmlFor="name">Kundenname:</label>
-          <Input id="name" maxLength="7" name="name" type="text" />
+          <Input id="name" maxLength="7" name="name" type="text" required />
           <label htmlFor="street">Straße und Hausnummer:</label>
-          <Input id="street" name="street" type="text" />
+          <Input id="street" name="street" type="text" required />
           <label htmlFor="location">Ort:</label>
-          <Input id="location" name="location" type="text" />
+          <Input id="location" name="location" type="text" required />
           <label htmlFor="areaCode">Postleitzahl:</label>
           <Input
             id="areaCode"
@@ -73,6 +67,7 @@ export default function AddCustomer() {
             minLength="5"
             maxLength="5"
             pattern="[0-9]{5}"
+            required
           />
           <Button size="m" type="submit">
             Bestätigen
