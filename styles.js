@@ -10,7 +10,7 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: Tahoma, Verdana, Helvetica, sans-serif;
-    font-weight: 600;
+    font-weight: 450;
     background-color: ${(props) => props.theme.third};
     color: #1F1C1C;
   }
