@@ -25,7 +25,7 @@ export default function CustomerMap() {
       boxes: customer.boxes,
     };
   });
-  console.log(markers);
+
   return (
     <>
       <Header />

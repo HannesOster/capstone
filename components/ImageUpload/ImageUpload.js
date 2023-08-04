@@ -18,7 +18,6 @@ export default function Upload({ id, customer, mutate }) {
       const { secure_url, width, height } = img;
 
       try {
-        console.log(id);
         const response = await fetch(`/api/customers/${id}`, {
           method: "PATCH",
           body: JSON.stringify({

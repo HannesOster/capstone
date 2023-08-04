@@ -32,6 +32,9 @@ export default function Map({ markers }) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {markers?.map((marker) => {
+        if (!marker.lat) {
+          return null;
+        }
         return (
           <Marker
             key={marker.id}

@@ -25,7 +25,6 @@ export default function AddCustomer() {
     const withoutDepositCustomer = Object.fromEntries(formData);
     const { street, location, areaCode } = withoutDepositCustomer;
     const geoData = await geocodeAddress(`${street}, ${location}, ${areaCode}`);
-    console.log(geoData);
     const { lat, lon } = geoData[0];
     const customer = {
       ...withoutDepositCustomer,
