@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ImageContainer, Form } from "./styles";
-import { GreenButton } from "../Buttons/styles";
+import { Button } from "../Buttons/styles";
 
 export default function Upload({ id, customer, mutate }) {
   async function submitImage(event, id) {
@@ -52,7 +52,9 @@ export default function Upload({ id, customer, mutate }) {
 
       <Form onSubmit={(event) => submitImage(event, id)}>
         <input type="file" name="file" />
-        <GreenButton type="submit">Hochladen</GreenButton>
+        <Button size="m" variant="success" type="submit">
+          Hochladen
+        </Button>
       </Form>
     </>
   );

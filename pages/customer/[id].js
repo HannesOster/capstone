@@ -8,8 +8,7 @@ import CustomerInfo from "../../components/CustomerInfo/CustomerInfo";
 import CustomerNavigation from "../../components/CustomerNavigation/CustomerNavigation";
 import { useState } from "react";
 import { SaveButton } from "../../components/Buttons/SaveButton";
-import { CancelButton } from "../../components/Buttons/CancelButton";
-import { Container } from "../../components/Buttons/styles";
+import { Container, StyledLink } from "../../components/Buttons/styles";
 
 async function handleSave(
   id,
@@ -95,7 +94,9 @@ export default function Deposit() {
         setBuckets={setBuckets}
       />
       <Container>
-        <CancelButton />
+        <StyledLink size="s" variant="danger" href="/">
+          Abbrechen
+        </StyledLink>
         <SaveButton
           handleClick={() =>
             handleSave(

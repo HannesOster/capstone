@@ -31,28 +31,6 @@ const CustomerFormInput = styled.input`
   background-color: ${(props) => props.theme.third};
 `;
 
-const FormButton = styled.button`
-  margin-top: 30px;
-  color: ${(props) => props.theme.sixth};
-  background-color: ${(props) => props.theme.secondary};
-  text-decoration: none;
-  width: 50%;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  background: linear-gradient(to right, #ffc700, #ffa500);
-  border-radius: 10px;
-  text-align: center;
-  font-size: 1.5rem;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  &:hover {
-    background: linear-gradient(to right, #ffa500, #ffd700);
-    transform: scale(1.05);
-  }
-`;
-
 const StockContainer = styled.section`
   display: flex;
   align-items: center;
@@ -78,7 +56,6 @@ const ModalCloseButton = styled.button`
 export {
   CustomerFormInput,
   Form,
-  FormButton,
   StockContainer,
   ModalCloseButton,
   modalStyles,

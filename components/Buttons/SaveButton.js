@@ -1,10 +1,10 @@
-import { GreenButton, SaveIcon } from "./styles";
+import { Button, SaveIcon } from "./styles";
 
 export function SaveButton({ handleClick }) {
   return (
-    <GreenButton onClick={handleClick}>
+    <Button size="s" variant="success" onClick={handleClick}>
       <SaveIcon />
       Speichern
-    </GreenButton>
+    </Button>
   );
 }

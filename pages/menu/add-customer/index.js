@@ -6,6 +6,7 @@ import {
   Form,
   FormButton,
 } from "../../../page-styles/styles";
+import { Button } from "../../../components/Buttons/styles";
 
 async function geocodeAddress(address) {
   const response = await fetch(
@@ -70,7 +71,9 @@ export default function AddCustomer() {
           maxLength="5"
           pattern="[0-9]{5}"
         />
-        <FormButton type="submit">Bestätigen</FormButton>
+        <Button size="m" type="submit">
+          Bestätigen
+        </Button>
       </Form>
     </>
   );

@@ -1,11 +1,8 @@
 import Header from "../../../components/Header/Header";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import {
-  CustomerFormInput,
-  Form,
-  FormButton,
-} from "../../../page-styles/styles";
+import { CustomerFormInput, Form } from "../../../page-styles/styles";
+import { Button } from "../../../components/Buttons/styles";
 
 export default function EditCustomer() {
   const router = useRouter();
@@ -69,7 +66,9 @@ export default function EditCustomer() {
           maxLength="5"
           pattern="[0-9]{5}"
         />
-        <FormButton type="submit">Bestätigen</FormButton>
+        <Button size="m" type="submit">
+          Bestätigen
+        </Button>
       </Form>
     </>
   );

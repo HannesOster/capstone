@@ -3,10 +3,11 @@ import Header from "../../components/Header/Header";
 import Modal from "react-modal";
 import useSWR from "swr";
 import {
+  Button,
   MenuButton,
   MenuContainer,
   MenuLink,
-  NewMenuButton,
+  StyledLink,
 } from "../../components/Buttons/styles";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import {
@@ -35,12 +36,16 @@ export default function Menu() {
     <>
       <Header />
       <MenuContainer>
-        <MenuLink href="/menu/add-customer">Kunden hinzufügen</MenuLink>
-        <MenuLink href="/menu/edit-customer/search">Kunden bearbeiten</MenuLink>
-        <MenuButton type="button" onClick={openModal}>
+        <StyledLink color="theme.secondary" href="/menu/add-customer">
+          Kunden hinzufügen
+        </StyledLink>
+        <StyledLink href="/menu/edit-customer/search">
+          Kunden bearbeiten
+        </StyledLink>
+        <Button type="button" onClick={openModal}>
           Lagerbestand
-        </MenuButton>
-        <MenuLink href="/menu/customer-map">Karte</MenuLink>
+        </Button>
+        <StyledLink href="/menu/customer-map">Karte</StyledLink>
       </MenuContainer>
       <Modal
         isOpen={isModalOpen}

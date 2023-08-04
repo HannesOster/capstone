@@ -2,14 +2,37 @@ import styled from "styled-components";
 import { FiSave } from "react-icons/fi";
 import Link from "next/link";
 
-const RedLink = styled(Link)`
-  color: red;
+const StyledLink = styled(Link)`
+  color: ${(props) =>
+    props.variant === "success"
+      ? props.theme.success
+      : props.variant === "danger"
+      ? props.theme.danger
+      : props.theme.secondary};
   background-color: ${(props) => props.theme.third};
-  border: 2px red solid;
-  border-radius: 5%;
-  padding: 5px 20px;
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid
+    ${(props) =>
+      props.variant === "success"
+        ? props.theme.success
+        : props.variant === "danger"
+        ? props.theme.danger
+        : props.theme.secondary};
+  border-radius: 5px;
+  width: ${(props) =>
+    props.size === "s" ? "none" : props.size === "m" ? "none" : "80%"};
+
+  padding: ${(props) =>
+    props.size === "s"
+      ? "5px 20px"
+      : props.size === "m"
+      ? "10px 30px"
+      : "30px 40px"};
+
   text-decoration: none;
   font-size: 1rem;
+  width: ${(props) => props.width};
   font-weight: normal;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s ease;
@@ -26,9 +49,20 @@ const RedLink = styled(Link)`
 `;
 
 const RedButton = styled.button`
-  color: red;
+  color: ${(props) =>
+    props.variant === "success"
+      ? props.theme.success
+      : props.variant === "danger"
+      ? props.theme.danger
+      : props.theme.secondary};
   background-color: ${(props) => props.theme.third};
-  border: 2px red solid;
+  border: 2px solid
+    ${(props) =>
+      props.variant === "success"
+        ? props.theme.success
+        : props.variant === "danger"
+        ? props.theme.danger
+        : props.theme.secondary};
   border-radius: 5%;
   padding: 5px 20px;
   text-decoration: none;
@@ -57,13 +91,36 @@ const Container = styled.section`
   align-items: center;
 `;
 
-const GreenButton = styled.button`
-  color: green;
+const Button = styled.button`
+  color: ${(props) =>
+    props.variant === "success"
+      ? props.theme.success
+      : props.variant === "danger"
+      ? props.theme.danger
+      : props.theme.secondary};
   background-color: ${(props) => props.theme.third};
-  border: 2px solid green;
-  padding: 5px 20px;
-  border-radius: 5%;
+  border: 2px solid
+    ${(props) =>
+      props.variant === "success"
+        ? props.theme.success
+        : props.variant === "danger"
+        ? props.theme.danger
+        : props.theme.secondary};
+  border-radius: 5px;
+  width: ${(props) =>
+    props.size === "s" ? "none" : props.size === "m" ? "none" : "80%"};
+
+  padding: ${(props) =>
+    props.size === "s"
+      ? "5px 20px"
+      : props.size === "m"
+      ? "10px 30px"
+      : "30px 40px"};
+  margin-top: ${(props) => (props.type === "submit" ? "30px" : "0px")};
+  text-decoration: none;
   font-size: 1rem;
+  width: ${(props) => props.width};
+  font-weight: normal;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s ease;
 
@@ -90,18 +147,37 @@ const MenuContainer = styled.section`
   gap: 30px;
 `;
 const MenuLink = styled(Link)`
-  color: ${(props) => props.theme.secondary};
+  color: ${(props) =>
+    props.variant === "success"
+      ? props.theme.success
+      : props.variant === "danger"
+      ? props.theme.danger
+      : props.theme.secondary};
   background-color: ${(props) => props.theme.third};
-  border: 3px solid ${(props) => props.theme.secondary};
-  padding: 30px 40px;
-  width: 80%;
-  border-radius: 10px;
-  font-size: 1.5rem;
+  border: 2px solid
+    ${(props) =>
+      props.variant === "success"
+        ? props.theme.success
+        : props.variant === "danger"
+        ? props.theme.danger
+        : props.theme.secondary};
+  border-radius: 5px;
+  width: ${(props) =>
+    props.size === "s" ? "none" : props.size === "m" ? "none" : "80%"};
+
+  padding: ${(props) =>
+    props.size === "s"
+      ? "5px 20px"
+      : props.size === "m"
+      ? "10px 30px"
+      : "30px 40px"};
+
+  text-decoration: none;
+  font-size: 1rem;
+  width: ${(props) => props.width};
+  font-weight: normal;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s ease;
-  text-decoration: none;
-  text-align: center;
-  font-weight: normal;
 
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -139,9 +215,9 @@ export {
   MenuContainer,
   RedButton,
   Container,
-  GreenButton,
+  Button,
   SaveIcon,
-  RedLink,
+  StyledLink,
   MenuLink,
   MenuButton,
 };
