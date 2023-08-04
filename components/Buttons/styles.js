@@ -12,6 +12,7 @@ export const StyledLink = styled(Link)`
   background-color: ${(props) => props.theme.third};
   text-decoration: none;
   text-align: center;
+  cursor: pointer;
   border: 3px solid
     ${(props) =>
       props.variant === "success"
@@ -65,6 +66,7 @@ export const Button = styled.button`
       : props.variant === "danger"
       ? props.theme.danger
       : props.theme.secondary};
+  cursor: pointer;
   background-color: ${(props) => props.theme.third};
   border: 3px solid
     ${(props) =>

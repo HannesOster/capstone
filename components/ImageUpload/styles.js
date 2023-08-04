@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AiOutlineCamera } from "react-icons/ai";
 
 export const Form = styled.form`
   margin-bottom: 200px;
@@ -31,4 +32,9 @@ export const BrowseInput = styled.input`
   outline: none;
   margin-top: 20px;
   background-color: ${(props) => props.theme.third};
+`;
+
+export const CameraIcon = styled(AiOutlineCamera)`
+  font-size: 50px;
+  cursor: pointer;
 `;
