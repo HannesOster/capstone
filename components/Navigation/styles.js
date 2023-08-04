@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
-import { BiNotepad } from "react-icons/Bi";
+import { BiNotepad } from "react-icons/bi";
 import { BsPeople } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 export const NavBar = styled.nav`
