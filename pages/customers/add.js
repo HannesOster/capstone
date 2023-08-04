@@ -64,7 +64,6 @@ export default function AddCustomer() {
             id="areaCode"
             name="areaCode"
             type="text"
-            minLength="5"
             maxLength="5"
             pattern="[0-9]{5}"
             required

@@ -6,8 +6,8 @@ export default function Header() {
       <StyledLogo
         src="/assets/osterkamp.jpg"
         alt="logo"
-        width={90}
-        height={60}
+        width={120}
+        height={70}
       />
     </StyledHeader>
   );

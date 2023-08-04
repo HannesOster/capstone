@@ -38,6 +38,7 @@ export const OptionLink = styled(Link)`
 
 export const Invitation = styled.h1`
   font-size: 20px;
+  text-align: center;
 `;
 export const UserSearchIcon = styled(TbUserSearch)`
   font-size: 100px;

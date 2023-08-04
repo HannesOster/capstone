@@ -8,11 +8,11 @@ export const StyledHeader = styled.header`
   width: 100%;
   height: 100px;
   z-index: 3;
+  display: flex;
+  align-items: center;
+  padding: 10px;
 `;
 export const StyledLogo = styled(Image)`
   border-radius: 5px;
-  position: fixed;
-  top: 20px;
-  left: 40px;
   background-color: ${(props) => props.theme.third};
 `;

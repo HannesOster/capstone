@@ -20,9 +20,7 @@ export const Form = styled.form`
   margin-top: 130px;
   display: flex;
   flex-direction: column;
-  width: 65%;
   line-height: 30px;
-  margin-left: 20px;
   align-items: center;
 `;
 export const Input = styled.input`
