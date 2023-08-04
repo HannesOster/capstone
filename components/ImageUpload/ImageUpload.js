@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { ImageContainer, Form, BrowseInput, CameraIcon } from "./styles";
-import { Button } from "../Buttons/styles";
 
 async function submitImage(event, id, mutate) {
   event.preventDefault();
