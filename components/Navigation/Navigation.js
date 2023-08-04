@@ -5,6 +5,7 @@ import {
   CustomersIcon,
   MenuIcon,
   IconContainer,
+  LinkContainer,
 } from "./styles";
 import { useRouter } from "next/router";
 
@@ -14,21 +15,27 @@ export default function Navigation() {
   return (
     <NavBar>
       <NavLink href="/">
-        <span>
+        <LinkContainer>
+          {" "}
           <IconContainer isActive={router.pathname === "/"}>
             <NotePadIcon />
-          </IconContainer>
-        </span>
+          </IconContainer>{" "}
+        </LinkContainer>
       </NavLink>
       <NavLink href="/customers">
-        <IconContainer isActive={router.pathname === "/customers"}>
-          <CustomersIcon />
-        </IconContainer>
+        {" "}
+        <LinkContainer>
+          <IconContainer isActive={router.pathname === "/customers"}>
+            <CustomersIcon />
+          </IconContainer>{" "}
+        </LinkContainer>
       </NavLink>
       <NavLink href="/menu">
-        <IconContainer isActive={router.pathname === "/menu"}>
-          <MenuIcon />
-        </IconContainer>
+        <LinkContainer>
+          <IconContainer isActive={router.pathname === "/menu"}>
+            <MenuIcon />
+          </IconContainer>
+        </LinkContainer>
       </NavLink>
     </NavBar>
   );

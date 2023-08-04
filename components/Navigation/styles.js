@@ -14,7 +14,11 @@ export const NavBar = styled.nav`
   align-items: center;
   border-top: 3px solid ${(props) => props.theme.primary};
 `;
-export const NavLink = styled(Link)``;
+export const NavLink = styled(Link)`
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+`;
 export const NotePadIcon = styled(BiNotepad)`
   font-size: 40px;
   cursor: pointer;
@@ -27,7 +31,12 @@ export const MenuIcon = styled(GiHamburgerMenu)`
   font-size: 40px;
   cursor: pointer;
 `;
-
+export const LinkContainer = styled.section`
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
 export const IconContainer = styled.section`
   border: solid 3px ${(props) => props.theme.primary};
   color: ${(props) =>

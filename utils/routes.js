@@ -5,5 +5,5 @@ export const routes = {
   customersAdd: "/customers/add",
   customersEditSearch: "/customers/edit/search",
   customerById: (id) => `/customers/${id}`,
-  customerEditById: (id) => `/customers/${id}/edit`,
+  customerEditById: (id) => `/customers/edit/${id}`,
 };
