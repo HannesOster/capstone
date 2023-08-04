@@ -48,40 +48,6 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const RedButton = styled.button`
-  color: ${(props) =>
-    props.variant === "success"
-      ? props.theme.success
-      : props.variant === "danger"
-      ? props.theme.danger
-      : props.theme.secondary};
-  background-color: ${(props) => props.theme.third};
-  border: 2px solid
-    ${(props) =>
-      props.variant === "success"
-        ? props.theme.success
-        : props.variant === "danger"
-        ? props.theme.danger
-        : props.theme.secondary};
-  border-radius: 5%;
-  padding: 5px 20px;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: normal;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
-  transition: box-shadow 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-  }
-
-  &:active {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    transform: translateY(0);
-  }
-`;
-
 const Container = styled.section`
   display: flex;
   width: 100%;
@@ -146,78 +112,5 @@ const MenuContainer = styled.section`
   align-items: center;
   gap: 30px;
 `;
-const MenuLink = styled(Link)`
-  color: ${(props) =>
-    props.variant === "success"
-      ? props.theme.success
-      : props.variant === "danger"
-      ? props.theme.danger
-      : props.theme.secondary};
-  background-color: ${(props) => props.theme.third};
-  border: 2px solid
-    ${(props) =>
-      props.variant === "success"
-        ? props.theme.success
-        : props.variant === "danger"
-        ? props.theme.danger
-        : props.theme.secondary};
-  border-radius: 5px;
-  width: ${(props) =>
-    props.size === "s" ? "none" : props.size === "m" ? "none" : "80%"};
 
-  padding: ${(props) =>
-    props.size === "s"
-      ? "5px 20px"
-      : props.size === "m"
-      ? "10px 30px"
-      : "30px 40px"};
-
-  text-decoration: none;
-  font-size: 1rem;
-  width: ${(props) => props.width};
-  font-weight: normal;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-  }
-
-  &:active {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    transform: translateY(0);
-  }
-`;
-const MenuButton = styled.button`
-  color: ${(props) => props.theme.secondary};
-  background-color: ${(props) => props.theme.third};
-  border: 3px solid ${(props) => props.theme.secondary};
-  padding: 30px 40px;
-  width: 80%;
-  border-radius: 10px;
-  font-size: 1.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-  }
-
-  &:active {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    transform: translateY(0);
-  }
-`;
-
-export {
-  MenuContainer,
-  RedButton,
-  Container,
-  Button,
-  SaveIcon,
-  StyledLink,
-  MenuLink,
-  MenuButton,
-};
+export { MenuContainer, Container, Button, SaveIcon, StyledLink };
