@@ -1,7 +1,7 @@
 import Header from "../../../components/Header/Header";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { CustomerFormInput, Form } from "../../../page-styles/styles";
+import { Form, Input } from "../../../page-styles/styles";
 import { Button } from "../../../components/Buttons/styles";
 
 export default function EditCustomer() {
@@ -35,7 +35,7 @@ export default function EditCustomer() {
       <Header />
       <Form onSubmit={(event) => handleEditSubmit(event, id)}>
         <label htmlFor="name">Kundenname:</label>
-        <CustomerFormInput
+        <Input
           id="name"
           defaultValue={customer ? customer.name : ""}
           name="name"
@@ -43,21 +43,23 @@ export default function EditCustomer() {
           required
         />
         <label htmlFor="street">Straße und Hausnummer:</label>
-        <CustomerFormInput
+        <Input
           defaultValue={customer ? customer.street : ""}
           id="street"
           name="street"
           type="text"
+          required
         />
         <label htmlFor="location">Ort:</label>
-        <CustomerFormInput
+        <Input
           id="location"
           defaultValue={customer ? customer.location : ""}
           name="location"
           type="text"
+          required
         />
         <label htmlFor="areaCode">Postleitzahl:</label>
-        <CustomerFormInput
+        <Input
           defaultValue={customer ? customer.areaCode : ""}
           id="areaCode"
           name="areaCode"
@@ -65,6 +67,7 @@ export default function EditCustomer() {
           minLength="5"
           maxLength="5"
           pattern="[0-9]{5}"
+          required
         />
         <Button size="m" type="submit">
           Bestätigen

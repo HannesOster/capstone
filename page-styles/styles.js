@@ -20,7 +20,7 @@ const Form = styled.form`
   margin-top: 130px;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 65%;
   line-height: 30px;
   margin-left: 20px;
   align-items: center;
