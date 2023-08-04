@@ -11,15 +11,7 @@ const StyledSearchSection = styled.section`
   flex-direction: column;
   gap: 50px;
 `;
-const StyledSearchInput = styled.input`
-  padding: 10px 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 50%;
-  outline: none;
-  background-color: ${(props) => props.theme.third};
-`;
+
 const SearchOption = styled.li`
   padding: 8px 12px;
   color: black;
@@ -54,7 +46,6 @@ const UserSearchIcon = styled(TbUserSearch)`
 
 export {
   StyledSearchSection,
-  StyledSearchInput,
   SearchOption,
   SearchOptionList,
   OptionLink,

@@ -3,13 +3,13 @@ import useSWR from "swr";
 
 import {
   StyledSearchSection,
-  StyledSearchInput,
   SearchOption,
   SearchOptionList,
   OptionLink,
   Invitation,
   UserSearchIcon,
 } from "./styles";
+import { Input, InputContainer } from "../../page-styles/styles";
 
 function SearchInput({ mode }) {
   const { data } = useSWR("/api/customers", { fallbackData: [] });
@@ -28,12 +28,14 @@ function SearchInput({ mode }) {
 
   return (
     <StyledSearchSection>
-      <StyledSearchInput
-        type="text"
-        value={searchValue}
-        onChange={handleSearchChange}
-        placeholder="Kunden auswählen"
-      />
+      <InputContainer>
+        <Input
+          type="text"
+          value={searchValue}
+          onChange={handleSearchChange}
+          placeholder="Kunden auswählen"
+        />
+      </InputContainer>
       {searchValue.trim() !== "" && (
         <SearchOptionList>
           {filteredOptions.map((option) => (

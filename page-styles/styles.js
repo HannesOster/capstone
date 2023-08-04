@@ -11,24 +11,31 @@ const modalStyles = {
     borderRadius: "10px",
   },
 };
-
+const FormContainer = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 const Form = styled.form`
   margin-top: 130px;
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 50%;
   line-height: 30px;
   margin-left: 20px;
   align-items: center;
 `;
-const CustomerFormInput = styled.input`
+const Input = styled.input`
   padding: 10px 12px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-
+  width: 100%;
   outline: none;
   background-color: ${(props) => props.theme.third};
+`;
+const InputContainer = styled.section`
+  width: 50%;
 `;
 
 const StockContainer = styled.section`
@@ -54,9 +61,11 @@ const ModalCloseButton = styled.button`
 `;
 
 export {
-  CustomerFormInput,
   Form,
   StockContainer,
   ModalCloseButton,
   modalStyles,
+  Input,
+  InputContainer,
+  FormContainer,
 };
