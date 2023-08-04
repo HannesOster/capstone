@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useSWR from "swr";
-import { GreenButton, RedButton } from "../Buttons/styles";
+import { Button, GreenButton, RedButton } from "../Buttons/styles";
 import ReactModal from "react-modal";
 import {
   CustomerInfoInput,
@@ -12,7 +12,6 @@ import {
   InfoModalStyle,
   InfoParagraph,
   InfoParagraphContainer,
-  EditButton,
 } from "./styles";
 import Upload from "../ImageUpload/ImageUpload";
 
@@ -59,9 +58,9 @@ export default function CustomerInfo({ customer, id }) {
           <InfoParagraph>
             {customer.info ? customer.info : "Kundeninfo hinzufügen!"}
           </InfoParagraph>
-          <EditButton onClick={() => setIsModalOpen(true)}>
+          <Button size="m" onClick={() => setIsModalOpen(true)}>
             Kundeninfo bearbeiten
-          </EditButton>
+          </Button>
           <Upload customer={customer} id={id} mutate={mutate} />
         </InfoParagraphContainer>
       )}
@@ -81,10 +80,16 @@ export default function CustomerInfo({ customer, id }) {
             defaultValue={customer.info || ""}
           />
           <CustomerInfoButtonContainer>
-            <RedButton onClick={() => setIsModalOpen(false)}>
+            <Button
+              size="s"
+              variant="danger"
+              onClick={() => setIsModalOpen(false)}
+            >
               Abbrechen
-            </RedButton>
-            <GreenButton type="submit">Speichern</GreenButton>
+            </Button>
+            <Button size="s" variant="success" type="submit">
+              Speichern
+            </Button>
           </CustomerInfoButtonContainer>
         </CustomerInfoForm>
       </ReactModal>

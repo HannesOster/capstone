@@ -11,7 +11,6 @@ export default async function handler(request, response) {
     if (!customer) {
       return response.status(404).json({ status: "Not Found" });
     }
-
     response.status(200).json(customer);
   }
   if (request.method === "PATCH") {

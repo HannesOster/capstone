@@ -9,7 +9,7 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Tahoma, Verdana, Helvetica, sans-serif;
     font-weight: 600;
     background-color: ${(props) => props.theme.third};
     color: #1F1C1C;
@@ -18,10 +18,12 @@ export default createGlobalStyle`
 
 const theme = {
   primary: "#D31119",
-  secondary: "#870000",
+  secondary: "#006ef5",
   third: "#fff6f4",
   fourth: "#d4c5ae",
   fifth: "#ede9d0",
   sixth: "#1F1C1C",
+  success: "green",
+  danger: "red",
 };
 export { theme };

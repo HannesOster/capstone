@@ -1,5 +1,4 @@
-import { Container } from "../Buttons/styles";
-import { EditButton } from "../CustomerInfo/styles";
+import { Button, Container } from "../Buttons/styles";
 
 function getGoogleMapsLink(customer) {
   const { street, location, areaCode } = customer;
@@ -16,9 +15,9 @@ export default function CustomerNavigation({ customer }) {
 
   return (
     <Container>
-      <EditButton onClick={() => handleOpenGoogleMaps(customer)}>
+      <Button size="m" onClick={() => handleOpenGoogleMaps(customer)}>
         Navigation
-      </EditButton>
+      </Button>
     </Container>
   );
 }

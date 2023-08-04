@@ -49,31 +49,6 @@ const InfoParagraphContainer = styled.section`
   flex-direction: column;
 `;
 
-const EditButton = styled.button`
-  margin-top: 30px;
-  color: ${(props) => props.theme.third};
-  background-color: ${(props) => props.theme.secondary};
-  text-decoration: none;
-  width: 60%;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 1.2rem;
-  background: linear-gradient(to right, #ffc700, #ffa500);
-  color: ${(props) => props.theme.sixth};
-  border-radius: 10px;
-  text-align: center;
-  margin-bottom: 20px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-
-  &:hover {
-    background: linear-gradient(to right, #ffa500, #ffd700);
-    transform: scale(1.05);
-  }
-`;
-
 const InfoModalStyle = {
   content: {
     top: "50%",
@@ -95,5 +70,4 @@ export {
   InfoModalStyle,
   InfoParagraph,
   InfoParagraphContainer,
-  EditButton,
 };

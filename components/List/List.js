@@ -5,6 +5,7 @@ import {
   StyledTable,
   StyledTableCell,
   StyledTableHeading,
+  StyledTableParagraph,
   StyledTableRow,
 } from "./styles";
 
@@ -86,12 +87,14 @@ export default function List() {
             onClick={sortByCustomerName}
             active={sortMode === "name"}
           >
-            Kunde
-            {sortMode === "name" ? (
-              <AiOutlineArrowDown />
-            ) : (
-              <AiOutlineArrowUp />
-            )}
+            <StyledTableParagraph>
+              Kunde
+              {sortMode === "name" ? (
+                <AiOutlineArrowDown />
+              ) : (
+                <AiOutlineArrowUp />
+              )}
+            </StyledTableParagraph>{" "}
           </StyledTableHeading>
           <StyledTableHeading
             onClick={sortByBoxes}
@@ -109,7 +112,9 @@ export default function List() {
         </HeadingTableRow>
         {sortedArray.map((customer) => (
           <StyledTableRow key={customer._id}>
-            <StyledTableCell>{customer.name}</StyledTableCell>
+            <StyledTableCell>
+              <StyledTableParagraph>{customer.name}</StyledTableParagraph>
+            </StyledTableCell>
             <StyledTableCell>{customer.boxes}</StyledTableCell>
             <StyledTableCell>{customer.buckets}</StyledTableCell>
 

@@ -1,11 +1,11 @@
-import { NavLink, NavBar } from "./styles";
+import { NavLink, NavBar, NewNavLink } from "./styles";
 
 export default function Navigation() {
   return (
     <NavBar>
-      <NavLink href="/">Pfand</NavLink>
-      <NavLink href="/list-page">Kunden</NavLink>
-      <NavLink href="/menu">Menü</NavLink>
+      <NewNavLink href="/">Pfand</NewNavLink>
+      <NewNavLink href="/list-page">Kunden</NewNavLink>
+      <NewNavLink href="/menu">Menü</NewNavLink>
     </NavBar>
   );
 }
