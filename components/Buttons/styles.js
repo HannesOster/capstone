@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FiSave } from "react-icons/fi";
 import Link from "next/link";
+import { MdOutlineCancel } from "react-icons/md";
 
 export const StyledLink = styled(Link)`
   color: ${(props) =>
@@ -84,7 +85,7 @@ export const Button = styled.button`
       : props.size === "m"
       ? "10px 30px"
       : "20px 30px"};
-  margin-top: ${(props) => (props.type === "submit" ? "30px" : "0px")};
+
   text-decoration: none;
   font-size: ${(props) =>
     props.size === "s" ? "1rem" : props.size === "m" ? "1rem" : "1.3rem"};
@@ -105,7 +106,7 @@ export const Button = styled.button`
 `;
 
 export const SaveIcon = styled(FiSave)`
-  margin-right: 10px;
+  transform: translate(-5px, 2px);
 `;
 export const MenuContainer = styled.section`
   display: flex;
@@ -114,4 +115,7 @@ export const MenuContainer = styled.section`
   margin-bottom: 130px;
   align-items: center;
   gap: 30px;
+`;
+export const CancelIcon = styled(MdOutlineCancel)`
+  transform: translate(-5px, 2px);
 `;

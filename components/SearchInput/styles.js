@@ -16,17 +16,15 @@ export const SearchOption = styled.li`
   padding: 8px 12px;
   color: black;
   cursor: pointer;
-  border-top: 3px solid #bbb;
+  border-top: 3px solid ${(props) => props.theme.fifth};
   transition: all 0.4s ease-out;
   &:hover {
-    background-color: ${(props) => props.theme.primary};
-    color: ${(props) => props.theme.third};
+    background-color: ${(props) => props.theme.fifth};
   }
 `;
 export const SearchOptionList = styled.ul`
   position: absolute;
   top: 35px;
-
   width: 50%;
   list-style: none;
   padding: 0;

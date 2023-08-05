@@ -29,7 +29,7 @@ export const StyledTable = styled.table`
 export const StyledTableRow = styled.tr`
   height: 50px;
   &:nth-child(odd) {
-    background-color: lightgrey;
+    background-color: ${(props) => props.theme.fifth};
   }
 `;
 export const HeadingTableRow = styled.tr`

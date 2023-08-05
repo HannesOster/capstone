@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useSWR from "swr";
-import { Button } from "../Buttons/styles";
+import { Button, CancelIcon, SaveIcon } from "../Buttons/styles";
 import ReactModal from "react-modal";
 import {
   CustomerInfoInput,
@@ -85,9 +85,10 @@ export default function CustomerInfo({ customer, id }) {
               variant="danger"
               onClick={() => setIsModalOpen(false)}
             >
-              Abbrechen
+              <CancelIcon /> Abbrechen
             </Button>
             <Button size="s" variant="success" type="submit">
+              <SaveIcon />
               Speichern
             </Button>
           </CustomerInfoButtonContainer>

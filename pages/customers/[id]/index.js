@@ -9,6 +9,7 @@ import CustomerNavigation from "../../../components/CustomerNavigation/CustomerN
 import { useState } from "react";
 import { SaveButton } from "../../../components/Buttons/SaveButton";
 import { Container, StyledLink } from "../../../components/Buttons/styles";
+import { CancelIcon } from "../../../components/Buttons/styles";
 
 async function handleSave(
   id,
@@ -95,6 +96,7 @@ export default function Deposit() {
       />
       <Container>
         <StyledLink size="s" variant="danger" href="/">
+          <CancelIcon />
           Abbrechen
         </StyledLink>
         <SaveButton
