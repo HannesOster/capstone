@@ -78,7 +78,6 @@ export const Button = styled.button`
   border-radius: 5px;
   width: ${(props) =>
     props.size === "s" ? "none" : props.size === "m" ? "none" : "80%"};
-
   padding: ${(props) =>
     props.size === "s"
       ? "5px 20px"

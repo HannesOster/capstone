@@ -15,27 +15,19 @@ export default function Navigation() {
   return (
     <NavBar>
       <NavLink href="/">
-        <LinkContainer>
-          {" "}
-          <IconContainer isActive={router.pathname === "/"}>
-            <NotePadIcon />
-          </IconContainer>{" "}
-        </LinkContainer>
+        <IconContainer isActive={router.pathname === "/"}>
+          <NotePadIcon />
+        </IconContainer>
       </NavLink>
       <NavLink href="/customers">
-        {" "}
-        <LinkContainer>
-          <IconContainer isActive={router.pathname === "/customers"}>
-            <CustomersIcon />
-          </IconContainer>{" "}
-        </LinkContainer>
+        <IconContainer isActive={router.pathname === "/customers"}>
+          <CustomersIcon />
+        </IconContainer>
       </NavLink>
       <NavLink href="/menu">
-        <LinkContainer>
-          <IconContainer isActive={router.pathname === "/menu"}>
-            <MenuIcon />
-          </IconContainer>
-        </LinkContainer>
+        <IconContainer isActive={router.pathname === "/menu"}>
+          <MenuIcon />
+        </IconContainer>
       </NavLink>
     </NavBar>
   );

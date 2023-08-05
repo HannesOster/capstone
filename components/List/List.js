@@ -14,13 +14,12 @@ import { useState } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export default function List() {
+  const [sortedArray, setSortedArray] = useState([]);
+  const [sortMode, setSortMode] = useState(null);
   const { data, error } = useSWR("/api/customers", {
     initialData: [],
     revalidateOnMount: true,
   });
-
-  const [sortedArray, setSortedArray] = useState([]);
-  const [sortMode, setSortMode] = useState(null);
 
   useEffect(() => {
     if (data) {

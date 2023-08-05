@@ -14,7 +14,7 @@ export const CountersContainer = styled.section`
 export const CounterContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  font-size: 25px;
+  font-size: 20px;
   align-items: center;
   width: 100%;
 `;
@@ -25,14 +25,14 @@ export const IconPlaceholder = styled.div`
 
 export const IconMinus = styled(AiOutlineMinusSquare)`
   font-size: 40px;
-  fill: red;
+  fill: ${(props) => props.theme.danger};
   cursor: pointer;
   width: 20%;
 `;
 
 export const IconPlus = styled(AiOutlinePlusSquare)`
   font-size: 40px;
-  fill: green;
+  fill: ${(props) => props.theme.success};
   cursor: pointer;
   width: 20%;
 `;

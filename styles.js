@@ -23,7 +23,7 @@ const theme = {
   fourth: "#d4c5ae",
   fifth: "#ede9d0",
   sixth: "#1F1C1C",
-  success: "green",
+  success: "#00B33E",
   danger: "#D31119",
 };
 export { theme };

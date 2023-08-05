@@ -17,6 +17,11 @@ export const SearchOption = styled.li`
   color: black;
   cursor: pointer;
   border-top: 3px solid #bbb;
+  transition: all 0.4s ease-out;
+  &:hover {
+    background-color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.third};
+  }
 `;
 export const SearchOptionList = styled.ul`
   position: absolute;

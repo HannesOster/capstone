@@ -13,7 +13,7 @@ export const Form = styled.form`
 
 export const ImageContainer = styled.div`
   max-width: 30rem;
-  margin: 0 auto;
+  margin: 30px;
   border: 2px solid grey;
   border-radius: 1rem;
   padding: 1rem;
@@ -37,4 +37,5 @@ export const BrowseInput = styled.input`
 export const CameraIcon = styled(AiOutlineCamera)`
   font-size: 50px;
   cursor: pointer;
+  fill: ${(props) => props.theme.secondary};
 `;

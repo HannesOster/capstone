@@ -6,7 +6,7 @@ export const StyledTableHeading = styled.th`
   color: ${(props) => (props.active ? "black" : props.theme.third)};
   text-align: center;
   border-bottom: ${(props) => (props.active ? "2px solid black" : "none")};
-
+  transition: all 0.4s ease-out;
   &:first-child {
     text-align: left;
   }
