@@ -4,29 +4,39 @@ import {
   NotePadIcon,
   CustomersIcon,
   MenuIcon,
+  Text,
   IconContainer,
-  LinkContainer,
 } from "./styles";
 import { useRouter } from "next/router";
+import { routes } from "../../utils/routes";
 
 export default function Navigation() {
   const router = useRouter();
 
+  const isMenu = router.pathname === routes.menu;
+  const isCostumers = router.pathname === routes.customers;
+
+  const isDeposit =
+    router.pathname === "/" || router.pathname.includes("/customers/");
+
   return (
     <NavBar>
-      <NavLink href="/">
-        <IconContainer isActive={router.pathname === "/"}>
-          <NotePadIcon />
+      <NavLink isActive={isDeposit} href="/">
+        <IconContainer isActive={isDeposit}>
+          <NotePadIcon isActive={isDeposit} />
+          <Text isActive={isDeposit}>Pfand</Text>
         </IconContainer>
       </NavLink>
-      <NavLink href="/customers">
-        <IconContainer isActive={router.pathname === "/customers"}>
-          <CustomersIcon />
+      <NavLink isActive={isCostumers} href={routes.customers}>
+        <IconContainer isActive={isCostumers}>
+          <CustomersIcon isActive={isCostumers} />
+          <Text isActive={isCostumers}>Kunden</Text>
         </IconContainer>
       </NavLink>
-      <NavLink href="/menu">
-        <IconContainer isActive={router.pathname === "/menu"}>
-          <MenuIcon />
+      <NavLink isActive={isMenu} href={routes.menu}>
+        <IconContainer isActive={isMenu}>
+          <MenuIcon isActive={isMenu} />
+          <Text isActive={isMenu}>Menu</Text>
         </IconContainer>
       </NavLink>
     </NavBar>

@@ -69,6 +69,7 @@ export default function EditCustomer() {
           pattern="[0-9]{5}"
           required
         />
+        <div style={{ height: 20 }} />
         <Button size="m" type="submit">
           Bestätigen
         </Button>

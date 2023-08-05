@@ -4,6 +4,7 @@ export const CustomerInfoInput = styled.textarea`
   width: 100%;
   border-radius: 10px;
   margin-top: 20px;
+  height: 320px;
 `;
 export const Placeholder = styled.div`
   margin-bottom: 130px;
@@ -57,6 +58,6 @@ export const InfoModalStyle = {
     bottom: "auto",
     transform: "translate(-50%, -50%)",
     borderRadius: "10px",
-    height: "620px",
+    height: "600px",
   },
 };
