@@ -41,7 +41,4 @@ export const StockContainer = styled.section`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  &:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
 `;
