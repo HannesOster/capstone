@@ -161,10 +161,15 @@ export default function Map({ markers }) {
               <CustomerStock>
                 {isNaN(marker.days)
                   ? "Noch keine Lieferung"
+                  : marker.days === 0
+                  ? "Letzte Lieferung heute"
+                  : marker.days === 1
+                  ? `Letzte Lieferung gestern`
                   : `Letzte Lieferung vor ${marker.days} Tagen`}
               </CustomerStock>
             </Popup>
-            {marker.boxes <= 5 ? (
+
+            {marker.boxes === 0 ? null : marker.boxes <= 5 ? (
               <Marker
                 position={[marker.lat, marker.long]}
                 icon={boxCountIcon5}

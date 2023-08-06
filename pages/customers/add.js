@@ -30,6 +30,7 @@ export default function AddCustomer() {
       lon: lon,
       boxes: 0,
       buckets: 0,
+      name: event.target.name.value.trim().toUpperCase(),
     };
     const response = await fetch(`/api/customers`, {
       method: "POST",
