@@ -7,7 +7,13 @@ import "leaflet-defaulticon-compatibility";
 import LocationMarker from "./LocationMarker";
 import { CustomerStock } from "../AddDeposit/styles";
 import { IconContext } from "react-icons";
-import { AiOutlineWarning } from "react-icons/ai";
+import {
+  PiCellSignalFullFill,
+  PiCellSignalHighFill,
+  PiCellSignalMediumFill,
+  PiCellSignalLowFill,
+} from "react-icons/pi";
+
 import { renderToStaticMarkup } from "react-dom/server";
 
 const StyledMapContainer = styled(MapContainer)`
@@ -58,17 +64,66 @@ const blackMarker = new L.Icon({
   shadowSize: [41, 41],
 });
 
-const exclamationIcon = new L.divIcon({
+const boxCountIcon20 = new L.divIcon({
   html: renderToStaticMarkup(
     <IconContext.Provider
       value={{
         color: "black",
-        size: "18px",
+        size: "25px",
       }}
     >
-      <AiOutlineWarning
-        style={{ color: "#D31119", transform: "translateY(-50px)" }}
-      />
+      <PiCellSignalFullFill
+        style={{ color: "#D31119", transform: "translate(-4px,-55px)" }}
+      />{" "}
+    </IconContext.Provider>
+  ),
+  iconSize: [0, 0],
+  iconAnchor: [10, 10],
+});
+
+const boxCountIcon15 = new L.divIcon({
+  html: renderToStaticMarkup(
+    <IconContext.Provider
+      value={{
+        color: "black",
+        size: "25px",
+      }}
+    >
+      <PiCellSignalHighFill
+        style={{ color: "#D31119", transform: "translate(-4px,-55px)" }}
+      />{" "}
+    </IconContext.Provider>
+  ),
+  iconSize: [0, 0],
+  iconAnchor: [10, 10],
+});
+const boxCountIcon10 = new L.divIcon({
+  html: renderToStaticMarkup(
+    <IconContext.Provider
+      value={{
+        color: "black",
+        size: "25px",
+      }}
+    >
+      <PiCellSignalMediumFill
+        style={{ color: "#D31119", transform: "translate(-4px,-55px)" }}
+      />{" "}
+    </IconContext.Provider>
+  ),
+  iconSize: [0, 0],
+  iconAnchor: [10, 10],
+});
+const boxCountIcon5 = new L.divIcon({
+  html: renderToStaticMarkup(
+    <IconContext.Provider
+      value={{
+        color: "black",
+        size: "25px",
+      }}
+    >
+      <PiCellSignalLowFill
+        style={{ color: "#D31119", transform: "translate(-4px,-55px)" }}
+      />{" "}
     </IconContext.Provider>
   ),
   iconSize: [0, 0],
@@ -109,10 +164,25 @@ export default function Map({ markers }) {
                   : `Letzte Lieferung vor ${marker.days} Tagen`}
               </CustomerStock>
             </Popup>
-            {marker.boxes > 10 && (
+            {marker.boxes <= 5 ? (
               <Marker
                 position={[marker.lat, marker.long]}
-                icon={exclamationIcon}
+                icon={boxCountIcon5}
+              />
+            ) : marker.boxes <= 10 ? (
+              <Marker
+                position={[marker.lat, marker.long]}
+                icon={boxCountIcon10}
+              />
+            ) : marker.boxes <= 15 ? (
+              <Marker
+                position={[marker.lat, marker.long]}
+                icon={boxCountIcon15}
+              />
+            ) : (
+              <Marker
+                position={[marker.lat, marker.long]}
+                icon={boxCountIcon20}
               />
             )}
           </Marker>

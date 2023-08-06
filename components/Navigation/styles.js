@@ -35,19 +35,19 @@ export const CustomersIcon = styled(BsPeople)`
   cursor: pointer;
   margin-right: 3px;
   transform: ${(props) => (props.isActive ? "translateY(-1px)" : "")};
-  transition: all 0.4s ease-out;
+  transition: all 0.7s ease-out;
 `;
 export const MenuIcon = styled(GiHamburgerMenu)`
   font-size: 32px;
   cursor: pointer;
   transform: ${(props) => (props.isActive ? "translateY(-1px)" : "")};
-  transition: all 0.4s ease-out;
+  transition: all 0.7 ease-out;
 `;
 
 export const Text = styled.p`
   font-size: 20px;
   transform: ${(props) => (props.isActive ? "translateY(-1px)" : "")};
-  transition: all 0.4s ease-out;
+  transition: all 0.7s ease-out;
 `;
 
 export const IconContainer = styled.section`
