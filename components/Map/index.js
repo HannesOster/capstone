@@ -14,7 +14,7 @@ const StyledMapContainer = styled(MapContainer)`
   z-index: 0;
 `;
 
-const goldIcon = new L.Icon({
+const yellowIcon = new L.Icon({
   iconUrl:
     "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png",
   shadowUrl:
@@ -44,6 +44,16 @@ const redIcon = new L.Icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
 });
+const blackIcon = new L.Icon({
+  iconUrl:
+    "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png",
+  shadowUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
 export default function Map({ markers }) {
   return (
     <StyledMapContainer center={[51.601, 6.659]} zoom={9} scrollWheelZoom>
@@ -59,11 +69,24 @@ export default function Map({ markers }) {
           <Marker
             key={marker.id}
             position={[marker.lat, marker.long]}
-            icon={goldIcon}
+            icon={
+              isNaN(marker.days)
+                ? blackIcon
+                : marker.days > 30
+                ? redIcon
+                : marker.days > 10
+                ? yellowIcon
+                : greenIcon
+            }
           >
             <Popup>
               <h2>{marker.name}</h2>
               <CustomerStock>Kisten: {marker.boxes}</CustomerStock>
+              <CustomerStock>
+                {isNaN(marker.days)
+                  ? "Noch keine Lieferung"
+                  : `Letzte Lieferung vor ${marker.days} Tagen`}
+              </CustomerStock>
             </Popup>
           </Marker>
         );
