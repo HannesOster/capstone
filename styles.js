@@ -10,7 +10,7 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: Tahoma, Verdana, Helvetica, sans-serif;
-    font-weight: 600;
+    font-weight: 450;
     background-color: ${(props) => props.theme.third};
     color: #1F1C1C;
   }
@@ -23,7 +23,7 @@ const theme = {
   fourth: "#d4c5ae",
   fifth: "#ede9d0",
   sixth: "#1F1C1C",
-  success: "green",
-  danger: "red",
+  success: "#00B33E",
+  danger: "#D31119",
 };
 export { theme };

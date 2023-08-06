@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { Spinner, SpinnerContainer } from "./styles";
 
 export default function LoadingSpinner() {

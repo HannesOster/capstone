@@ -2,7 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import { TbUserSearch } from "react-icons/tb";
 
-const StyledSearchSection = styled.section`
+export const StyledSearchSection = styled.section`
   position: relative;
   margin-top: 200px;
   display: flex;
@@ -12,16 +12,19 @@ const StyledSearchSection = styled.section`
   gap: 50px;
 `;
 
-const SearchOption = styled.li`
+export const SearchOption = styled.li`
   padding: 8px 12px;
   color: black;
   cursor: pointer;
-  border-top: 3px solid #bbb;
+  border-top: 3px solid ${(props) => props.theme.fifth};
+  transition: all 0.4s ease-out;
+  &:hover {
+    background-color: ${(props) => props.theme.fifth};
+  }
 `;
-const SearchOptionList = styled.ul`
+export const SearchOptionList = styled.ul`
   position: absolute;
   top: 35px;
-
   width: 50%;
   list-style: none;
   padding: 0;
@@ -31,24 +34,16 @@ const SearchOptionList = styled.ul`
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
-const OptionLink = styled(Link)`
+export const OptionLink = styled(Link)`
   text-decoration: none;
   color: black;
 `;
 
-const Invitation = styled.h1`
+export const Invitation = styled.h1`
   font-size: 20px;
+  text-align: center;
 `;
-const UserSearchIcon = styled(TbUserSearch)`
+export const UserSearchIcon = styled(TbUserSearch)`
   font-size: 100px;
   color: #006ef5;
 `;
-
-export {
-  StyledSearchSection,
-  SearchOption,
-  SearchOptionList,
-  OptionLink,
-  Invitation,
-  UserSearchIcon,
-};

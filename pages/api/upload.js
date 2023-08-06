@@ -17,6 +17,7 @@ cloudinary.config({
 export default async function handler(request, response) {
   if (request.method === "POST") {
     const form = formidable({});
+    console.log(request);
     const [, files] = await form.parse(request);
     const { filepath, newFilename } = files.file[0];
 

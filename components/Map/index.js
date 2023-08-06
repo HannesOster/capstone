@@ -5,6 +5,7 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
 import LocationMarker from "./LocationMarker";
+import { CustomerStock } from "../AddDeposit/styles";
 
 const StyledMapContainer = styled(MapContainer)`
   height: 45rem;
@@ -15,7 +16,7 @@ const StyledMapContainer = styled(MapContainer)`
 
 const goldIcon = new L.Icon({
   iconUrl:
-    "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png",
+    "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
   shadowUrl:
     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
   iconSize: [25, 41],
@@ -43,7 +44,7 @@ export default function Map({ markers }) {
           >
             <Popup>
               <h2>{marker.name}</h2>
-              <p>Kisten: {marker.boxes}</p>
+              <CustomerStock>Kisten: {marker.boxes}</CustomerStock>
             </Popup>
           </Marker>
         );

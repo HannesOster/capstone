@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SpinnerContainer = styled.div`
+export const SpinnerContainer = styled.div`
   margin-top: 20%;
   width: 100%;
   display: flex;
@@ -9,7 +9,7 @@ const SpinnerContainer = styled.div`
   justify-content: center;
 `;
 
-const Spinner = styled.div`
+export const Spinner = styled.div`
   display: inline-block;
   width: 80px;
   height: 80px;
@@ -35,4 +35,3 @@ const Spinner = styled.div`
     }
   }
 `;
-export { SpinnerContainer, Spinner };
