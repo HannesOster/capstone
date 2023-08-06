@@ -5,6 +5,9 @@ import { Form, FormContainer, Input } from "../../page-styles/styles";
 import { Button } from "../../components/Buttons/styles";
 import { Placeholder } from "../../components/CustomerInfo/styles";
 
+function removeSpaces(inputString) {
+  return inputString.replace(/\s/g, "");
+}
 async function geocodeAddress(address) {
   const response = await fetch(
     `https://nominatim.openstreetmap.org/search?q=${address}&format=json`
@@ -30,7 +33,7 @@ export default function AddCustomer() {
       lon: lon,
       boxes: 0,
       buckets: 0,
-      name: event.target.name.value.trim().toUpperCase(),
+      name: removeSpaces(event.target.name.value.toUpperCase()),
     };
     const response = await fetch(`/api/customers`, {
       method: "POST",

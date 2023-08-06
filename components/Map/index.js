@@ -13,8 +13,8 @@ import {
   PiCellSignalMediumFill,
   PiCellSignalLowFill,
 } from "react-icons/pi";
-
 import { renderToStaticMarkup } from "react-dom/server";
+import CustomerNavigation from "../CustomerNavigation/CustomerNavigation";
 
 const StyledMapContainer = styled(MapContainer)`
   height: 45rem;
@@ -167,6 +167,7 @@ export default function Map({ markers }) {
                   ? `Letzte Lieferung gestern`
                   : `Letzte Lieferung vor ${marker.days} Tagen`}
               </CustomerStock>
+              <CustomerNavigation customer={marker.customer} />
             </Popup>
 
             {marker.boxes === 0 ? null : marker.boxes <= 5 ? (

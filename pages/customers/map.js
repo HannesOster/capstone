@@ -28,6 +28,7 @@ export default function CustomerMap() {
       long: customer.lon,
       boxes: customer.boxes,
       days: elapsedDays,
+      customer: customer,
     };
   });
 
