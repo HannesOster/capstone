@@ -6,15 +6,18 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import "leaflet-defaulticon-compatibility";
 import LocationMarker from "./LocationMarker";
 import { CustomerStock } from "../AddDeposit/styles";
+import { IconContext } from "react-icons";
+import { AiOutlineWarning } from "react-icons/ai";
+import { renderToStaticMarkup } from "react-dom/server";
 
 const StyledMapContainer = styled(MapContainer)`
   height: 45rem;
   width: 100%;
-  margin-top: 100px;
+  margin-top: 90px;
   z-index: 0;
 `;
 
-const yellowIcon = new L.Icon({
+const yellowMarker = new L.Icon({
   iconUrl:
     "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png",
   shadowUrl:
@@ -24,7 +27,7 @@ const yellowIcon = new L.Icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
 });
-const greenIcon = new L.Icon({
+const greenMarker = new L.Icon({
   iconUrl:
     "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
   shadowUrl:
@@ -34,7 +37,7 @@ const greenIcon = new L.Icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
 });
-const redIcon = new L.Icon({
+const redMarker = new L.Icon({
   iconUrl:
     "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
   shadowUrl:
@@ -44,7 +47,7 @@ const redIcon = new L.Icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
 });
-const blackIcon = new L.Icon({
+const blackMarker = new L.Icon({
   iconUrl:
     "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png",
   shadowUrl:
@@ -54,6 +57,24 @@ const blackIcon = new L.Icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
 });
+
+const exclamationIcon = new L.divIcon({
+  html: renderToStaticMarkup(
+    <IconContext.Provider
+      value={{
+        color: "black",
+        size: "18px",
+      }}
+    >
+      <AiOutlineWarning
+        style={{ color: "#D31119", transform: "translateY(-50px)" }}
+      />
+    </IconContext.Provider>
+  ),
+  iconSize: [0, 0],
+  iconAnchor: [10, 10],
+});
+
 export default function Map({ markers }) {
   return (
     <StyledMapContainer center={[51.601, 6.659]} zoom={9} scrollWheelZoom>
@@ -71,12 +92,12 @@ export default function Map({ markers }) {
             position={[marker.lat, marker.long]}
             icon={
               isNaN(marker.days)
-                ? blackIcon
+                ? blackMarker
                 : marker.days > 30
-                ? redIcon
+                ? redMarker
                 : marker.days > 10
-                ? yellowIcon
-                : greenIcon
+                ? yellowMarker
+                : greenMarker
             }
           >
             <Popup>
@@ -88,6 +109,12 @@ export default function Map({ markers }) {
                   : `Letzte Lieferung vor ${marker.days} Tagen`}
               </CustomerStock>
             </Popup>
+            {marker.boxes > 10 && (
+              <Marker
+                position={[marker.lat, marker.long]}
+                icon={exclamationIcon}
+              />
+            )}
           </Marker>
         );
       })}
