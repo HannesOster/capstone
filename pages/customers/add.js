@@ -5,7 +5,7 @@ import { Form, FormContainer, Input } from "../../page-styles/styles";
 import { Button } from "../../components/Buttons/styles";
 import { Placeholder } from "../../components/CustomerInfo/styles";
 
-function removeSpaces(inputString) {
+export function removeSpaces(inputString) {
   return inputString.replace(/\s/g, "");
 }
 async function geocodeAddress(address) {

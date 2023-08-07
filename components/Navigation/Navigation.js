@@ -14,7 +14,7 @@ export default function Navigation() {
   const router = useRouter();
 
   const isMenu = router.pathname === routes.menu;
-  const isCostumers = router.pathname === routes.customers;
+  const isCustomers = router.pathname === routes.customers;
 
   const isDeposit = router.pathname === "/";
 
@@ -26,10 +26,10 @@ export default function Navigation() {
           <Text isActive={isDeposit}>Pfand</Text>
         </IconContainer>
       </NavLink>
-      <NavLink isActive={isCostumers} href={routes.customers}>
-        <IconContainer isActive={isCostumers}>
-          <CustomersIcon isActive={isCostumers} />
-          <Text isActive={isCostumers}>Kunden</Text>
+      <NavLink isActive={isCustomers} href={routes.customers}>
+        <IconContainer isActive={isCustomers}>
+          <CustomersIcon isActive={isCustomers} />
+          <Text isActive={isCustomers}>Kunden</Text>
         </IconContainer>
       </NavLink>
       <NavLink isActive={isMenu} href={routes.menu}>

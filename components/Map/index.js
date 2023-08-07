@@ -23,16 +23,23 @@ const StyledMapContainer = styled(MapContainer)`
   z-index: 0;
 `;
 const StyledLegend = styled.div`
-  position: absolute;
-  top: 20px;
+  position: fixed;
+  top: 5px;
   right: 20px;
   background-color: white;
   padding: 10px;
   border-radius: 5px;
-  z-index: 1000;
+  z-index: 2000;
   font-size: 12px;
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
 `;
 
+const StyledPopup = styled(Popup)`
+  background-color: ${(props) => props.theme.third};
+  z-index: 1005;
+`;
 const yellowMarker = new L.Icon({
   iconUrl:
     "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png",
@@ -142,76 +149,7 @@ const boxCountIcon5 = new L.divIcon({
 
 export default function Map({ markers }) {
   return (
-    <StyledMapContainer center={[51.601, 6.659]} zoom={9} scrollWheelZoom>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <StyledLegend>
-        <PiCellSignalFullFill>Bis 5 Kisten</PiCellSignalFullFill>
-      </StyledLegend>
-      {markers?.map((marker) => {
-        if (!marker.lat) {
-          return null;
-        }
-        return (
-          <Marker
-            key={marker.id}
-            position={[marker.lat, marker.long]}
-            icon={
-              isNaN(marker.days)
-                ? blackMarker
-                : marker.days > 30
-                ? redMarker
-                : marker.days > 10
-                ? yellowMarker
-                : greenMarker
-            }
-          >
-            <Popup style={{ backgroundColor: "fff6f4" }}>
-              <h2>{marker.name}</h2>
-              <CustomerStock>Kisten: {marker.boxes}</CustomerStock>
-              <CustomerStock>
-                {isNaN(marker.days)
-                  ? "Noch keine Lieferung"
-                  : marker.days === 0
-                  ? "Letzte Lieferung heute"
-                  : marker.days === 1
-                  ? `Letzte Lieferung gestern`
-                  : `Letzte Lieferung vor ${marker.days} Tagen`}
-              </CustomerStock>
-              <CustomerNavigation customer={marker.customer} />
-            </Popup>
-
-            {marker.boxes > 0 && (
-              <>
-                {marker.boxes <= 5 ? (
-                  <Marker
-                    position={[marker.lat, marker.long]}
-                    icon={boxCountIcon5}
-                  />
-                ) : marker.boxes <= 10 ? (
-                  <Marker
-                    position={[marker.lat, marker.long]}
-                    icon={boxCountIcon10}
-                  />
-                ) : marker.boxes <= 15 ? (
-                  <Marker
-                    position={[marker.lat, marker.long]}
-                    icon={boxCountIcon15}
-                  />
-                ) : (
-                  <Marker
-                    position={[marker.lat, marker.long]}
-                    icon={boxCountIcon20}
-                  />
-                )}
-              </>
-            )}
-          </Marker>
-        );
-      })}
-      <LocationMarker />
+    <>
       <StyledLegend>
         <PiCellSignalLowFill style={{ color: "#D31119" }} />
         <span>Bis 5 Kisten</span>
@@ -225,6 +163,75 @@ export default function Map({ markers }) {
         <PiCellSignalFullFill style={{ color: "#D31119" }} />
         <span>Über 15 Kisten</span>
       </StyledLegend>
-    </StyledMapContainer>
+      <StyledMapContainer center={[51.601, 6.659]} zoom={9} scrollWheelZoom>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+
+        {markers?.map((marker) => {
+          if (!marker.lat) {
+            return null;
+          }
+          return (
+            <Marker
+              key={marker.id}
+              position={[marker.lat, marker.long]}
+              icon={
+                isNaN(marker.days)
+                  ? blackMarker
+                  : marker.days > 30
+                  ? redMarker
+                  : marker.days > 10
+                  ? yellowMarker
+                  : greenMarker
+              }
+            >
+              <StyledPopup>
+                <h2>{marker.name}</h2>
+                <CustomerStock>Kisten: {marker.boxes}</CustomerStock>
+                <CustomerStock>
+                  {isNaN(marker.days)
+                    ? "Noch keine Lieferung"
+                    : marker.days === 0
+                    ? "Letzte Lieferung heute"
+                    : marker.days === 1
+                    ? `Letzte Lieferung gestern`
+                    : `Letzte Lieferung vor ${marker.days} Tagen`}
+                </CustomerStock>
+                <CustomerNavigation customer={marker.customer} />
+              </StyledPopup>
+
+              {marker.boxes > 0 && (
+                <>
+                  {marker.boxes <= 5 ? (
+                    <Marker
+                      position={[marker.lat, marker.long]}
+                      icon={boxCountIcon5}
+                    />
+                  ) : marker.boxes <= 10 ? (
+                    <Marker
+                      position={[marker.lat, marker.long]}
+                      icon={boxCountIcon10}
+                    />
+                  ) : marker.boxes <= 15 ? (
+                    <Marker
+                      position={[marker.lat, marker.long]}
+                      icon={boxCountIcon15}
+                    />
+                  ) : (
+                    <Marker
+                      position={[marker.lat, marker.long]}
+                      icon={boxCountIcon20}
+                    />
+                  )}
+                </>
+              )}
+            </Marker>
+          );
+        })}
+        <LocationMarker />
+      </StyledMapContainer>
+    </>
   );
 }
