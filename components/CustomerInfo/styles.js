@@ -39,8 +39,9 @@ export const CustomerInfoButtonContainer = styled.section`
 export const InfoParagraph = styled.p`
   background-color: ${(props) => props.theme.fifth};
   padding: 20px;
-  width: 80%;
+  max-width: 400px;
   border-radius: 10px;
+  text-align: center;
 `;
 
 export const InfoParagraphContainer = styled.section`
