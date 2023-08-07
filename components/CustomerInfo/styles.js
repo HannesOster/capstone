@@ -58,6 +58,6 @@ export const InfoModalStyle = {
     bottom: "auto",
     transform: "translate(-50%, -50%)",
     borderRadius: "10px",
-    height: "600px",
+    height: "500px",
   },
 };

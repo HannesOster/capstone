@@ -41,7 +41,6 @@ export default function List() {
       day: "2-digit",
       month: "2-digit",
       year: "numeric",
-
       hour12: true,
     };
 
@@ -119,6 +118,7 @@ export default function List() {
             )}
           </StyledTableHeading>
           <StyledTableHeading>Eimer</StyledTableHeading>
+          <StyledTableHeading>Autsätze</StyledTableHeading>
           <StyledTableHeading onClick={sortByDate} active={sortMode === "date"}>
             Datum{" "}
             {sortMode === "date" ? (
@@ -135,7 +135,7 @@ export default function List() {
             </StyledTableCell>
             <StyledTableCell>{customer.boxes}</StyledTableCell>
             <StyledTableCell>{customer.buckets}</StyledTableCell>
-
+            <StyledTableCell>{customer.attachments}</StyledTableCell>
             <StyledTableCell>
               {formatTimestamp(customer.timestamp)}
             </StyledTableCell>
