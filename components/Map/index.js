@@ -1,5 +1,6 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import styled from "styled-components";
+
 import * as L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
@@ -90,8 +91,8 @@ function createBoxCountIcon(boxCount) {
           width: "15px",
           height: "15px",
           borderRadius: "50%",
-          backgroundColor: "white",
-
+          backgroundColor: boxCount > 15 ? "#D31119" : "white",
+          color: boxCount > 15 ? "white" : "black",
           fontSize: "8px",
           transform: "translate(4px,4px)",
         }}
