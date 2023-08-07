@@ -15,7 +15,7 @@ export default function CustomerNavigation({ customer }) {
 
   return (
     <Container>
-      <Button size="m" onClick={() => handleOpenGoogleMaps(customer)}>
+      <Button size="s" onClick={() => handleOpenGoogleMaps(customer)}>
         Navigation
       </Button>
     </Container>

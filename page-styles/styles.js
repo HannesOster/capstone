@@ -16,7 +16,7 @@ export const FormContainer = styled.section`
   align-items: center;
   justify-content: center;
 `;
-export const Form = styled.form`
+export const FormStyle = styled.form`
   margin-top: 130px;
   display: flex;
   flex-direction: column;
