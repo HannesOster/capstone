@@ -1,4 +1,4 @@
-import { BiListPlus } from "react-icons/bi";
+import { BiListMinus, BiListPlus } from "react-icons/bi";
 import styled from "styled-components";
 
 export const StyledTableHeading = styled.th`
@@ -62,6 +62,16 @@ export const StyledTableParagraph = styled.p`
 export const ExtendListIcon = styled(BiListPlus)`
   position: fixed;
   top: 90px;
-  right: 10px;
+  right: 30px;
+  cursor: pointer;
+  color: ${(props) => props.theme.primary};
+  font-size: 40px;
+`;
+export const ReducedListIcon = styled(BiListMinus)`
+  position: fixed;
+  color: ${(props) => props.theme.primary};
+  top: 90px;
+  cursor: pointer;
+  right: 30px;
   font-size: 40px;
 `;

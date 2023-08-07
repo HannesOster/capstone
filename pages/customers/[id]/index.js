@@ -94,7 +94,32 @@ export default function Deposit() {
   return (
     <>
       <Header />
+
       <AddDeposit customer={customer} />
+      <Container>
+        <StyledLink size="s" variant="danger" href="/">
+          <CancelIcon />
+          Abbrechen
+        </StyledLink>
+        <SaveButton
+          handleClick={() =>
+            handleSave(
+              id,
+              boxesToAdd,
+              bucketsToAdd,
+              attachmentsToAdd,
+              data,
+              setBoxes,
+              setBuckets,
+              setAttachments,
+              mutate,
+              stockMutate,
+              stock,
+              router
+            )
+          }
+        />
+      </Container>
       <Counters
         boxes={boxes}
         buckets={buckets}

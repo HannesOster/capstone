@@ -9,6 +9,7 @@ import {
   StyledTableRow,
   ExtendListIcon,
   StyledTableHeadingAttachments,
+  ReducedListIcon,
 } from "./styles";
 
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
@@ -94,7 +95,11 @@ export default function List() {
   }
   return (
     <StyledTable>
-      <ExtendListIcon onClick={() => setIsExtended(!isExtended)} />
+      {isExtended ? (
+        <ReducedListIcon onClick={() => setIsExtended(!isExtended)} />
+      ) : (
+        <ExtendListIcon onClick={() => setIsExtended(!isExtended)} />
+      )}
       <tbody>
         <HeadingTableRow>
           <StyledTableHeading
