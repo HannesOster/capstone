@@ -14,6 +14,20 @@ export const StyledTableHeading = styled.th`
     text-align: left;
   }
 `;
+export const StyledTableHeadingAttachments = styled.th`
+  background-color: ${(props) =>
+    props.active ? props.theme.third : props.theme.primary};
+  color: ${(props) => (props.active ? "black" : props.theme.third)};
+  text-align: center;
+  font-weight: 600;
+  font-size: 10px;
+  border-bottom: ${(props) => (props.active ? "2px solid black" : "none")};
+  transition: all 0.4s ease-out;
+  font-size: 10px;
+  &:first-child {
+    text-align: left;
+  }
+`;
 export const StyledTableCell = styled.td`
   width: 25%;
   border-right: 1px solid black;

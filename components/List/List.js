@@ -8,6 +8,7 @@ import {
   StyledTableParagraph,
   StyledTableRow,
   ExtendListIcon,
+  StyledTableHeadingAttachments,
 } from "./styles";
 
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
@@ -123,7 +124,9 @@ export default function List() {
           {isExtended ? (
             <>
               <StyledTableHeading>Eimer</StyledTableHeading>
-              <StyledTableHeading>Autsätze</StyledTableHeading>
+              <StyledTableHeadingAttachments>
+                Aufsätze
+              </StyledTableHeadingAttachments>
             </>
           ) : null}
           <StyledTableHeading onClick={sortByDate} active={sortMode === "date"}>
