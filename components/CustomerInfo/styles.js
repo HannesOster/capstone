@@ -4,7 +4,7 @@ export const CustomerInfoInput = styled.textarea`
   width: 100%;
   border-radius: 10px;
   margin-top: 20px;
-  height: 320px;
+  height: 250px;
 `;
 export const Placeholder = styled.div`
   margin-bottom: 130px;
