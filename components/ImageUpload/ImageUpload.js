@@ -46,8 +46,8 @@ export default function Upload({ id, customer, mutate }) {
           <Image
             src={image.url}
             alt="Uploaded image"
-            height={image.height / 3.5}
-            width={image.width / 3.5}
+            height={300}
+            width={150}
             style={{ borderRadius: 15 }}
           />
         </ImageContainer>

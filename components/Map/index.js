@@ -1,7 +1,7 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import styled from "styled-components";
 
-import * as L from "leaflet";
+import * as Leaflet from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
@@ -36,7 +36,7 @@ const StyledPopup = styled(Popup)`
   z-index: 1005;
 `;
 
-const yellowMarker = new L.Icon({
+const yellowMarker = new Leaflet.Icon({
   iconUrl:
     "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png",
   shadowUrl:
@@ -47,7 +47,7 @@ const yellowMarker = new L.Icon({
   shadowSize: [41, 41],
 });
 
-const greenMarker = new L.Icon({
+const greenMarker = new Leaflet.Icon({
   iconUrl:
     "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
   shadowUrl:
@@ -58,7 +58,7 @@ const greenMarker = new L.Icon({
   shadowSize: [41, 41],
 });
 
-const redMarker = new L.Icon({
+const redMarker = new Leaflet.Icon({
   iconUrl:
     "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
   shadowUrl:
@@ -69,7 +69,7 @@ const redMarker = new L.Icon({
   shadowSize: [41, 41],
 });
 
-const blackMarker = new L.Icon({
+const blackMarker = new Leaflet.Icon({
   iconUrl:
     "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png",
   shadowUrl:
@@ -81,7 +81,7 @@ const blackMarker = new L.Icon({
 });
 
 function createBoxCountIcon(boxCount) {
-  return new L.divIcon({
+  return new Leaflet.divIcon({
     html: renderToStaticMarkup(
       <div
         style={{
