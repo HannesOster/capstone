@@ -1,8 +1,7 @@
-import Header from "../../../components/Header/Header";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { Form, Input } from "../../../page-styles/styles";
-import { Button } from "../../../components/Buttons/styles";
+import { removeSpaces } from "../add";
+import Form from "../../../components/Form/Form";
 
 export default function EditCustomer() {
   const router = useRouter();
@@ -12,7 +11,11 @@ export default function EditCustomer() {
   async function handleEditSubmit(event, id) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const customer = Object.fromEntries(formData);
+    const unformattedCustomer = Object.fromEntries(formData);
+    const customer = {
+      ...unformattedCustomer,
+      name: removeSpaces(event.target.name.value.toUpperCase()),
+    };
 
     const response = await fetch(`/api/customers/${id}`, {
       method: "PATCH",
@@ -30,50 +33,5 @@ export default function EditCustomer() {
     event.target.reset();
     router.push("/");
   }
-  return (
-    <>
-      <Header />
-      <Form onSubmit={(event) => handleEditSubmit(event, id)}>
-        <label htmlFor="name">Kundenname:</label>
-        <Input
-          id="name"
-          defaultValue={customer ? customer.name : ""}
-          name="name"
-          type="text"
-          required
-        />
-        <label htmlFor="street">Straße und Hausnummer:</label>
-        <Input
-          defaultValue={customer ? customer.street : ""}
-          id="street"
-          name="street"
-          type="text"
-          required
-        />
-        <label htmlFor="location">Ort:</label>
-        <Input
-          id="location"
-          defaultValue={customer ? customer.location : ""}
-          name="location"
-          type="text"
-          required
-        />
-        <label htmlFor="areaCode">Postleitzahl:</label>
-        <Input
-          defaultValue={customer ? customer.areaCode : ""}
-          id="areaCode"
-          name="areaCode"
-          type="text"
-          minLength="5"
-          maxLength="5"
-          pattern="[0-9]{5}"
-          required
-        />
-        <div style={{ height: 20 }} />
-        <Button size="m" type="submit">
-          Bestätigen
-        </Button>
-      </Form>
-    </>
-  );
+  return <Form onSubmit={handleEditSubmit} customer={customer} />;
 }

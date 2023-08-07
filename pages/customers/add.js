@@ -1,10 +1,14 @@
 import Header from "../../components/Header/Header";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { Form, FormContainer, Input } from "../../page-styles/styles";
+import { FormStyle, FormContainer, Input } from "../../page-styles/styles";
 import { Button } from "../../components/Buttons/styles";
 import { Placeholder } from "../../components/CustomerInfo/styles";
+import Form from "../../components/Form/Form";
 
+export function removeSpaces(inputString) {
+  return inputString.replace(/\s/g, "");
+}
 async function geocodeAddress(address) {
   const response = await fetch(
     `https://nominatim.openstreetmap.org/search?q=${address}&format=json`
@@ -30,6 +34,7 @@ export default function AddCustomer() {
       lon: lon,
       boxes: 0,
       buckets: 0,
+      name: removeSpaces(event.target.name.value.toUpperCase()),
     };
     const response = await fetch(`/api/customers`, {
       method: "POST",
@@ -49,36 +54,5 @@ export default function AddCustomer() {
     event.target.reset();
     router.push("/");
   }
-  return (
-    <>
-      <Header />
-      <FormContainer>
-        <Form onSubmit={handleSubmit}>
-          <label htmlFor="name">Kundenname:</label>
-          <Input id="name" maxLength="7" name="name" type="text" required />
-
-          <label htmlFor="street">Straße und Hausnummer:</label>
-          <Input id="street" name="street" type="text" required />
-
-          <label htmlFor="location">Ort:</label>
-          <Input id="location" name="location" type="text" required />
-
-          <label htmlFor="areaCode">Postleitzahl:</label>
-          <Input
-            id="areaCode"
-            name="areaCode"
-            type="text"
-            maxLength="5"
-            pattern="[0-9]{5}"
-            required
-          />
-          <div style={{ height: 20 }} />
-
-          <Button size="m" type="submit">
-            Bestätigen
-          </Button>
-        </Form>
-      </FormContainer>
-    </>
-  );
+  return <Form onSubmit={handleSubmit} />;
 }
