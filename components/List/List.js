@@ -7,6 +7,7 @@ import {
   StyledTableHeading,
   StyledTableParagraph,
   StyledTableRow,
+  ExtendListIcon,
 } from "./styles";
 
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
@@ -14,6 +15,7 @@ import { useState } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export default function List() {
+  const [isExtended, setIsExtended] = useState(false);
   const [sortedArray, setSortedArray] = useState([]);
   const [sortMode, setSortMode] = useState(null);
   const { data, error } = useSWR("/api/customers", {
@@ -91,6 +93,7 @@ export default function List() {
   }
   return (
     <StyledTable>
+      <ExtendListIcon onClick={() => setIsExtended(!isExtended)} />
       <tbody>
         <HeadingTableRow>
           <StyledTableHeading
@@ -117,8 +120,12 @@ export default function List() {
               <AiOutlineArrowUp />
             )}
           </StyledTableHeading>
-          <StyledTableHeading>Eimer</StyledTableHeading>
-          <StyledTableHeading>Autsätze</StyledTableHeading>
+          {isExtended ? (
+            <>
+              <StyledTableHeading>Eimer</StyledTableHeading>
+              <StyledTableHeading>Autsätze</StyledTableHeading>
+            </>
+          ) : null}
           <StyledTableHeading onClick={sortByDate} active={sortMode === "date"}>
             Datum{" "}
             {sortMode === "date" ? (
@@ -134,8 +141,13 @@ export default function List() {
               <StyledTableParagraph>{customer.name}</StyledTableParagraph>
             </StyledTableCell>
             <StyledTableCell>{customer.boxes}</StyledTableCell>
-            <StyledTableCell>{customer.buckets}</StyledTableCell>
-            <StyledTableCell>{customer.attachments}</StyledTableCell>
+            {isExtended ? (
+              <>
+                {" "}
+                <StyledTableCell>{customer.buckets}</StyledTableCell>
+                <StyledTableCell>{customer.attachments}</StyledTableCell>{" "}
+              </>
+            ) : null}
             <StyledTableCell>
               {formatTimestamp(customer.timestamp)}
             </StyledTableCell>

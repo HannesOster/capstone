@@ -1,3 +1,4 @@
+import { BiListPlus } from "react-icons/bi";
 import styled from "styled-components";
 
 export const StyledTableHeading = styled.th`
@@ -5,6 +6,8 @@ export const StyledTableHeading = styled.th`
     props.active ? props.theme.third : props.theme.primary};
   color: ${(props) => (props.active ? "black" : props.theme.third)};
   text-align: center;
+  font-weight: 600;
+  font-size: 15px;
   border-bottom: ${(props) => (props.active ? "2px solid black" : "none")};
   transition: all 0.4s ease-out;
   &:first-child {
@@ -41,4 +44,10 @@ export const HeadingTableRow = styled.tr`
 `;
 export const StyledTableParagraph = styled.p`
   margin-left: 3px;
+`;
+export const ExtendListIcon = styled(BiListPlus)`
+  position: fixed;
+  top: 90px;
+  right: 10px;
+  font-size: 40px;
 `;
