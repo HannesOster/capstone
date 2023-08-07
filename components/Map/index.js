@@ -17,20 +17,6 @@ const StyledMapContainer = styled(MapContainer)`
   z-index: 0;
 `;
 
-const StyledLegend = styled.div`
-  position: fixed;
-  top: 5px;
-  right: 20px;
-  background-color: white;
-  padding: 10px;
-  border-radius: 5px;
-  z-index: 2000;
-  font-size: 12px;
-  &:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
-`;
-
 const StyledPopup = styled(Popup)`
   background-color: ${(props) => props.theme.third};
   z-index: 1005;
@@ -95,6 +81,7 @@ function createBoxCountIcon(boxCount) {
           color: boxCount > 15 ? "white" : "black",
           fontSize: "8px",
           transform: "translate(4px,4px)",
+          border: "1px solid black",
         }}
       >
         {boxCount}
