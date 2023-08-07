@@ -22,6 +22,16 @@ const StyledMapContainer = styled(MapContainer)`
   margin-top: 90px;
   z-index: 0;
 `;
+const StyledLegend = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+  font-size: 12px;
+`;
 
 const yellowMarker = new L.Icon({
   iconUrl:
@@ -137,6 +147,9 @@ export default function Map({ markers }) {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      <StyledLegend>
+        <PiCellSignalFullFill>Bis 5 Kisten</PiCellSignalFullFill>
+      </StyledLegend>
       {markers?.map((marker) => {
         if (!marker.lat) {
           return null;
@@ -155,7 +168,7 @@ export default function Map({ markers }) {
                 : greenMarker
             }
           >
-            <Popup>
+            <Popup style={{ backgroundColor: "fff6f4" }}>
               <h2>{marker.name}</h2>
               <CustomerStock>Kisten: {marker.boxes}</CustomerStock>
               <CustomerStock>
@@ -170,31 +183,48 @@ export default function Map({ markers }) {
               <CustomerNavigation customer={marker.customer} />
             </Popup>
 
-            {marker.boxes === 0 ? null : marker.boxes <= 5 ? (
-              <Marker
-                position={[marker.lat, marker.long]}
-                icon={boxCountIcon5}
-              />
-            ) : marker.boxes <= 10 ? (
-              <Marker
-                position={[marker.lat, marker.long]}
-                icon={boxCountIcon10}
-              />
-            ) : marker.boxes <= 15 ? (
-              <Marker
-                position={[marker.lat, marker.long]}
-                icon={boxCountIcon15}
-              />
-            ) : (
-              <Marker
-                position={[marker.lat, marker.long]}
-                icon={boxCountIcon20}
-              />
+            {marker.boxes > 0 && (
+              <>
+                {marker.boxes <= 5 ? (
+                  <Marker
+                    position={[marker.lat, marker.long]}
+                    icon={boxCountIcon5}
+                  />
+                ) : marker.boxes <= 10 ? (
+                  <Marker
+                    position={[marker.lat, marker.long]}
+                    icon={boxCountIcon10}
+                  />
+                ) : marker.boxes <= 15 ? (
+                  <Marker
+                    position={[marker.lat, marker.long]}
+                    icon={boxCountIcon15}
+                  />
+                ) : (
+                  <Marker
+                    position={[marker.lat, marker.long]}
+                    icon={boxCountIcon20}
+                  />
+                )}
+              </>
             )}
           </Marker>
         );
       })}
       <LocationMarker />
+      <StyledLegend>
+        <PiCellSignalLowFill style={{ color: "#D31119" }} />
+        <span>Bis 5 Kisten</span>
+        <br />
+        <PiCellSignalMediumFill style={{ color: "#D31119" }} />
+        <span>Bis 10 Kisten</span>
+        <br />
+        <PiCellSignalHighFill style={{ color: "#D31119" }} />
+        <span>Bis 15 Kisten</span>
+        <br />
+        <PiCellSignalFullFill style={{ color: "#D31119" }} />
+        <span>Über 15 Kisten</span>
+      </StyledLegend>
     </StyledMapContainer>
   );
 }
