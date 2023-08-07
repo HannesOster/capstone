@@ -12,6 +12,13 @@ export const NavBar = styled.nav`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  max-width: 800px;
+`;
+
+export const NavBarContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const NavLink = styled(Link)`
