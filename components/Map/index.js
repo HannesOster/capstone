@@ -13,7 +13,7 @@ import CustomerNavigation from "../CustomerNavigation/CustomerNavigation";
 const StyledMapContainer = styled(MapContainer)`
   height: 45rem;
   width: 100%;
-  margin-top: 90px;
+  margin-top: 70px;
   z-index: 0;
 `;
 
