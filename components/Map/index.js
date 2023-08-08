@@ -82,6 +82,7 @@ function createBoxCountIcon(boxCount) {
           fontSize: "8px",
           transform: "translate(4px,4px)",
           border: "1px solid black",
+          pointerEvents: "none",
         }}
       >
         {boxCount}
@@ -89,6 +90,7 @@ function createBoxCountIcon(boxCount) {
     ),
     iconSize: [0, 0],
     iconAnchor: [12, 41],
+    interactive: false,
   });
 }
 

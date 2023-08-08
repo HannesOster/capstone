@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ImageContainer, Form, BrowseInput, CameraIcon } from "./styles";
 import { InfoParagraph } from "../CustomerInfo/styles";
+import { CustomerStock } from "../AddDeposit/styles";
 
 async function submitImage(event, id, mutate) {
   event.preventDefault();
@@ -56,8 +57,11 @@ export default function Upload({ id, customer, mutate }) {
         <InfoParagraph>Kein Foto vorhanden. Bitte Hinzufügen!</InfoParagraph>
       )}
       <label htmlFor="camera">
-        <CameraIcon />
-      </label>
+        <CustomerStock>
+          {" "}
+          <CameraIcon />
+        </CustomerStock>
+      </label>{" "}
       <BrowseInput
         type="file"
         accepnt="image/*"
