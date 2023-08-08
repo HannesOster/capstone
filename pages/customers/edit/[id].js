@@ -8,7 +8,7 @@ export default function EditCustomer() {
   const { id } = router.query;
   const { data: customer, mutate } = useSWR(`/api/customers/${id}`);
 
-  async function handleEditSubmit(event, id) {
+  async function handleEditSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const unformattedCustomer = Object.fromEntries(formData);

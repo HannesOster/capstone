@@ -7,9 +7,7 @@ export default function Form({ onSubmit, customer }) {
     <>
       <Header />
       <FormContainer>
-        <FormStyle
-          onSubmit={(event) => onSubmit(event, customer && customer.id)}
-        >
+        <FormStyle onSubmit={(event) => onSubmit(event)}>
           <label htmlFor="name">Kundenname:</label>
           <Input
             id="name"
