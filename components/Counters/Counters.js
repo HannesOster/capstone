@@ -1,4 +1,4 @@
-import Counter from "./Counter";
+import Counter from "./Counter/Counter";
 import { CountersContainer } from "./styles";
 
 function Counters({
@@ -14,7 +14,7 @@ function Counters({
       <CountersContainer>
         {boxes.map((value, index) => (
           <Counter
-            key={index}
+            key={`box_${index}`}
             name={`Kisten ${index === 0 ? "geliefert:" : "zurück:"}`}
             value={value}
             onIncrement={() => {
@@ -33,7 +33,7 @@ function Counters({
       <CountersContainer>
         {buckets.map((value, index) => (
           <Counter
-            key={index}
+            key={`bucket_${index}`}
             name={`Eimer ${index === 0 ? "geliefert:" : "zurück:"}`}
             value={value}
             onIncrement={() => {
@@ -52,7 +52,7 @@ function Counters({
       <CountersContainer>
         {attachments.map((value, index) => (
           <Counter
-            key={index}
+            key={`attachment_${index}`}
             name={`Aufsätze ${index === 0 ? "geliefert:" : "zurück:"}`}
             value={value}
             onIncrement={() => {
