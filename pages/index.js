@@ -8,11 +8,11 @@ export default function Home({ showSuccessModal, setShowSuccessModal }) {
     if (showSuccessModal) {
       const timeout = setTimeout(() => {
         setShowSuccessModal(false);
-      }, 2000);
+      }, 10000);
 
       return () => clearTimeout(timeout);
     }
-  }, [showSuccessModal]);
+  }, [showSuccessModal, setShowSuccessModal]);
   return (
     <>
       <Header />

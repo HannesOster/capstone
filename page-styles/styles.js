@@ -70,18 +70,19 @@ export const SuccessModal = styled.div`
   top: 100px;
   right: ${(props) => (props.visible ? "10%" : "-100%")};
   background-color: white;
-  padding: 2px 10px;
+  padding: 8px 10px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 12px;
   z-index: 200;
-  border: 1px solid green;
+  border: 1px solid ${(props) => props.theme.success};
   transform: translateX(${(props) => (props.visible ? "0" : "100%")});
   transition: transform 0.5s ease-in-out, right 0.5s ease-in-out;
 `;
 
 export const SuccessIcon = styled(AiOutlineCheckCircle)`
   color: ${(props) => props.theme.success};
-  transform: translate(-5px, 3px);
+  transform: translateY(3px);
+  margin-right: 5px;
   font-size: 16px;
 `;
