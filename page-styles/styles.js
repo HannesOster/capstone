@@ -74,7 +74,6 @@ export const SuccessModal = styled.div`
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 12px;
-  z-index: 200;
   border: 1px solid ${(props) => props.theme.success};
   transform: translateX(${(props) => (props.visible ? "0" : "100%")});
   transition: transform 0.5s ease-in-out, right 0.5s ease-in-out;
