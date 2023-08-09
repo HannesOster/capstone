@@ -107,6 +107,7 @@ export const Button = styled.button`
 
 export const SaveIcon = styled(FiSave)`
   transform: translate(-5px, 2px);
+  color: ${(props) => props.theme.success};
 `;
 export const MenuContainer = styled.section`
   display: flex;
