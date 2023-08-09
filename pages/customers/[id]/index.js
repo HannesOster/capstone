@@ -23,7 +23,8 @@ async function handleSave(
   mutate,
   stockMutate,
   stock,
-  router
+  router,
+  setShowSuccessModal
 ) {
   const response = await fetch(`/api/customers/${id}`, {
     method: "PATCH",
@@ -61,9 +62,10 @@ async function handleSave(
   mutate();
   stockMutate();
   router.push("/");
+  setShowSuccessModal(true);
 }
 
-export default function Deposit() {
+export default function Deposit({ setShowSuccessModal }) {
   const [boxes, setBoxes] = useState([0, 0]);
   const [buckets, setBuckets] = useState([0, 0]);
   const [attachments, setAttachments] = useState([0, 0]);
@@ -115,7 +117,8 @@ export default function Deposit() {
               mutate,
               stockMutate,
               stock,
-              router
+              router,
+              setShowSuccessModal
             )
           }
         />
@@ -147,7 +150,8 @@ export default function Deposit() {
               mutate,
               stockMutate,
               stock,
-              router
+              router,
+              setShowSuccessModal
             )
           }
         />

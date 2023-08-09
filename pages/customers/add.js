@@ -1,15 +1,14 @@
-import Header from "../../components/Header/Header";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { FormStyle, FormContainer, Input } from "../../page-styles/styles";
-import { Button } from "../../components/Buttons/styles";
-import { Placeholder } from "../../components/CustomerInfo/styles";
+import { useState } from "react";
 import Form from "../../components/Form/Form";
+import { Container, ErrorModal, ErrorIcon } from "../../page-styles/styles";
 
 export function removeSpaces(inputString) {
   return inputString.replace(/\s/g, "");
 }
-async function geocodeAddress(address) {
+
+export async function geocodeAddress(address) {
   const response = await fetch(
     `https://nominatim.openstreetmap.org/search?q=${address}&format=json`
   );
@@ -17,9 +16,11 @@ async function geocodeAddress(address) {
   return data;
 }
 
-export default function AddCustomer() {
+export default function AddCustomer({ setShowSuccessModal }) {
   const router = useRouter();
   const { mutate } = useSWR("/api/customers");
+
+  const [showModal, setShowModal] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -27,33 +28,54 @@ export default function AddCustomer() {
     const withoutDepositCustomer = Object.fromEntries(formData);
     const { street, location, areaCode } = withoutDepositCustomer;
     const geoData = await geocodeAddress(`${street}, ${location}, ${areaCode}`);
-    const { lat, lon } = geoData[0];
-    const customer = {
-      ...withoutDepositCustomer,
-      lat: lat,
-      lon: lon,
-      boxes: 0,
-      buckets: 0,
-      attachments: 0,
-      name: removeSpaces(event.target.name.value.toUpperCase()),
-    };
-    const response = await fetch(`/api/customers`, {
-      method: "POST",
-      body: JSON.stringify(customer),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (!response.ok) {
-      console.error(response.status);
-
-      return;
+    console.log(geoData);
+    if (!geoData || !geoData[0] || !geoData[0].lat) {
+      setShowModal(true);
     }
-    mutate();
 
-    event.target.reset();
-    router.push("/");
+    if (geoData && geoData[0] && geoData[0].lat && geoData[0].lon) {
+      const { lat, lon } = geoData[0];
+      const customer = {
+        ...withoutDepositCustomer,
+        lat: lat,
+        lon: lon,
+        boxes: 0,
+        buckets: 0,
+        attachments: 0,
+        name: removeSpaces(event.target.name.value.toUpperCase()),
+      };
+
+      const response = await fetch(`/api/customers`, {
+        method: "POST",
+        body: JSON.stringify(customer),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        console.error(response.status);
+        setShowModal(true);
+      } else {
+        setShowModal(false);
+        mutate();
+        event.target.reset();
+        router.push("/");
+        setShowSuccessModal(true);
+      }
+    }
   }
-  return <Form onSubmit={handleSubmit} />;
+
+  return (
+    <>
+      <Form handleSubmit={handleSubmit} />
+      <Container>
+        {" "}
+        <ErrorModal isActive={showModal}>
+          <ErrorIcon />
+          <p>Adresse kann nicht zugeordnet werden!</p>
+        </ErrorModal>
+      </Container>
+    </>
+  );
 }

@@ -11,7 +11,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import CustomerNavigation from "../CustomerNavigation/CustomerNavigation";
 
 const StyledMapContainer = styled(MapContainer)`
-  height: 45rem;
+  height: 60rem;
   width: 100%;
   margin-top: 70px;
   z-index: 0;

@@ -53,7 +53,11 @@ function SearchInput({ mode }) {
         </SearchOptionList>
       )}
       <UserSearchIcon />
-      <Invitation>Bitte Kunden auswählen in der Suchleiste</Invitation>
+      <Invitation>
+        {mode === "edit"
+          ? "Bitte Kunden zum Bearbeiten in der Suchleiste auswählen"
+          : "Bitte Kunden in der Suchleiste auswählen"}
+      </Invitation>
     </StyledSearchSection>
   );
 }

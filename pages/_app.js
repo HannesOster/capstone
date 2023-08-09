@@ -3,8 +3,10 @@ import Head from "next/head";
 import Navigation from "../components/Navigation/Navigation";
 import { SWRConfig } from "swr";
 import { ThemeProvider } from "styled-components";
+import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -24,7 +26,11 @@ export default function App({ Component, pageProps }) {
             <title>Pfand App Osterkamp</title>
           </Head>
 
-          <Component {...pageProps} />
+          <Component
+            showSuccessModal={showSuccessModal}
+            setShowSuccessModal={setShowSuccessModal}
+            {...pageProps}
+          />
           <Navigation />
         </SWRConfig>
       </ThemeProvider>

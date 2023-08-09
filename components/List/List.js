@@ -19,7 +19,7 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 export default function List() {
   const [isExtended, setIsExtended] = useState(false);
   const [sortedArray, setSortedArray] = useState([]);
-  const [sortMode, setSortMode] = useState(null);
+  const [sortMode, setSortMode] = useState("name");
   const { data, error } = useSWR("/api/customers", {
     initialData: [],
     revalidateOnMount: true,
@@ -27,7 +27,8 @@ export default function List() {
 
   useEffect(() => {
     if (data) {
-      setSortedArray(data);
+      const sorted = [...data].sort((a, b) => a.name.localeCompare(b.name));
+      setSortedArray(sorted);
     }
   }, [data]);
 
