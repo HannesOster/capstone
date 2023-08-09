@@ -8,7 +8,7 @@ export default function Home({ showSuccessModal, setShowSuccessModal }) {
     if (showSuccessModal) {
       const timeout = setTimeout(() => {
         setShowSuccessModal(false);
-      }, 10000);
+      }, 3000);
 
       return () => clearTimeout(timeout);
     }
