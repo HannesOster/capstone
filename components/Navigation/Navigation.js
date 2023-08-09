@@ -16,7 +16,8 @@ export default function Navigation() {
 
   const isMenu = router.pathname === routes.menu;
   const isCustomers = router.pathname === routes.customers;
-  const isDeposit = router.pathname === "/";
+  const isDeposit =
+    router.pathname === "/" || router.pathname.includes("/customers/");
 
   return (
     <NavBarContainer>

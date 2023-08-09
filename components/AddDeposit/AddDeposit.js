@@ -7,6 +7,7 @@ export default function AddDeposit({ customer }) {
       <StockContainer>
         <CustomerStock>Kisten: {customer.boxes}</CustomerStock>
         <CustomerStock>Eimer: {customer.buckets}</CustomerStock>
+        <CustomerStock>Aufsätze: {customer.attachments}</CustomerStock>
       </StockContainer>
     </>
   );

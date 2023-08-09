@@ -15,9 +15,11 @@ async function handleSave(
   id,
   boxesToAdd,
   bucketsToAdd,
+  attachmentsToAdd,
   data,
   setBoxes,
   setBuckets,
+  setAttachments,
   mutate,
   stockMutate,
   stock,
@@ -31,6 +33,7 @@ async function handleSave(
     body: JSON.stringify({
       boxes: data.boxes + boxesToAdd,
       buckets: data.buckets + bucketsToAdd,
+      attachments: data.attachments + attachmentsToAdd,
       timestamp: Date.now(),
     }),
   });
@@ -54,6 +57,7 @@ async function handleSave(
 
   setBoxes([0, 0]);
   setBuckets([0, 0]);
+  setAttachments([0, 0]);
   mutate();
   stockMutate();
   router.push("/");
@@ -62,9 +66,11 @@ async function handleSave(
 export default function Deposit() {
   const [boxes, setBoxes] = useState([0, 0]);
   const [buckets, setBuckets] = useState([0, 0]);
+  const [attachments, setAttachments] = useState([0, 0]);
 
   const boxesToAdd = boxes[0] - boxes[1];
   const bucketsToAdd = buckets[0] - buckets[1];
+  const attachmentsToAdd = attachments[0] - attachments[1];
 
   const router = useRouter();
   const { id } = router.query;
@@ -73,6 +79,7 @@ export default function Deposit() {
 
   const newBoxes = data.boxes + boxesToAdd;
   const newBuckets = data.buckets + bucketsToAdd;
+  const newAttachments = data.attachments + attachmentsToAdd;
 
   const { data: customer, isLoading, error } = useSWR(`/api/customers/${id}`);
 
@@ -87,12 +94,39 @@ export default function Deposit() {
   return (
     <>
       <Header />
+
       <AddDeposit customer={customer} />
+      <Container>
+        <StyledLink size="s" variant="danger" href="/">
+          <CancelIcon />
+          Abbrechen
+        </StyledLink>
+        <SaveButton
+          handleClick={() =>
+            handleSave(
+              id,
+              boxesToAdd,
+              bucketsToAdd,
+              attachmentsToAdd,
+              data,
+              setBoxes,
+              setBuckets,
+              setAttachments,
+              mutate,
+              stockMutate,
+              stock,
+              router
+            )
+          }
+        />
+      </Container>
       <Counters
         boxes={boxes}
         buckets={buckets}
+        attachments={attachments}
         setBoxes={setBoxes}
         setBuckets={setBuckets}
+        setAttachments={setAttachments}
       />
       <Container>
         <StyledLink size="s" variant="danger" href="/">
@@ -105,9 +139,11 @@ export default function Deposit() {
               id,
               boxesToAdd,
               bucketsToAdd,
+              attachmentsToAdd,
               data,
               setBoxes,
               setBuckets,
+              setAttachments,
               mutate,
               stockMutate,
               stock,

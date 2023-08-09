@@ -1,3 +1,4 @@
+import { BiListMinus, BiListPlus } from "react-icons/bi";
 import styled from "styled-components";
 
 export const StyledTableHeading = styled.th`
@@ -5,8 +6,24 @@ export const StyledTableHeading = styled.th`
     props.active ? props.theme.third : props.theme.primary};
   color: ${(props) => (props.active ? "black" : props.theme.third)};
   text-align: center;
+  font-weight: 600;
+  font-size: 15px;
   border-bottom: ${(props) => (props.active ? "2px solid black" : "none")};
   transition: all 0.4s ease-out;
+  &:first-child {
+    text-align: left;
+  }
+`;
+export const StyledTableHeadingAttachments = styled.th`
+  background-color: ${(props) =>
+    props.active ? props.theme.third : props.theme.primary};
+  color: ${(props) => (props.active ? "black" : props.theme.third)};
+  text-align: center;
+  font-weight: 600;
+  font-size: 10px;
+  border-bottom: ${(props) => (props.active ? "2px solid black" : "none")};
+  transition: all 0.4s ease-out;
+  font-size: 10px;
   &:first-child {
     text-align: left;
   }
@@ -41,4 +58,20 @@ export const HeadingTableRow = styled.tr`
 `;
 export const StyledTableParagraph = styled.p`
   margin-left: 3px;
+`;
+export const ExtendListIcon = styled(BiListPlus)`
+  position: fixed;
+  top: 90px;
+  right: 30px;
+  cursor: pointer;
+  color: ${(props) => props.theme.primary};
+  font-size: 40px;
+`;
+export const ReducedListIcon = styled(BiListMinus)`
+  position: fixed;
+  color: ${(props) => props.theme.primary};
+  top: 90px;
+  cursor: pointer;
+  right: 30px;
+  font-size: 40px;
 `;

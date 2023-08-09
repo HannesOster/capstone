@@ -34,6 +34,7 @@ export default function AddCustomer() {
       lon: lon,
       boxes: 0,
       buckets: 0,
+      attachments: 0,
       name: removeSpaces(event.target.name.value.toUpperCase()),
     };
     const response = await fetch(`/api/customers`, {

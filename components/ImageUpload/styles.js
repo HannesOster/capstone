@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { AiOutlineCamera } from "react-icons/ai";
+import { StockContainer } from "../AddDeposit/styles";
 
 export const Form = styled.form`
   margin-bottom: 200px;

@@ -2,14 +2,12 @@ import { FormContainer, FormStyle, Input } from "../../page-styles/styles";
 import { Button } from "../Buttons/styles";
 import Header from "../Header/Header";
 
-export default function Form({ onSubmit, customer }) {
+export default function Form({ handleSubmit, customer }) {
   return (
     <>
       <Header />
       <FormContainer>
-        <FormStyle
-          onSubmit={(event) => onSubmit(event, customer && customer.id)}
-        >
+        <FormStyle onSubmit={(event) => handleSubmit(event)}>
           <label htmlFor="name">Kundenname:</label>
           <Input
             id="name"

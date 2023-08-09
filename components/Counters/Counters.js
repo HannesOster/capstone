@@ -1,13 +1,20 @@
-import Counter from "./Counter";
+import Counter from "./Counter/Counter";
 import { CountersContainer } from "./styles";
 
-function Counters({ boxes, buckets, setBoxes, setBuckets }) {
+function Counters({
+  boxes,
+  buckets,
+  attachments,
+  setBoxes,
+  setBuckets,
+  setAttachments,
+}) {
   return (
-    <div>
+    <section>
       <CountersContainer>
         {boxes.map((value, index) => (
           <Counter
-            key={index}
+            key={`box_${index}`}
             name={`Kisten ${index === 0 ? "geliefert:" : "zurück:"}`}
             value={value}
             onIncrement={() => {
@@ -26,7 +33,7 @@ function Counters({ boxes, buckets, setBoxes, setBuckets }) {
       <CountersContainer>
         {buckets.map((value, index) => (
           <Counter
-            key={index}
+            key={`bucket_${index}`}
             name={`Eimer ${index === 0 ? "geliefert:" : "zurück:"}`}
             value={value}
             onIncrement={() => {
@@ -42,7 +49,26 @@ function Counters({ boxes, buckets, setBoxes, setBuckets }) {
           />
         ))}
       </CountersContainer>
-    </div>
+      <CountersContainer>
+        {attachments.map((value, index) => (
+          <Counter
+            key={`attachment_${index}`}
+            name={`Aufsätze ${index === 0 ? "geliefert:" : "zurück:"}`}
+            value={value}
+            onIncrement={() => {
+              const attachmentsCopy = [...attachments];
+              attachmentsCopy[index] += 1;
+              setAttachments(attachmentsCopy);
+            }}
+            onDecrement={() => {
+              const attachmentsCopy = [...attachments];
+              attachmentsCopy[index] -= 1;
+              setAttachments(attachmentsCopy);
+            }}
+          />
+        ))}
+      </CountersContainer>
+    </section>
   );
 }
 
