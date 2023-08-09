@@ -97,7 +97,7 @@ function createBoxCountIcon(boxCount) {
 export default function Map({ markers }) {
   return (
     <>
-      <StyledMapContainer center={[51.601, 6.659]} zoom={9} scrollWheelZoom>
+      <StyledMapContainer center={[51.455, 6.759]} zoom={9} scrollWheelZoom>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
