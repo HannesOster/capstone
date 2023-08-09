@@ -12,7 +12,6 @@ export const NavBar = styled.nav`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  max-width: 1000px;
 `;
 
 export const NavBarContainer = styled.div`
@@ -71,8 +70,8 @@ export const IconContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  @media screen and (min-width: 1000px) {
-    border-right: ${(props) => props.theme.primary} 3px solid;
-    border-left: ${(props) => props.theme.primary} 3px solid;
+  @media screen and (min-width: 700px) {
+    justify-content: center;
+    gap: 20px;
   }
 `;
