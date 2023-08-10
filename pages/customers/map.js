@@ -7,7 +7,7 @@ import daysSinceDate from "../../utils/daysSinceDate";
 const Map = dynamic(() => import("../../components/Map"), { ssr: false });
 
 export default function CustomerMap() {
-  const { data, error, isLoading } = useSWR("/api/customers", {
+  const { data, error, isLoading } = useSWR(routes.customersApiRoute, {
     initialData: [],
     revalidateOnMount: true,
   });

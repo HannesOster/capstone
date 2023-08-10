@@ -12,7 +12,7 @@ import {
 import { routes } from "../../utils/routes";
 
 function SearchInput({ mode }) {
-  const { data } = useSWR("/api/customers", { fallbackData: [] });
+  const { data } = useSWR(routes.customersApiRoute, { fallbackData: [] });
   const [searchValue, setSearchValue] = useState("");
 
   function handleSearchChange(event) {

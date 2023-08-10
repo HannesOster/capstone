@@ -10,6 +10,7 @@ import { useState } from "react";
 import { SaveButton } from "../../../components/Buttons/SaveButton";
 import { Container, StyledLink } from "../../../components/Buttons/styles";
 import { CancelIcon } from "../../../components/Buttons/styles";
+import { routes } from "../../../utils/routes";
 
 async function handleSave(
   id,
@@ -26,7 +27,7 @@ async function handleSave(
   router,
   setShowSuccessModal
 ) {
-  const response = await fetch(`/api/customers/${id}`, {
+  const response = await fetch(routes.customersApiRouteById(id), {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -46,7 +47,7 @@ async function handleSave(
     console.error(response.status);
     return;
   }
-  await fetch(`/api/stock`, {
+  await fetch(routes.stockApiRoute, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -77,15 +78,21 @@ export default function Deposit({ setShowSuccessModal }) {
   const router = useRouter();
   const { id } = router.query;
 
-  const { data, mutate } = useSWR(`/api/customers/${id}`, { fallbackData: [] });
+  const { data, mutate } = useSWR(routes.customersApiRouteById(id), {
+    fallbackData: [],
+  });
 
   const newBoxes = data.boxes + boxesToAdd;
   const newBuckets = data.buckets + bucketsToAdd;
   const newAttachments = data.attachments + attachmentsToAdd;
 
-  const { data: customer, isLoading, error } = useSWR(`/api/customers/${id}`);
+  const {
+    data: customer,
+    isLoading,
+    error,
+  } = useSWR(routes.customersApiRouteById(id));
 
-  const { data: stock, mutate: stockMutate } = useSWR(`/api/stock`);
+  const { data: stock, mutate: stockMutate } = useSWR(routes.stockApiRoute);
   if (isLoading) {
     return <LoadingSpinner />;
   }

@@ -22,7 +22,7 @@ async function submitImage(event, id, mutate) {
     const { secure_url, width, height } = img;
 
     try {
-      await fetch(`/api/customers/${id}`, {
+      await fetch(routes.customersApiRouteById(id), {
         method: "PATCH",
         body: JSON.stringify({
           image: { url: secure_url, width: width, height: height },

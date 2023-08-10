@@ -18,7 +18,7 @@ export async function geocodeAddress(address) {
 
 export default function AddCustomer({ setShowSuccessModal }) {
   const router = useRouter();
-  const { mutate } = useSWR("/api/customers");
+  const { mutate } = useSWR(routes.customersApiRoute);
 
   const [showModal, setShowModal] = useState(false);
 

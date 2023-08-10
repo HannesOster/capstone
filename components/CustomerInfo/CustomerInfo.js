@@ -14,12 +14,13 @@ import {
   InfoParagraphContainer,
 } from "./styles";
 import Upload from "../ImageUpload/ImageUpload";
+import { routes } from "../../utils/routes";
 
 export default function CustomerInfo({ customer, id }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { mutate } = useSWR(`/api/customers/${id}`);
+  const { mutate } = useSWR(routes.customersApiRouteById(id));
 
   function handleArrowClick() {
     setIsExpanded(!isExpanded);
@@ -30,7 +31,7 @@ export default function CustomerInfo({ customer, id }) {
     const formData = new FormData(event.target);
     const customerData = Object.fromEntries(formData);
 
-    const response = await fetch(`/api/customers/${id}`, {
+    const response = await fetch(routes.customersApiRouteById(id), {
       method: "PATCH",
       body: JSON.stringify(customerData),
       headers: {

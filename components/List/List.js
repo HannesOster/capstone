@@ -20,12 +20,13 @@ import formatTimestamp from "../../utils/formatTimestamp";
 import { useState } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { Invitation } from "../SearchInput/styles";
+import { routes } from "../../utils/routes";
 
 export default function List() {
   const [isExtended, setIsExtended] = useState(false);
   const [sortedArray, setSortedArray] = useState([]);
   const [sortMode, setSortMode] = useState("name");
-  const { data, error } = useSWR("/api/customers", {
+  const { data, error } = useSWR(routes.customersApiRoute, {
     initialData: [],
     revalidateOnMount: true,
   });

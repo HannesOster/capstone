@@ -4,12 +4,13 @@ import { geocodeAddress, removeSpaces } from "../add";
 import Form from "../../../components/Form/Form";
 import { useState } from "react";
 import { Container, ErrorIcon, ErrorModal } from "../../../page-styles/styles";
+import { routes } from "../../../utils/routes";
 
 export default function EditCustomer({ setShowSuccessModal }) {
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
   const { id } = router.query;
-  const { data: customer, mutate } = useSWR(`/api/customers/${id}`);
+  const { data: customer, mutate } = useSWR(routes.customersApiRouteById(id));
 
   async function handleEditSubmit(event) {
     event.preventDefault();
@@ -30,7 +31,7 @@ export default function EditCustomer({ setShowSuccessModal }) {
       lon: lon,
     };
 
-    const response = await fetch(`/api/customers/${id}`, {
+    const response = await fetch(routes.customersApiRouteById(id), {
       method: "PATCH",
       body: JSON.stringify(customer),
       headers: {
