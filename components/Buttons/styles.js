@@ -78,17 +78,31 @@ export const Button = styled.button`
         : props.theme.secondary};
   border-radius: 5px;
   width: ${(props) =>
-    props.size === "s" ? "none" : props.size === "m" ? "none" : "80%"};
+    props.size === "s"
+      ? "none"
+      : props.size === "m"
+      ? "none"
+      : props.size === "l"
+      ? "50%"
+      : "80%"};
   padding: ${(props) =>
     props.size === "s"
       ? "5px 20px"
       : props.size === "m"
       ? "10px 30px"
+      : props.size === "l"
+      ? "30px 40px"
       : "20px 30px"};
 
   text-decoration: none;
   font-size: ${(props) =>
-    props.size === "s" ? "1rem" : props.size === "m" ? "1rem" : "1.3rem"};
+    props.size === "s"
+      ? "1rem"
+      : props.size === "m"
+      ? "1rem"
+      : props.size === "l"
+      ? "2rem"
+      : "1.3rem"};
   width: ${(props) => props.width};
   font-weight: normal;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -112,7 +126,7 @@ export const SaveIcon = styled(FiSave)`
 export const MenuContainer = styled.section`
   display: flex;
   flex-direction: column;
-  margin-top: 130px;
+  margin-top: 100px;
   margin-bottom: 130px;
   align-items: center;
   gap: 30px;

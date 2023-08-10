@@ -1,4 +1,5 @@
 import { BiListMinus, BiListPlus } from "react-icons/bi";
+import { RxCheckCircled, RxCrossCircled } from "react-icons/rx";
 import styled from "styled-components";
 
 export const StyledTableHeading = styled.th`
@@ -29,7 +30,7 @@ export const StyledTableHeadingAttachments = styled.th`
   }
 `;
 export const StyledTableCell = styled.td`
-  width: 25%;
+  width: ${(props) => (props.active ? "20" : "25%")};
   border-right: 1px solid black;
   text-align: center;
   font-weight: 550;
@@ -74,4 +75,12 @@ export const ReducedListIcon = styled(BiListMinus)`
   cursor: pointer;
   right: 30px;
   font-size: 40px;
+`;
+
+export const CheckIcon = styled(RxCheckCircled)`
+  color: ${(props) => props.theme.success};
+`;
+
+export const CrossIcon = styled(RxCrossCircled)`
+  color: ${(props) => props.theme.danger};
 `;

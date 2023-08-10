@@ -44,6 +44,8 @@ function SearchInput({ mode }) {
               href={
                 mode === "edit"
                   ? routes.customerEditById(option._id)
+                  : mode === "delete"
+                  ? routes.customerDeletebyId(option._id)
                   : routes.customerById(option._id)
               }
             >

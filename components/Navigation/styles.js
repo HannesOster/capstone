@@ -61,12 +61,14 @@ export const IconContainer = styled.section`
     props.isActive ? props.theme.primary : props.theme.third};
   background-color: ${(props) =>
     props.isActive ? props.theme.third : props.theme.primary};
-  border-top: ${(props) => props.theme.primary} 3px solid;
+  border-top: ${(props) => props.theme.primary}
+    ${(props) => (props.small ? " 2px" : "3px")} solid;
 
-  width: 80%;
-  height: 65px;
+  width: 75%;
+
+  height: ${(props) => (props.small ? " 50px" : "65px")};
   margin: 0 auto;
-  transform: ${(props) => (props.isActive ? "translateY(-3px)" : "")};
+  transform: ${(props) => (props.isActive ? "translateY(-1px)" : "")};
   display: flex;
   align-items: center;
   justify-content: space-evenly;

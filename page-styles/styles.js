@@ -68,8 +68,8 @@ export const ErrorIcon = styled(BiErrorCircle)`
 export const SuccessModal = styled.div`
   position: fixed;
   top: 100px;
-  right: ${(props) => (props.visible ? "10%" : "-100%")};
-  background-color: white;
+  right: ${(props) => (props.visible ? "5%" : "-100%")};
+  background-color: ${(props) => props.theme.third};
   padding: 8px 10px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

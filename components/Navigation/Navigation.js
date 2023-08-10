@@ -16,28 +16,35 @@ export default function Navigation() {
 
   const isMenu = router.pathname === routes.menu;
   const isCustomers = router.pathname === routes.customers;
-  const isDeposit =
-    router.pathname === "/" || router.pathname.includes("/customers/");
+  const isDeposit = router.pathname === "/";
 
   return (
     <NavBarContainer>
       <NavBar>
         <NavLink isActive={isDeposit} href="/">
           <IconContainer isActive={isDeposit}>
-            <NotePadIcon isActive={isDeposit} />
-            <Text isActive={isDeposit}>Pfand</Text>
+            <IconContainer small isActive={isDeposit}>
+              <NotePadIcon isActive={isDeposit} />
+              <Text isActive={isDeposit}>Pfand</Text>
+            </IconContainer>
           </IconContainer>
         </NavLink>
         <NavLink isActive={isCustomers} href={routes.customers}>
           <IconContainer isActive={isCustomers}>
-            <CustomersIcon isActive={isCustomers} />
-            <Text isActive={isCustomers}>Kunden</Text>
+            {" "}
+            <IconContainer small isActive={isCustomers}>
+              <CustomersIcon isActive={isCustomers} />
+              <Text isActive={isCustomers}>Kunden</Text>
+            </IconContainer>
           </IconContainer>
         </NavLink>
         <NavLink isActive={isMenu} href={routes.menu}>
           <IconContainer isActive={isMenu}>
-            <MenuIcon isActive={isMenu} />
-            <Text isActive={isMenu}>Menu</Text>
+            {" "}
+            <IconContainer small isActive={isMenu}>
+              <MenuIcon isActive={isMenu} />
+              <Text isActive={isMenu}>Menu</Text>
+            </IconContainer>
           </IconContainer>
         </NavLink>
       </NavBar>
