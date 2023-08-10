@@ -21,12 +21,14 @@ const StyledPopup = styled(Popup)`
   background-color: ${(props) => props.theme.third};
   z-index: 1005;
 `;
-
+function getColoredMarkerURL(color) {
+  return `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${color}.png`;
+}
+const markerShadowURL =
+  "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png";
 const yellowMarker = new Leaflet.Icon({
-  iconUrl:
-    "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png",
-  shadowUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+  iconUrl: getColoredMarkerURL("yellow"),
+  shadowUrl: markerShadowURL,
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
@@ -34,10 +36,8 @@ const yellowMarker = new Leaflet.Icon({
 });
 
 const greenMarker = new Leaflet.Icon({
-  iconUrl:
-    "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
-  shadowUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+  iconUrl: getColoredMarkerURL("green"),
+  shadowUrl: markerShadowURL,
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
@@ -45,10 +45,8 @@ const greenMarker = new Leaflet.Icon({
 });
 
 const redMarker = new Leaflet.Icon({
-  iconUrl:
-    "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
-  shadowUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+  iconUrl: getColoredMarkerURL("red"),
+  shadowUrl: markerShadowURL,
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
@@ -56,10 +54,8 @@ const redMarker = new Leaflet.Icon({
 });
 
 const blackMarker = new Leaflet.Icon({
-  iconUrl:
-    "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png",
-  shadowUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+  iconUrl: getColoredMarkerURL("black"),
+  shadowUrl: markerShadowURL,
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
