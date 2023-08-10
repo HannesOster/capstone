@@ -7,7 +7,6 @@ import {
   Text,
   IconContainer,
   NavBarContainer,
-  NavDivider,
 } from "./styles";
 import { useRouter } from "next/router";
 import { routes } from "../../utils/routes";

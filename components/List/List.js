@@ -53,40 +53,25 @@ export default function List() {
 
     return date.toLocaleString("de-DE", options);
   }
-  function sortByCustomerName() {
-    if (sortMode === "name") {
-      setSortedArray(data);
-      setSortMode(null);
-    } else {
-      const sorted = [...sortedArray].sort((a, b) =>
-        a.name.localeCompare(b.name)
-      );
-      setSortedArray(sorted);
-      setSortMode("name");
-    }
-  }
 
-  function sortByBoxes() {
-    if (sortMode === "boxes") {
-      setSortedArray(data);
+  function toggleSortMode(newSortMode) {
+    let newSortedArray = [...sortedArray];
+
+    if (sortMode === newSortMode) {
+      newSortedArray.reverse();
       setSortMode(null);
     } else {
-      const sorted = [...sortedArray].sort((a, b) => b.boxes - a.boxes);
-      setSortedArray(sorted);
-      setSortMode("boxes");
+      setSortMode(newSortMode);
+      const sortFunctions = {
+        name: (a, b) => a.name.localeCompare(b.name),
+        photo: (a, b) => (a.image ? (b.image ? 0 : 1) : -1),
+        boxes: (a, b) => b.boxes - a.boxes,
+        date: (a, b) => new Date(b.timestamp) - new Date(a.timestamp),
+      };
+      newSortedArray.sort(sortFunctions[newSortMode]);
     }
-  }
-  function sortByDate() {
-    if (sortMode === "date") {
-      setSortedArray(data);
-      setSortMode(null);
-    } else {
-      const sorted = [...sortedArray].sort(
-        (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
-      );
-      setSortedArray(sorted);
-      setSortMode("date");
-    }
+
+    setSortedArray(newSortedArray);
   }
 
   if (error) {
@@ -106,7 +91,7 @@ export default function List() {
       <tbody>
         <HeadingTableRow>
           <StyledTableHeading
-            onClick={sortByCustomerName}
+            onClick={() => toggleSortMode("name")}
             active={sortMode === "name"}
           >
             <StyledTableParagraph>
@@ -119,7 +104,7 @@ export default function List() {
             </StyledTableParagraph>{" "}
           </StyledTableHeading>
           <StyledTableHeading
-            onClick={sortByBoxes}
+            onClick={() => toggleSortMode("boxes")}
             active={sortMode === "boxes"}
           >
             Kisten
@@ -140,11 +125,11 @@ export default function List() {
           ) : null}
           {isExtended ? null : (
             <StyledTableHeading
-              onClick={sortByDate}
-              active={sortMode === "date"}
+              onClick={() => toggleSortMode("photo")}
+              active={sortMode === "photo"}
             >
               Foto{" "}
-              {sortMode === "date" ? (
+              {sortMode === "photo" ? (
                 <AiOutlineArrowDown />
               ) : (
                 <AiOutlineArrowUp />
