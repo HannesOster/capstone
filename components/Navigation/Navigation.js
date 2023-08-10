@@ -7,6 +7,7 @@ import {
   Text,
   IconContainer,
   NavBarContainer,
+  NavDivider,
 } from "./styles";
 import { useRouter } from "next/router";
 import { routes } from "../../utils/routes";
@@ -23,28 +24,20 @@ export default function Navigation() {
       <NavBar>
         <NavLink isActive={isDeposit} href="/">
           <IconContainer isActive={isDeposit}>
-            <IconContainer small isActive={isDeposit}>
-              <NotePadIcon isActive={isDeposit} />
-              <Text isActive={isDeposit}>Pfand</Text>
-            </IconContainer>
+            <NotePadIcon isActive={isDeposit} />
+            <Text isActive={isDeposit}>Pfand</Text>
           </IconContainer>
         </NavLink>
         <NavLink isActive={isCustomers} href={routes.customers}>
           <IconContainer isActive={isCustomers}>
-            {" "}
-            <IconContainer small isActive={isCustomers}>
-              <CustomersIcon isActive={isCustomers} />
-              <Text isActive={isCustomers}>Kunden</Text>
-            </IconContainer>
+            <CustomersIcon isActive={isCustomers} />
+            <Text isActive={isCustomers}>Kunden</Text>
           </IconContainer>
         </NavLink>
         <NavLink isActive={isMenu} href={routes.menu}>
           <IconContainer isActive={isMenu}>
-            {" "}
-            <IconContainer small isActive={isMenu}>
-              <MenuIcon isActive={isMenu} />
-              <Text isActive={isMenu}>Menu</Text>
-            </IconContainer>
+            <MenuIcon isActive={isMenu} />
+            <Text isActive={isMenu}>Menu</Text>
           </IconContainer>
         </NavLink>
       </NavBar>

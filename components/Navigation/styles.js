@@ -55,6 +55,13 @@ export const Text = styled.p`
   transform: ${(props) => (props.isActive ? "translateY(-1px)" : "")};
   transition: all 0.7s ease-out;
 `;
+export const NavDivider = styled.div`
+  position: absolute;
+  background-color: ${(props) => props.theme.primary};
+  height: 2px;
+  width: ${(props) => (props.small ? "50%" : "75%")};
+  transform: translate(0px, -20px);
+`;
 
 export const IconContainer = styled.section`
   color: ${(props) =>

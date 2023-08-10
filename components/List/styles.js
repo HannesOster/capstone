@@ -42,7 +42,7 @@ export const StyledTable = styled.table`
   border: 1px solid black;
   border-collapse: collapse;
   width: 100%;
-  margin-bottom: 100px;
+  margin-bottom: 70px;
 `;
 export const StyledTableRow = styled.tr`
   height: 50px;
