@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ImageContainer, Form, BrowseInput, CameraIcon } from "./styles";
 import { InfoParagraph } from "../CustomerInfo/styles";
 import { CustomerStock } from "../AddDeposit/styles";
+import { routes } from "../../utils/routes";
 
 async function submitImage(event, id, mutate) {
   event.preventDefault();
