@@ -13,7 +13,7 @@ providers.push(
 
     async authorize(credentials) {
       if (
-        credentials.username === "henni" &&
+        credentials.username === "admin" &&
         credentials.password === process.env.ADMIN_PW
       ) {
         return {
