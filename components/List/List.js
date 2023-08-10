@@ -14,7 +14,7 @@ import {
   CrossIcon,
 } from "./styles";
 
-import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+import { ImCircleDown, ImCircleUp } from "react-icons/im";
 import { useState } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
@@ -96,11 +96,7 @@ export default function List() {
           >
             <StyledTableParagraph>
               Kunde
-              {sortMode === "name" ? (
-                <AiOutlineArrowDown />
-              ) : (
-                <AiOutlineArrowUp />
-              )}
+              {sortMode === "name" ? <ImCircleDown /> : <ImCircleUp />}
             </StyledTableParagraph>{" "}
           </StyledTableHeading>
           <StyledTableHeading
@@ -108,11 +104,7 @@ export default function List() {
             active={sortMode === "boxes"}
           >
             Kisten
-            {sortMode === "boxes" ? (
-              <AiOutlineArrowDown />
-            ) : (
-              <AiOutlineArrowUp />
-            )}
+            {sortMode === "boxes" ? <ImCircleDown /> : <ImCircleUp />}
           </StyledTableHeading>
           {isExtended ? (
             <>
@@ -128,12 +120,7 @@ export default function List() {
               onClick={() => toggleSortMode("photo")}
               active={sortMode === "photo"}
             >
-              Foto{" "}
-              {sortMode === "photo" ? (
-                <AiOutlineArrowDown />
-              ) : (
-                <AiOutlineArrowUp />
-              )}
+              Foto {sortMode === "photo" ? <ImCircleDown /> : <ImCircleUp />}
             </StyledTableHeading>
           )}
         </HeadingTableRow>
