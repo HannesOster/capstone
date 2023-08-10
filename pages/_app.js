@@ -1,3 +1,4 @@
+import { SessionProvider } from "next-auth/react";
 import GlobalStyle, { theme } from "../styles";
 import Head from "next/head";
 import Navigation from "../components/Navigation/Navigation";
@@ -5,7 +6,10 @@ import { SWRConfig } from "swr";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 
-export default function App({ Component, pageProps }) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   return (
     <>
@@ -25,12 +29,13 @@ export default function App({ Component, pageProps }) {
           <Head>
             <title>Pfand App Osterkamp</title>
           </Head>
-
-          <Component
-            showSuccessModal={showSuccessModal}
-            setShowSuccessModal={setShowSuccessModal}
-            {...pageProps}
-          />
+          <SessionProvider session={session}>
+            <Component
+              showSuccessModal={showSuccessModal}
+              setShowSuccessModal={setShowSuccessModal}
+              {...pageProps}
+            />
+          </SessionProvider>
           <Navigation />
         </SWRConfig>
       </ThemeProvider>
