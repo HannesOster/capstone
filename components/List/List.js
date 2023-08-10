@@ -12,11 +12,14 @@ import {
   ReducedListIcon,
   CheckIcon,
   CrossIcon,
+  DownIcon,
+  UpIcon,
 } from "./styles";
 import formatTimestamp from "../../utils/formatTimestamp";
-import { ImCircleDown, ImCircleUp } from "react-icons/im";
+
 import { useState } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import { Invitation } from "../SearchInput/styles";
 
 export default function List() {
   const [isExtended, setIsExtended] = useState(false);
@@ -55,7 +58,7 @@ export default function List() {
   }
 
   if (error) {
-    return <h1>Error loading data</h1>;
+    return <Invitation>Bitte einloggen</Invitation>;
   }
 
   if (!sortedArray || sortedArray.length === 0) {
@@ -76,7 +79,7 @@ export default function List() {
           >
             <StyledTableParagraph>
               Kunde
-              {sortMode === "name" ? <ImCircleDown /> : <ImCircleUp />}
+              {sortMode === "name" ? <DownIcon /> : <UpIcon />}
             </StyledTableParagraph>{" "}
           </StyledTableHeading>
           <StyledTableHeading
@@ -84,7 +87,7 @@ export default function List() {
             active={sortMode === "boxes"}
           >
             Kisten
-            {sortMode === "boxes" ? <ImCircleDown /> : <ImCircleUp />}
+            {sortMode === "boxes" ? <DownIcon /> : <UpIcon />}
           </StyledTableHeading>
           {isExtended ? (
             <>
@@ -100,7 +103,7 @@ export default function List() {
               onClick={() => toggleSortMode("photo")}
               active={sortMode === "photo"}
             >
-              Foto {sortMode === "photo" ? <ImCircleDown /> : <ImCircleUp />}
+              Foto {sortMode === "photo" ? <DownIcon /> : <UpIcon />}
             </StyledTableHeading>
           )}
         </HeadingTableRow>

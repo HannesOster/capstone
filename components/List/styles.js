@@ -1,4 +1,5 @@
 import { BiListMinus, BiListPlus } from "react-icons/bi";
+import { ImCircleDown, ImCircleUp } from "react-icons/im";
 import { RxCheckCircled, RxCrossCircled } from "react-icons/rx";
 import styled from "styled-components";
 
@@ -83,4 +84,11 @@ export const CheckIcon = styled(RxCheckCircled)`
 
 export const CrossIcon = styled(RxCrossCircled)`
   color: ${(props) => props.theme.danger};
+`;
+
+export const DownIcon = styled(ImCircleDown)`
+  transform: translate(3px, 2px);
+`;
+export const UpIcon = styled(ImCircleUp)`
+  transform: translate(3px, 2px);
 `;
