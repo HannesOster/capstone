@@ -13,7 +13,7 @@ import {
   CheckIcon,
   CrossIcon,
 } from "./styles";
-
+import formatTimestamp from "../../utils/formatTimestamp";
 import { ImCircleDown, ImCircleUp } from "react-icons/im";
 import { useState } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
@@ -33,26 +33,6 @@ export default function List() {
       setSortedArray(sorted);
     }
   }, [data]);
-
-  function formatTimestamp(timestamp) {
-    if (!timestamp) {
-      return "";
-    }
-
-    const date = new Date(timestamp);
-    if (isNaN(date)) {
-      return "";
-    }
-
-    const options = {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-      hour12: true,
-    };
-
-    return date.toLocaleString("de-DE", options);
-  }
 
   function toggleSortMode(newSortMode) {
     let newSortedArray = [...sortedArray];
