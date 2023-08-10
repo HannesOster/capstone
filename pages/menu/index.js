@@ -10,8 +10,10 @@ import {
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import { StockContainer, modalStyles } from "../../page-styles/styles";
 import { routes } from "../../utils/routes";
+import { useSession } from "next-auth/react";
 
 export default function Menu() {
+  const { data: session } = useSession();
   const { data } = useSWR("/api/stock", {
     initialData: [],
     revalidateOnMount: true,
@@ -41,6 +43,11 @@ export default function Menu() {
           Lagerbestand
         </Button>
         <StyledLink href={routes.customersMap}>Karte</StyledLink>
+        {session.user.role === "admin" && (
+          <StyledLink href={routes.customerDeleteSearch}>
+            Kunden löschen
+          </StyledLink>
+        )}
       </MenuContainer>
       <Modal
         isOpen={isModalOpen}

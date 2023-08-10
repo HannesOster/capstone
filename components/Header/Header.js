@@ -1,5 +1,5 @@
 import { StockContainer } from "../AddDeposit/styles";
-import { StyledHeader, StyledLogo } from "./styles";
+import { LogInButton, SessionInfo, StyledHeader, StyledLogo } from "./styles";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Header() {
@@ -16,11 +16,11 @@ export default function Header() {
         {" "}
         {session ? (
           <>
-            <button onClick={signOut}>Ausloggen</button>
-            <p>Eingeloggt als {session.user.name}</p>
+            <LogInButton onClick={signOut}>Ausloggen</LogInButton>
+            <SessionInfo>Eingeloggt als {session.user.name}</SessionInfo>
           </>
         ) : (
-          <button onClick={signIn}>Ausloggen</button>
+          <LogInButton onClick={signIn}>Einloggen</LogInButton>
         )}
       </StockContainer>
     </StyledHeader>

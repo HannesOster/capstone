@@ -1,54 +1,61 @@
 import NextAuth from "next-auth";
-import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 const providers = [];
 
-if (process.env.VERCEL_ENV === "preview") {
-  providers.push(
-    CredentialsProvider({
-      name: "Credentials",
-      credentials: {
-        username: { label: "Username", type: "text", placeholder: "fish" },
-        password: { label: "Password", type: "password" },
-      },
+providers.push(
+  CredentialsProvider({
+    name: "Credentials",
+    credentials: {
+      username: { label: "Username", type: "text", placeholder: "Nutzername" },
+      password: { label: "Password", type: "password" },
+    },
 
-      async authorize(credentials) {
-        if (
-          credentials.username === "henni" &&
-          credentials.password === "Constantin6995!"
-        ) {
-          return {
-            id: "6995",
-            name: "Jan-Henric",
-            email: "jan-henric@blumen-osterkamp.de",
-          };
-        }
-        if (
-          credentials.username === "fahrer" &&
-          credentials.password === "028246995"
-        ) {
-          return {
-            id: "6406",
-            name: "Jan-Henric",
-            email: "jan-henric@blumen-osterkamp.de",
-          };
-        } else {
-          return null;
-        }
-      },
-    })
-  );
-} else {
-  providers.push(
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    })
-  );
+    async authorize(credentials) {
+      if (
+        credentials.username === "henni" &&
+        credentials.password === process.env.ADMIN_PW
+      ) {
+        return {
+          id: "6995",
+          name: "Admin",
+          email: "jan-henric@blumen-osterkamp.de",
+        };
+      }
+      if (
+        credentials.username === "fahrer" &&
+        credentials.password === process.env.USER_PW
+      ) {
+        return {
+          id: "6406",
+          name: "Fahrer",
+          email: "jan-henric@blumen-osterkamp.de",
+        };
+      } else {
+        return null;
+      }
+    },
+  })
+);
+function getRoleOfUser(id) {
+  if (id === "6995") {
+    return "admin";
+  }
+  return "fahrer";
 }
-
 export const authOptions = {
   providers,
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.role = getRoleOfUser(user.id);
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      session.user.role = token.role;
+      return session;
+    },
+  },
 };
 export default NextAuth(authOptions);
