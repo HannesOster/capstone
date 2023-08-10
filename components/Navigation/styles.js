@@ -72,7 +72,6 @@ export const IconContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-
   @media screen and (min-width: 700px) {
     justify-content: center;
     gap: 20px;
