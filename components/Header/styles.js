@@ -30,6 +30,6 @@ export const LogInButton = styled.button`
 export const SessionInfo = styled.p`
   color: ${(props) => props.theme.third};
   position: fixed;
-  top: 20px;
+  top: 25px;
   right: 22px;
 `;

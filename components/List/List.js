@@ -10,6 +10,8 @@ import {
   ExtendListIcon,
   StyledTableHeadingAttachments,
   ReducedListIcon,
+  CheckIcon,
+  CrossIcon,
 } from "./styles";
 
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
@@ -133,33 +135,46 @@ export default function List() {
               <StyledTableHeadingAttachments>
                 Aufsätze
               </StyledTableHeadingAttachments>
+              <StyledTableHeading>Datum</StyledTableHeading>
             </>
           ) : null}
-          <StyledTableHeading onClick={sortByDate} active={sortMode === "date"}>
-            Datum{" "}
-            {sortMode === "date" ? (
-              <AiOutlineArrowDown />
-            ) : (
-              <AiOutlineArrowUp />
-            )}
-          </StyledTableHeading>
+          {isExtended ? null : (
+            <StyledTableHeading
+              onClick={sortByDate}
+              active={sortMode === "date"}
+            >
+              Foto{" "}
+              {sortMode === "date" ? (
+                <AiOutlineArrowDown />
+              ) : (
+                <AiOutlineArrowUp />
+              )}
+            </StyledTableHeading>
+          )}
         </HeadingTableRow>
         {sortedArray.map((customer) => (
           <StyledTableRow key={customer._id}>
-            <StyledTableCell>
+            <StyledTableCell isActive={isExtended}>
               <StyledTableParagraph>{customer.name}</StyledTableParagraph>
             </StyledTableCell>
-            <StyledTableCell>{customer.boxes}</StyledTableCell>
+            <StyledTableCell isActive={isExtended}>
+              {customer.boxes}
+            </StyledTableCell>
             {isExtended ? (
               <>
                 {" "}
                 <StyledTableCell>{customer.buckets}</StyledTableCell>
                 <StyledTableCell>{customer.attachments}</StyledTableCell>{" "}
+                <StyledTableCell>
+                  {formatTimestamp(customer.timestamp)}
+                </StyledTableCell>
               </>
             ) : null}
-            <StyledTableCell>
-              {formatTimestamp(customer.timestamp)}
-            </StyledTableCell>
+            {isExtended ? null : (
+              <StyledTableCell>
+                {customer.image ? <CheckIcon /> : <CrossIcon />}
+              </StyledTableCell>
+            )}
           </StyledTableRow>
         ))}
       </tbody>

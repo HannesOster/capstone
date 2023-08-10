@@ -126,7 +126,7 @@ export const SaveIcon = styled(FiSave)`
 export const MenuContainer = styled.section`
   display: flex;
   flex-direction: column;
-  margin-top: 130px;
+  margin-top: 100px;
   margin-bottom: 130px;
   align-items: center;
   gap: 30px;

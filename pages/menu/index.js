@@ -41,12 +41,13 @@ export default function Menu() {
         <Button type="button" onClick={openModal}>
           Lagerbestand
         </Button>
-        <StyledLink href={routes.customersMap}>Karte</StyledLink>
+
         {session && session.user.name === "admin" ? (
           <StyledLink href={routes.customerDeleteSearch}>
             Kunden löschen
           </StyledLink>
         ) : null}
+        <StyledLink href={routes.customersMap}>Karte</StyledLink>
       </MenuContainer>
       <Modal
         isOpen={isModalOpen}

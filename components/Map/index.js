@@ -113,7 +113,7 @@ export default function Map({ markers }) {
                     ? blackMarker
                     : marker.days > 30
                     ? redMarker
-                    : marker.days > 10
+                    : marker.days > 7
                     ? yellowMarker
                     : greenMarker
                 }

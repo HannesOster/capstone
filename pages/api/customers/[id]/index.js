@@ -1,5 +1,7 @@
+import { getServerSession } from "next-auth";
 import dbConnect from "../../../../db/connect";
 import { Customer } from "../../../../db/model";
+import { authOptions } from "../../auth/[...nextauth]";
 
 export default async function handler(request, response) {
   await dbConnect();
@@ -25,6 +27,11 @@ export default async function handler(request, response) {
     }
   }
   if (request.method === "DELETE") {
+    const session = await getServerSession(request, response, authOptions);
+
+    if (!session.user.name === "admin") {
+      return response.status(401).json({ message: "please log in" });
+    }
     await Customer.findByIdAndDelete(id);
     response.status(200).json({ status: "Customer successfully deleted." });
   }
