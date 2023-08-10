@@ -23,20 +23,28 @@ export default function Navigation() {
       <NavBar>
         <NavLink isActive={isDeposit} href="/">
           <IconContainer isActive={isDeposit}>
-            <NotePadIcon isActive={isDeposit} />
-            <Text isActive={isDeposit}>Pfand</Text>
+            <IconContainer small isActive={isDeposit}>
+              <NotePadIcon isActive={isDeposit} />
+              <Text isActive={isDeposit}>Pfand</Text>
+            </IconContainer>
           </IconContainer>
         </NavLink>
         <NavLink isActive={isCustomers} href={routes.customers}>
           <IconContainer isActive={isCustomers}>
-            <CustomersIcon isActive={isCustomers} />
-            <Text isActive={isCustomers}>Kunden</Text>
+            {" "}
+            <IconContainer small isActive={isCustomers}>
+              <CustomersIcon isActive={isCustomers} />
+              <Text isActive={isCustomers}>Kunden</Text>
+            </IconContainer>
           </IconContainer>
         </NavLink>
         <NavLink isActive={isMenu} href={routes.menu}>
           <IconContainer isActive={isMenu}>
-            <MenuIcon isActive={isMenu} />
-            <Text isActive={isMenu}>Menu</Text>
+            {" "}
+            <IconContainer small isActive={isMenu}>
+              <MenuIcon isActive={isMenu} />
+              <Text isActive={isMenu}>Menu</Text>
+            </IconContainer>
           </IconContainer>
         </NavLink>
       </NavBar>
