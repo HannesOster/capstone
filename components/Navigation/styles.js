@@ -55,13 +55,6 @@ export const Text = styled.p`
   transform: ${(props) => (props.isActive ? "translateY(-1px)" : "")};
   transition: all 0.7s ease-out;
 `;
-export const NavDivider = styled.div`
-  position: absolute;
-  background-color: ${(props) => props.theme.primary};
-  height: 2px;
-  width: ${(props) => (props.small ? "50%" : "75%")};
-  transform: translate(0px, -20px);
-`;
 
 export const IconContainer = styled.section`
   color: ${(props) =>
@@ -70,9 +63,7 @@ export const IconContainer = styled.section`
     props.isActive ? props.theme.third : props.theme.primary};
   border-top: ${(props) => props.theme.primary}
     ${(props) => (props.small ? " 2px" : "3px")} solid;
-
-  width: 75%;
-
+  width: 80%;
   height: ${(props) => (props.small ? " 50px" : "65px")};
   margin: 0 auto;
   transform: ${(props) => (props.isActive ? "translateY(-1px)" : "")};
