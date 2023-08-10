@@ -13,13 +13,12 @@ import { routes } from "../../utils/routes";
 import { useSession } from "next-auth/react";
 
 export default function Menu() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { data: session } = useSession();
   const { data } = useSWR("/api/stock", {
     initialData: [],
     revalidateOnMount: true,
   });
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   function openModal() {
     setIsModalOpen(true);
@@ -43,11 +42,11 @@ export default function Menu() {
           Lagerbestand
         </Button>
         <StyledLink href={routes.customersMap}>Karte</StyledLink>
-        {session.user.role === "admin" && (
+        {session && session.user.name === "Admin" ? (
           <StyledLink href={routes.customerDeleteSearch}>
             Kunden löschen
           </StyledLink>
-        )}
+        ) : null}
       </MenuContainer>
       <Modal
         isOpen={isModalOpen}

@@ -18,8 +18,8 @@ providers.push(
       ) {
         return {
           id: "6995",
-          name: "Admin",
-          email: "jan-henric@blumen-osterkamp.de",
+          name: "admin",
+          role: "admin",
         };
       }
       if (
@@ -29,7 +29,18 @@ providers.push(
         return {
           id: "6406",
           name: "Fahrer",
-          email: "jan-henric@blumen-osterkamp.de",
+
+          role: "driver",
+        };
+      }
+      if (
+        credentials.username === "test" &&
+        credentials.password === process.env.TEST_PW
+      ) {
+        return {
+          id: "1",
+          name: "Test",
+          role: "driver",
         };
       } else {
         return null;
@@ -37,25 +48,8 @@ providers.push(
     },
   })
 );
-function getRoleOfUser(id) {
-  if (id === "6995") {
-    return "admin";
-  }
-  return "fahrer";
-}
+
 export const authOptions = {
   providers,
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.role = getRoleOfUser(user.id);
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      session.user.role = token.role;
-      return session;
-    },
-  },
 };
 export default NextAuth(authOptions);

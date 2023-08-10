@@ -20,7 +20,11 @@ export default function Header() {
             <SessionInfo>Eingeloggt als {session.user.name}</SessionInfo>
           </>
         ) : (
-          <LogInButton onClick={signIn}>Einloggen</LogInButton>
+          <>
+            {" "}
+            <LogInButton onClick={signIn}>Einloggen</LogInButton>
+            <SessionInfo>Nicht eingeloggt - Kein Zugriff</SessionInfo>
+          </>
         )}
       </StockContainer>
     </StyledHeader>
