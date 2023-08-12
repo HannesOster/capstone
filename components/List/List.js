@@ -13,7 +13,6 @@ import {
   CheckIcon,
   CrossIcon,
   DownIcon,
-  UpIcon,
 } from "./styles";
 import formatTimestamp from "../../utils/formatTimestamp";
 
@@ -90,7 +89,7 @@ export default function List() {
           >
             <StyledTableParagraph>
               Kunde
-              {sortMode === "name" ? <DownIcon /> : <UpIcon />}
+              {sortMode === "name" ? <DownIcon /> : null}
             </StyledTableParagraph>{" "}
           </StyledTableHeading>
           <StyledTableHeading
@@ -98,7 +97,7 @@ export default function List() {
             active={sortMode === "boxes"}
           >
             Kisten
-            {sortMode === "boxes" ? <DownIcon /> : <UpIcon />}
+            {sortMode === "boxes" ? <DownIcon /> : null}
           </StyledTableHeading>
           {isExtended ? (
             <>
@@ -106,20 +105,19 @@ export default function List() {
                 onClick={() => toggleSortMode("buckets")}
                 active={sortMode === "buckets"}
               >
-                Eimer {sortMode === "buckets" ? <DownIcon /> : <UpIcon />}
+                Eimer {sortMode === "buckets" ? <DownIcon /> : null}
               </StyledTableHeading>
               <StyledTableHeadingAttachments
                 onClick={() => toggleSortMode("attachments")}
                 active={sortMode === "attachments"}
               >
-                Aufsätze{" "}
-                {sortMode === "attachments" ? <DownIcon /> : <UpIcon />}
+                Aufsätze {sortMode === "attachments" ? <DownIcon /> : null}
               </StyledTableHeadingAttachments>
               <StyledTableHeading
                 onClick={() => toggleSortMode("date")}
                 active={sortMode === "date"}
               >
-                Datum {sortMode === "date" ? <DownIcon /> : <UpIcon />}
+                Datum {sortMode === "date" ? <DownIcon /> : null}
               </StyledTableHeading>
             </>
           ) : null}
@@ -128,7 +126,7 @@ export default function List() {
               onClick={() => toggleSortMode("photo")}
               active={sortMode === "photo"}
             >
-              Foto {sortMode === "photo" ? <DownIcon /> : <UpIcon />}
+              Foto {sortMode === "photo" ? <DownIcon /> : null}
             </StyledTableHeading>
           )}
         </HeadingTableRow>
