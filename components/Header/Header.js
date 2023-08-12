@@ -1,6 +1,14 @@
+import { BiLogOut } from "react-icons/bi";
 import { StockContainer } from "../AddDeposit/styles";
-import { LogInButton, SessionInfo, StyledHeader, StyledLogo } from "./styles";
+import { Button } from "../Buttons/styles";
+import {
+  LogOutContainer,
+  SessionInfo,
+  StyledHeader,
+  StyledLogo,
+} from "./styles";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { AiOutlineUser } from "react-icons/ai";
 
 export default function Header() {
   const { data: session } = useSession();
@@ -15,15 +23,22 @@ export default function Header() {
       <StockContainer>
         {" "}
         {session ? (
-          <>
-            <LogInButton onClick={signOut}>Ausloggen</LogInButton>
-            <SessionInfo>Eingeloggt als {session.user.name}</SessionInfo>
-          </>
+          <LogOutContainer>
+            {" "}
+            <SessionInfo>
+              <AiOutlineUser fontSize="20px" />
+              {session.user.name}
+            </SessionInfo>
+            <Button variant="neutral" size="s" onClick={signOut}>
+              <BiLogOut fontSize="28px" />
+            </Button>
+          </LogOutContainer>
         ) : (
           <>
             {" "}
-            <LogInButton onClick={signIn}>Einloggen</LogInButton>
-            <SessionInfo>Nicht eingeloggt - Kein Zugriff</SessionInfo>
+            <Button variant="neutral" size="s" onClick={signIn}>
+              Einloggen
+            </Button>
           </>
         )}
       </StockContainer>

@@ -21,6 +21,8 @@ import { useState } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { Invitation } from "../SearchInput/styles";
 import { routes } from "../../utils/routes";
+import Header from "../Header/Header";
+import { useSession } from "next-auth/react";
 
 export default function List() {
   const [isExtended, setIsExtended] = useState(false);
@@ -30,6 +32,7 @@ export default function List() {
     initialData: [],
     revalidateOnMount: true,
   });
+  const { session } = useSession();
 
   useEffect(() => {
     if (data) {
@@ -61,7 +64,12 @@ export default function List() {
   }
 
   if (error) {
-    return <Invitation>Bitte einloggen</Invitation>;
+    return (
+      <>
+        <Header />
+        <Invitation margin>Bitte einloggen</Invitation>
+      </>
+    );
   }
 
   if (!sortedArray || sortedArray.length === 0) {

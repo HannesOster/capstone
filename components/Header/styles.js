@@ -10,6 +10,7 @@ export const StyledHeader = styled.header`
   z-index: 3;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 10px;
 `;
 export const StyledLogo = styled(Image)`
@@ -29,7 +30,10 @@ export const LogInButton = styled.button`
 `;
 export const SessionInfo = styled.p`
   color: ${(props) => props.theme.third};
-  position: fixed;
-  top: 25px;
-  right: 22px;
+  font-size: 20px;
+`;
+export const LogOutContainer = styled.div`
+  display: flex;
+  width: auto;
+  gap: 20px;
 `;

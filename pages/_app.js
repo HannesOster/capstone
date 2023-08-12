@@ -13,32 +13,37 @@ export default function App({
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <SWRConfig
-          value={{
-            fetcher: async (...args) => {
-              const response = await fetch(...args);
-              if (!response.ok) {
-                throw new Error(`Request with ${JSON.stringify(args)} failed.`);
-              }
-              return await response.json();
-            },
-          }}
-        >
-          <GlobalStyle />
-          <Head>
-            <title>Pfand App Osterkamp</title>
-          </Head>
-          <SessionProvider session={session}>
+      {" "}
+      <SessionProvider session={session}>
+        <ThemeProvider theme={theme}>
+          <SWRConfig
+            value={{
+              fetcher: async (...args) => {
+                const response = await fetch(...args);
+                if (!response.ok) {
+                  throw new Error(
+                    `Request with ${JSON.stringify(args)} failed.`
+                  );
+                }
+                return await response.json();
+              },
+            }}
+          >
+            <GlobalStyle />
+            <Head>
+              <title>Pfand App Osterkamp</title>
+            </Head>
+
             <Component
               showSuccessModal={showSuccessModal}
               setShowSuccessModal={setShowSuccessModal}
               {...pageProps}
             />
-          </SessionProvider>
-          <Navigation />
-        </SWRConfig>
-      </ThemeProvider>
+
+            <Navigation />
+          </SWRConfig>
+        </ThemeProvider>
+      </SessionProvider>
     </>
   );
 }
