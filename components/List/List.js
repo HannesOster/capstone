@@ -50,6 +50,8 @@ export default function List() {
         name: (a, b) => a.name.localeCompare(b.name),
         photo: (a, b) => (a.image ? (b.image ? 0 : 1) : -1),
         boxes: (a, b) => b.boxes - a.boxes,
+        buckets: (a, b) => b.buckets - a.buckets,
+        attachments: (a, b) => b.attachments - a.attachments,
         date: (a, b) => new Date(b.timestamp) - new Date(a.timestamp),
       };
       newSortedArray.sort(sortFunctions[newSortMode]);
@@ -92,11 +94,25 @@ export default function List() {
           </StyledTableHeading>
           {isExtended ? (
             <>
-              <StyledTableHeading>Eimer</StyledTableHeading>
-              <StyledTableHeadingAttachments>
-                Aufsätze
+              <StyledTableHeading
+                onClick={() => toggleSortMode("buckets")}
+                active={sortMode === "buckets"}
+              >
+                Eimer {sortMode === "buckets" ? <DownIcon /> : <UpIcon />}
+              </StyledTableHeading>
+              <StyledTableHeadingAttachments
+                onClick={() => toggleSortMode("attachments")}
+                active={sortMode === "attachments"}
+              >
+                Aufsätze{" "}
+                {sortMode === "attachments" ? <DownIcon /> : <UpIcon />}
               </StyledTableHeadingAttachments>
-              <StyledTableHeading>Datum</StyledTableHeading>
+              <StyledTableHeading
+                onClick={() => toggleSortMode("date")}
+                active={sortMode === "date"}
+              >
+                Datum {sortMode === "date" ? <DownIcon /> : <UpIcon />}
+              </StyledTableHeading>
             </>
           ) : null}
           {isExtended ? null : (

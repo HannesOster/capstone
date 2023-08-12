@@ -22,10 +22,9 @@ export const StyledTableHeadingAttachments = styled.th`
   color: ${(props) => (props.active ? "black" : props.theme.third)};
   text-align: center;
   font-weight: 600;
-  font-size: 10px;
   border-bottom: ${(props) => (props.active ? "2px solid black" : "none")};
   transition: all 0.4s ease-out;
-  font-size: 10px;
+  font-size: 12px;
   &:first-child {
     text-align: left;
   }
