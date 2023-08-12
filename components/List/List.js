@@ -12,20 +12,26 @@ import {
   ReducedListIcon,
   CheckIcon,
   CrossIcon,
+  DownIcon,
 } from "./styles";
+import formatTimestamp from "../../utils/formatTimestamp";
 
-import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import { useState } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import { Invitation } from "../SearchInput/styles";
+import { routes } from "../../utils/routes";
+import Header from "../Header/Header";
+import { useSession } from "next-auth/react";
 
 export default function List() {
   const [isExtended, setIsExtended] = useState(false);
   const [sortedArray, setSortedArray] = useState([]);
   const [sortMode, setSortMode] = useState("name");
-  const { data, error } = useSWR("/api/customers", {
+  const { data, error } = useSWR(routes.customersApiRoute, {
     initialData: [],
     revalidateOnMount: true,
   });
+  const { session } = useSession();
 
   useEffect(() => {
     if (data) {
@@ -34,63 +40,35 @@ export default function List() {
     }
   }, [data]);
 
-  function formatTimestamp(timestamp) {
-    if (!timestamp) {
-      return "";
-    }
+  function toggleSortMode(newSortMode) {
+    let newSortedArray = [...sortedArray];
 
-    const date = new Date(timestamp);
-    if (isNaN(date)) {
-      return "";
-    }
-
-    const options = {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-      hour12: true,
-    };
-
-    return date.toLocaleString("de-DE", options);
-  }
-  function sortByCustomerName() {
-    if (sortMode === "name") {
-      setSortedArray(data);
+    if (sortMode === newSortMode) {
+      newSortedArray.reverse();
       setSortMode(null);
     } else {
-      const sorted = [...sortedArray].sort((a, b) =>
-        a.name.localeCompare(b.name)
-      );
-      setSortedArray(sorted);
-      setSortMode("name");
+      setSortMode(newSortMode);
+      const sortFunctions = {
+        name: (a, b) => a.name.localeCompare(b.name),
+        photo: (a, b) => (a.image ? (b.image ? 0 : 1) : -1),
+        boxes: (a, b) => b.boxes - a.boxes,
+        buckets: (a, b) => b.buckets - a.buckets,
+        attachments: (a, b) => b.attachments - a.attachments,
+        date: (a, b) => new Date(b.timestamp) - new Date(a.timestamp),
+      };
+      newSortedArray.sort(sortFunctions[newSortMode]);
     }
-  }
 
-  function sortByBoxes() {
-    if (sortMode === "boxes") {
-      setSortedArray(data);
-      setSortMode(null);
-    } else {
-      const sorted = [...sortedArray].sort((a, b) => b.boxes - a.boxes);
-      setSortedArray(sorted);
-      setSortMode("boxes");
-    }
-  }
-  function sortByDate() {
-    if (sortMode === "date") {
-      setSortedArray(data);
-      setSortMode(null);
-    } else {
-      const sorted = [...sortedArray].sort(
-        (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
-      );
-      setSortedArray(sorted);
-      setSortMode("date");
-    }
+    setSortedArray(newSortedArray);
   }
 
   if (error) {
-    return <h1>Error loading data</h1>;
+    return (
+      <>
+        <Header />
+        <Invitation margin>Bitte einloggen</Invitation>
+      </>
+    );
   }
 
   if (!sortedArray || sortedArray.length === 0) {
@@ -106,49 +84,49 @@ export default function List() {
       <tbody>
         <HeadingTableRow>
           <StyledTableHeading
-            onClick={sortByCustomerName}
+            onClick={() => toggleSortMode("name")}
             active={sortMode === "name"}
           >
             <StyledTableParagraph>
               Kunde
-              {sortMode === "name" ? (
-                <AiOutlineArrowDown />
-              ) : (
-                <AiOutlineArrowUp />
-              )}
+              {sortMode === "name" ? <DownIcon /> : null}
             </StyledTableParagraph>{" "}
           </StyledTableHeading>
           <StyledTableHeading
-            onClick={sortByBoxes}
+            onClick={() => toggleSortMode("boxes")}
             active={sortMode === "boxes"}
           >
             Kisten
-            {sortMode === "boxes" ? (
-              <AiOutlineArrowDown />
-            ) : (
-              <AiOutlineArrowUp />
-            )}
+            {sortMode === "boxes" ? <DownIcon /> : null}
           </StyledTableHeading>
           {isExtended ? (
             <>
-              <StyledTableHeading>Eimer</StyledTableHeading>
-              <StyledTableHeadingAttachments>
-                Aufsätze
+              <StyledTableHeading
+                onClick={() => toggleSortMode("buckets")}
+                active={sortMode === "buckets"}
+              >
+                Eimer {sortMode === "buckets" ? <DownIcon /> : null}
+              </StyledTableHeading>
+              <StyledTableHeadingAttachments
+                onClick={() => toggleSortMode("attachments")}
+                active={sortMode === "attachments"}
+              >
+                Aufsätze {sortMode === "attachments" ? <DownIcon /> : null}
               </StyledTableHeadingAttachments>
-              <StyledTableHeading>Datum</StyledTableHeading>
+              <StyledTableHeading
+                onClick={() => toggleSortMode("date")}
+                active={sortMode === "date"}
+              >
+                Datum {sortMode === "date" ? <DownIcon /> : null}
+              </StyledTableHeading>
             </>
           ) : null}
           {isExtended ? null : (
             <StyledTableHeading
-              onClick={sortByDate}
-              active={sortMode === "date"}
+              onClick={() => toggleSortMode("photo")}
+              active={sortMode === "photo"}
             >
-              Foto{" "}
-              {sortMode === "date" ? (
-                <AiOutlineArrowDown />
-              ) : (
-                <AiOutlineArrowUp />
-              )}
+              Foto {sortMode === "photo" ? <DownIcon /> : null}
             </StyledTableHeading>
           )}
         </HeadingTableRow>

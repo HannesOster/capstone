@@ -1,15 +1,16 @@
 import { BiListMinus, BiListPlus } from "react-icons/bi";
+import { ImCircleDown, ImCircleUp } from "react-icons/im";
 import { RxCheckCircled, RxCrossCircled } from "react-icons/rx";
 import styled from "styled-components";
 
 export const StyledTableHeading = styled.th`
   background-color: ${(props) =>
-    props.active ? props.theme.third : props.theme.primary};
-  color: ${(props) => (props.active ? "black" : props.theme.third)};
+    props.active ? props.theme.third : props.theme.fourth};
+  color: black;
   text-align: center;
   font-weight: 600;
   font-size: 15px;
-  border-bottom: ${(props) => (props.active ? "2px solid black" : "none")};
+  border-bottom: 2px solid ${(props) => props.theme.fourth};
   transition: all 0.4s ease-out;
   &:first-child {
     text-align: left;
@@ -17,21 +18,20 @@ export const StyledTableHeading = styled.th`
 `;
 export const StyledTableHeadingAttachments = styled.th`
   background-color: ${(props) =>
-    props.active ? props.theme.third : props.theme.primary};
-  color: ${(props) => (props.active ? "black" : props.theme.third)};
+    props.active ? props.theme.third : props.theme.fourth};
+  color: black;
   text-align: center;
   font-weight: 600;
-  font-size: 10px;
   border-bottom: ${(props) => (props.active ? "2px solid black" : "none")};
   transition: all 0.4s ease-out;
-  font-size: 10px;
+  font-size: 12px;
   &:first-child {
     text-align: left;
   }
 `;
 export const StyledTableCell = styled.td`
   width: ${(props) => (props.active ? "20" : "25%")};
-  border-right: 1px solid black;
+  border: 2px solid ${(props) => props.theme.fourth};
   text-align: center;
   font-weight: 550;
   &:first-child {
@@ -39,10 +39,9 @@ export const StyledTableCell = styled.td`
   }
 `;
 export const StyledTable = styled.table`
-  border: 1px solid black;
   border-collapse: collapse;
   width: 100%;
-  margin-bottom: 100px;
+  margin-bottom: 70px;
 `;
 export const StyledTableRow = styled.tr`
   height: 50px;
@@ -65,12 +64,11 @@ export const ExtendListIcon = styled(BiListPlus)`
   top: 90px;
   right: 30px;
   cursor: pointer;
-  color: ${(props) => props.theme.primary};
+
   font-size: 40px;
 `;
 export const ReducedListIcon = styled(BiListMinus)`
   position: fixed;
-  color: ${(props) => props.theme.primary};
   top: 90px;
   cursor: pointer;
   right: 30px;
@@ -83,4 +81,9 @@ export const CheckIcon = styled(RxCheckCircled)`
 
 export const CrossIcon = styled(RxCrossCircled)`
   color: ${(props) => props.theme.danger};
+`;
+
+export const DownIcon = styled(ImCircleDown)`
+  transform: translate(3px, 2px);
+  color: ${(props) => props.theme.fourth};
 `;

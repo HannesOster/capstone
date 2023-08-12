@@ -3,11 +3,12 @@ import dynamic from "next/dynamic";
 import useSWR from "swr";
 import Header from "../../components/Header/Header";
 import daysSinceDate from "../../utils/daysSinceDate";
+import { routes } from "../../utils/routes";
 
 const Map = dynamic(() => import("../../components/Map"), { ssr: false });
 
 export default function CustomerMap() {
-  const { data, error, isLoading } = useSWR("/api/customers", {
+  const { data, error, isLoading } = useSWR(routes.customersApiRoute, {
     initialData: [],
     revalidateOnMount: true,
   });

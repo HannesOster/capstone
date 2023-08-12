@@ -63,9 +63,7 @@ export const IconContainer = styled.section`
     props.isActive ? props.theme.third : props.theme.primary};
   border-top: ${(props) => props.theme.primary}
     ${(props) => (props.small ? " 2px" : "3px")} solid;
-
-  width: 75%;
-
+  width: 80%;
   height: ${(props) => (props.small ? " 50px" : "65px")};
   margin: 0 auto;
   transform: ${(props) => (props.isActive ? "translateY(-1px)" : "")};

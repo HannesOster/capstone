@@ -66,15 +66,20 @@ export const Button = styled.button`
       ? props.theme.success
       : props.variant === "danger"
       ? props.theme.danger
+      : props.variant === "neutral"
+      ? props.theme.third
       : props.theme.secondary};
   cursor: pointer;
-  background-color: ${(props) => props.theme.third};
+  background-color: ${(props) =>
+    props.variant === "neutral" ? props.theme.primary : props.theme.third};
   border: 3px solid
     ${(props) =>
       props.variant === "success"
         ? props.theme.success
         : props.variant === "danger"
         ? props.theme.danger
+        : props.variant === "neutral"
+        ? props.theme.third
         : props.theme.secondary};
   border-radius: 5px;
   width: ${(props) =>
