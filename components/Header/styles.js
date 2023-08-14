@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import { AiOutlineUser } from "react-icons/ai";
 
 export const StyledHeader = styled.header`
   background-color: ${(props) => props.theme.primary};
@@ -31,9 +32,28 @@ export const LogInButton = styled.button`
 export const SessionInfo = styled.p`
   color: ${(props) => props.theme.third};
   font-size: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 export const LogOutContainer = styled.div`
   display: flex;
   width: auto;
   gap: 20px;
+`;
+
+export const SessionInfoContainer = styled.div`
+  display: flex;
+  width: auto;
+  gap: 20px;
+  justify-content: left;
+  align-items: left;
+`;
+
+export const UserIcon = styled(AiOutlineUser)`
+  font-size: 20px;
+  color: ${(props) => props.theme.third};
+  text-align: center;
 `;
