@@ -5,7 +5,7 @@ It is a customer and deopsit managing System to help my Brothers Company with a 
 In his Flower Wholesale, there a special boxes and other deposit items in use for flower-deliverys. To get rid of redundant work ive created this Application. 
 If you want to try it:
 - username: test
-- passowrd: test
+- password: test
 
 Im thankfull for any feedback!
 
