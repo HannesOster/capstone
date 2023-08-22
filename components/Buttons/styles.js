@@ -118,8 +118,7 @@ export const Button = styled.button`
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s ease;
   margin-top: ${(props) => (props.variant === "neutral" ? "auto" : "")};
-  transform: ${(props) =>
-    props.variant === "neutral" ? "translateY(-12px)" : "none"};
+
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transform: translateY(-1px);
