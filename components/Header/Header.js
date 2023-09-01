@@ -25,15 +25,12 @@ export default function Header() {
         {session ? (
           <LogOutContainer>
             {" "}
-            <LogOutContainer>
-              {" "}
-              <SessionInfo>
-                <AiOutlineUser fontSize="20px" />
-                {session.user.name}
-              </SessionInfo>
-            </LogOutContainer>
-            <Button variant="neutral" size="xs" onClick={signOut}>
-              <BiLogOut fontSize="20px" />
+            <SessionInfo>
+              <AiOutlineUser fontSize="20px" />
+              {session.user.name}
+            </SessionInfo>
+            <Button variant="neutral" size="s" onClick={signOut}>
+              <BiLogOut fontSize="28px" />
             </Button>
           </LogOutContainer>
         ) : (
