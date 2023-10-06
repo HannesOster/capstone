@@ -29,7 +29,6 @@ export default function AddCustomer({ setShowSuccessModal }) {
     const withoutDepositCustomer = Object.fromEntries(formData);
     const { street, location, areaCode } = withoutDepositCustomer;
     const geoData = await geocodeAddress(`${street}, ${location}, ${areaCode}`);
-    console.log(geoData);
     if (!geoData || !geoData[0] || !geoData[0].lat) {
       setShowModal(true);
     }
