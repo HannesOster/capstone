@@ -56,7 +56,7 @@ export const ErrorModal = styled.div`
   padding: 1em 2em;
   text-align: center;
   border-radius: 0.5em;
-  width: 30%;
+  max-width: 500px;
   display: ${(props) => (props.isActive ? "block" : "none")};
   align-self: center;
 `;
