@@ -57,7 +57,7 @@ export const HeadingTableRow = styled.tr`
   right: 0;
 `;
 export const StyledTableParagraph = styled.p`
-  margin-left: 15px;
+  margin-left: 10px;
 `;
 export const ExtendListIcon = styled(BiListPlus)`
   position: fixed;
