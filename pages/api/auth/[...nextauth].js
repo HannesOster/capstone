@@ -18,7 +18,7 @@ providers.push(
       ) {
         return {
           id: "6995",
-          name: "admin",
+          name: "Admin",
           role: "admin",
         };
       }

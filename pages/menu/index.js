@@ -42,7 +42,7 @@ export default function Menu() {
           Lagerbestand
         </Button>
 
-        {session && session.user.name === "admin" ? (
+        {session && session.user.name === "Admin" ? (
           <StyledLink href={routes.customerDeleteSearch}>
             Kunden löschen
           </StyledLink>
