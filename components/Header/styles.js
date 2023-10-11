@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import { HiUser } from "react-icons/hi";
 
 export const StyledHeader = styled.header`
   background-color: ${(props) => props.theme.primary};
@@ -36,4 +37,9 @@ export const LogOutContainer = styled.div`
   display: flex;
   width: auto;
   gap: 20px;
+`;
+
+export const UserIcon = styled(HiUser)`
+  font-size: 25px;
+  transform: translate(-2px, 4px);
 `;

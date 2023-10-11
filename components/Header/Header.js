@@ -6,6 +6,7 @@ import {
   SessionInfo,
   StyledHeader,
   StyledLogo,
+  UserIcon,
 } from "./styles";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { AiOutlineUser } from "react-icons/ai";
@@ -26,7 +27,7 @@ export default function Header() {
           <LogOutContainer>
             {" "}
             <SessionInfo>
-              <AiOutlineUser fontSize="20px" />
+              <UserIcon />
               {session.user.name}
             </SessionInfo>
             <Button variant="neutral" size="s" onClick={signOut}>
